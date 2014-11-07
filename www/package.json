@@ -1,0 +1,33 @@
+{
+  "name": "project6",
+  "version": "0.1.0",
+  "description": "Prototype voor project 6 HVA",
+  "main": "index.js",
+  "scripts": {
+    "test": "run-app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moppedijk/project6-prototype.git"
+  },
+  "keywords": [
+    "IOS",
+    "Android",
+    "Phonegap"
+  ],
+  "author": "Martijn Oppedijk, Firenzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moppedijk/project6-prototype/issues"
+  },
+  "homepage": "https://github.com/moppedijk/project6-prototype",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-concat-css": "^0.3.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-compass": "^1.0.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
