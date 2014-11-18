@@ -1,0 +1,226 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body section:not(.a){
+	display:none;
+}
+
+body{
+	font-family: arial, sans-serif;
+}
+
+section{
+	width:80%;
+	margin:auto;
+}
+
+h1{
+	text-align: center;
+	font-size: 2.6em;
+	text-transform: uppercase;
+	font-weight: 100;
+	line-height: 1.3em;
+}
+
+h2{
+	font-size: 2.5em;
+	font-weight: 100;
+	text-align: center;
+}
+
+/*-----------------------------Hexagons--------------------------------------------*/
+
+.hexagon {
+	width: 25px;
+	height: 14px;
+	background: #aaa;
+	position: relative;
+	display:inline-block;
+}
+
+.hexagon:before {
+	content: "";
+	position: absolute;
+	top: -7px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-bottom: 7px solid #aaa;
+}
+
+.hexagon:after {
+	content: "";
+	position: absolute;
+	bottom: -7px;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-left: 13px solid transparent;
+	border-right: 13px solid transparent;
+	border-top: 7px solid #aaa;
+}
+/*---------------------------------------------------------------------------*/
+
+
+
+/*Loadingscreen*/
+
+#loadingscreen h1{
+	text-transform: capitalize;
+	font-size: 3.5em;
+	margin-top:50%;
+	font-weight: 600;
+}
+
+#loadingscreen .icon{
+	background:red;
+	width:100px;
+	height: 100px;
+	margin:auto;
+	margin-top:1em;
+}
+
+/*-------------------*/
+
+/*beginscherm*/
+
+#beginscherm h1{
+	font-size: 3.5em;
+	text-transform: capitalize;
+	margin-top:10%;
+	font-weight: 600;
+}
+
+#beginscherm h2{
+	text-transform: uppercase;
+	margin-top:40%;
+}
+/*-------------------*/
+
+/*Geef je huis een naam*/
+#nameHouse .input_holder{
+	border-bottom:1px solid black;
+	padding:4px 0px;
+	margin-top:10%;
+}
+
+#nameHouse h1{
+	margin-top: 20%;
+}
+
+#nameHouse input{
+	border:none;
+	width:100%;
+	font-size: 2em;
+	color:#555;
+
+}
+
+#nameHouse input:focus{
+	outline:none;
+}
+
+#nameHouse .houseImage{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:15%;
+}
+
+#nameHouse ul{
+	text-align: center;
+	width:80%;
+	margin:auto;
+	margin-top:20%;
+}
+
+#nameHouse ul li:not(:nth-of-type(1)){
+	margin-left:10%;
+}
+
+.hexagon:nth-of-type(1){
+	background:#333;
+}
+
+.hexagon:nth-of-type(1):before{
+	border-bottom: 7px solid #333;
+}
+
+.hexagon:nth-of-type(1):after{
+	border-top: 7px solid #333;
+}
+
+/*-----------------------------------------*/
+
+
+/*Geef je huis een naam*/
+#nameRoom .input_holder{
+	border-bottom:1px solid black;
+	padding:4px 0px;
+	margin-top:10%;
+}
+
+#nameRoom h1{
+	margin-top: 20%;
+}
+
+#nameRoom input{
+	border:none;
+	width:100%;
+	font-size: 2em;
+	color:#555;
+
+}
+
+#nameRoom input:focus{
+	outline:none;
+}
+
+#nameRoom .houseImage{
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:15%;
+}
+
+#nameRoom ul{
+	text-align: center;
+	width:80%;
+	margin:auto;
+	margin-top:20%;
+}
+
+#nameRoom ul li:not(:nth-of-type(1)){
+	margin-left:10%;
+}
+
+.hexagon:nth-of-type(2){
+	background:#333;
+}
+
+.hexagon:nth-of-type(2):before{
+	border-bottom: 7px solid #333;
+}
+
+.hexagon:nth-of-type(2):after{
+	border-top: 7px solid #333;
+}
+
+/*-----------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
