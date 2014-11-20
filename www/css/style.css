@@ -9,7 +9,7 @@
 }
 
 body section:not(.a){
-	/*display:none;*/
+	display:none;
 }
 
 body{
@@ -18,23 +18,21 @@ body{
 }
 
 section{
-	width:80%;
+	width:85%;
 	margin:auto;
 	background:#E5E0CE;
-	border-bottom: 4px solid black;
-	height:90vh;
 }
 
 h1{
 	text-align: center;
-	font-size: 2.6em;
+	font-size: 2.4em;
 	text-transform: uppercase;
 	font-weight: 100;
 	line-height: 1.3em;
 }
 
 h2{
-	font-size: 2.5em;
+	font-size: 2.2em;
 	font-weight: 100;
 	text-align: center;
 }
@@ -44,24 +42,31 @@ h2{
 .logo{
 	display:block;
 	margin:auto;
-	width:25em;
+	width:50vh;
 }
 
 .houseImage{
 	display:block;
-	width:25em;
+	width:35vh;
 	margin:auto;
 }
 
 .flower{
 	display:block;
-	width: 15em;
+	width: 9em;
 	margin:auto;
+	margin-top:3.3em;
+}
+
+.nextButton{
+	position: absolute;
+	width:4em;
+	right:7%;
 }
 
 .hexagon-large{
 	display:block;
-	width:25em;
+	width:40vh;
 	margin:auto;
 }
 
@@ -70,7 +75,7 @@ h2{
 .subtext{
 	display: block;
 	text-transform: uppercase;
-	font-size: 1.6em;
+	font-size: 1.3em;
 	font-weight: 100;
 	text-align: center;
 }
@@ -78,7 +83,7 @@ h2{
 .button{
 	background:#333;
 	color:white;
-	width:13em;
+	width:100%;
 	font-size: 1.3em;
 	margin:auto;
 	text-align: center;
@@ -88,22 +93,22 @@ h2{
 }
 
 .unit{
-	font-size: 4em;
-	margin-left: 0.7em;
-	line-height: 7.3em;
+	font-size: 3.1em;
+	margin-left: 0.5em;
+	line-height: 5.2em;
 	display:inline-block;
 	vertical-align: top;
 }
 
 .selection{
-	height:28em;
+	height:14em;
 }
 
 .progress{
 	text-align: center;
 	width:80%;
 	margin:auto;
-	margin-top:4em;
+	margin-top:1em;
 }
 
 .progress li:not(:nth-of-type(1)){
@@ -127,7 +132,8 @@ h2{
 	top:0;
 	left:0;
 	width:100%;
-	height: 27em;
+	height: 50vh;
+	display: none;
 	
 	/*Gradient*/
 	background: -moz-linear-gradient(top,  rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.95) 80%, rgba(255,255,255,0) 100%); /* FF3.6+ */
@@ -145,8 +151,8 @@ h2{
 /*-----------------------------Hexagons--------------------------------------------*/
 
 .hexagon {
-	width: 25px;
-	height: 14px;
+	width: 20px;
+	height: 11px;
 	background: #FA9326;
 	position: relative;
 	display:inline-block;
@@ -155,31 +161,41 @@ h2{
 .hexagon:before {
 	content: "";
 	position: absolute;
-	top: -7px;
+	top: -5px;
 	left: 0;
 	width: 0;
 	height: 0;
-	border-left: 13px solid transparent;
-	border-right: 13px solid transparent;
-	border-bottom: 7px solid #FA9326;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 5px solid #FA9326;
 }
 
 .hexagon:after {
 	content: "";
 	position: absolute;
-	bottom: -7px;
+	bottom: -5px;
 	left: 0;
 	width: 0;
 	height: 0;
-	border-left: 13px solid transparent;
-	border-right: 13px solid transparent;
-	border-top: 7px solid #FA9326;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 5px solid #FA9326;
 }
 /*---------------------------------------------------------------------------*/
 
 
 
+
+
+
+
+
+
 /*Loadingscreen*/
+
+#loadingscreen .logo{
+	margin-top:1em;
+}
 
 #loadingscreen .hexagon-large{
 	margin-top:3em;
@@ -189,16 +205,13 @@ h2{
 
 /*beginscherm*/
 
-#beginscherm h1{
-	font-size: 3.5em;
-	text-transform: capitalize;
+#beginscherm>img{
 	margin-top:10%;
-	font-weight: 600;
 }
 
 #beginscherm h2{
 	text-transform: uppercase;
-	margin-top:4.5em;
+	margin-top:13vh;
 }
 /*-------------------*/
 
@@ -206,11 +219,11 @@ h2{
 #nameHouse .input_holder{
 	border-bottom:1px solid black;
 	padding:4px 0px;
-	margin-top:10%;
+	margin-top:1em;
 }
 
 #nameHouse h1{
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 #nameHouse input{
@@ -231,27 +244,27 @@ h2{
 	margin-top:3em;
 }
 
-#nameHouse ul{
+#nameHouse .progress{
 	text-align: center;
 	width:80%;
 	margin:auto;
-	margin-top:3em;
+	margin-top:6em;
 }
 
 #nameHouse ul li:not(:nth-of-type(1)){
 	margin-left:10%;
 }
 
-.progress .hexagon:nth-of-type(1){
-	background:#FA9326;
+#nameHouse .progress .hexagon:nth-of-type(1){
+	background:#FEC032;
 }
 
-.progress .hexagon:nth-of-type(1):before{
-	border-bottom: 7px solid #FA9326;
+#nameHouse .progress .hexagon:nth-of-type(1):before{
+	border-bottom: 5px solid #FEC032;
 }
 
-.progress .hexagon:nth-of-type(1):after{
-	border-top: 7px solid #FA9326;
+#nameHouse .progress .hexagon:nth-of-type(1):after{
+	border-top: 5px solid #FEC032;
 }
 
 /*-----------------------------------------*/
@@ -265,7 +278,7 @@ h2{
 }
 
 #nameRoom h1{
-	margin-top: 2em;
+	margin-top: 1em;
 }
 
 #nameRoom input{
@@ -286,17 +299,21 @@ h2{
 	margin-top:15%;
 }
 
-
-.progress .hexagon:nth-of-type(2){
-	background:#FA9326;
+#nameRoom .progress{
+	margin-top:6em;
 }
 
-.progress .hexagon:nth-of-type(2):before{
-	border-bottom: 7px solid #FA9326;
+
+#nameRoom .progress .hexagon:nth-of-type(2){
+	background:#FEC032;
 }
 
-.progress .hexagon:nth-of-type(2):after{
-	border-top: 7px solid #FA9326;
+#nameRoom .progress .hexagon:nth-of-type(2):before{
+	border-bottom: 5px solid #FEC032;
+}
+
+#nameRoom .progress .hexagon:nth-of-type(2):after{
+	border-top: 5px solid #FEC032;
 }
 
 /*-----------------------------------------*/
@@ -305,15 +322,19 @@ h2{
 /*----------------Wattage------------------*/
 
 #wattage h1{
-	margin-top:1.8em;
+	margin-top:1em;
 }
 
 #wattage .subtext{
-	margin-top:1.8em;
+	margin-top:1em;
 }
 
 #wattage .button{
-	margin-top:1.8em;
+	margin-top:1em;
+}
+
+#wattage .selection{
+	height:12em;
 }
 
 #wattage .amount {
@@ -323,27 +344,31 @@ h2{
 }
 
 #wattage .amount li{
-	font-size: 4.5em;
-	line-height: 2em;
+	font-size: 2.5em;
+	line-height: 1.5em;
 	color:#aaa;
 }
 
 #wattage .amount li:nth-of-type(2){
 	color:black;
-	font-size: 6em;
-	line-height: 1.8em;
+	font-size: 4.3em;
+	line-height: 1.6em;
 }
 
-.progress .hexagon:nth-of-type(3){
-	background:#FA9326;
+#wattage .progress{
+	margin-top:6em;
 }
 
-.progress .hexagon:nth-of-type(3):before{
-	border-bottom: 7px solid #FA9326;
+#wattage .progress .hexagon:nth-of-type(3){
+	background:#FEC032;
 }
 
-.progress .hexagon:nth-of-type(3):after{
-	border-top: 7px solid #FA9326;
+#wattage .progress .hexagon:nth-of-type(3):before{
+	border-bottom: 5px solid #FEC032;
+}
+
+#wattage .progress .hexagon:nth-of-type(3):after{
+	border-top: 5px solid #FEC032;
 }
 
 /*-----------------------------------------*/
@@ -351,11 +376,12 @@ h2{
 /*----------------Wattage------------------*/
 
 #activity h1{
-	margin-top:2em;
+	margin-top:1em;
 }
 
 #activity .subtext{
-	margin-top:2em;
+	margin-top:1em;
+	font-size: 1.1em;
 }
 
 #activity .amount {
@@ -365,27 +391,36 @@ h2{
 }
 
 #activity .amount li{
-	font-size: 4.5em;
-	line-height: 2em;
+	font-size: 2.5em;
+	line-height: 1.5em;
 	color:#aaa;
 }
 
 #activity .amount li:nth-of-type(2){
 	color:black;
-	font-size: 6em;
-	line-height: 1.8em;
+	font-size: 4.3em;
+	line-height: 1.6em;
 }
 
-.progress .hexagon:nth-of-type(4){
-	background:#FA9326;
+#activity .unit{
+	font-size: 2.7em;
+	line-height: 5.7em;
 }
 
-.progress .hexagon:nth-of-type(4):before{
-	border-bottom: 7px solid #FA9326;
+#activity .progress{
+	margin-top:6em;
 }
 
-.progress .hexagon:nth-of-type(4):after{
-	border-top: 7px solid #FA9326;
+#activity .progress .hexagon:nth-of-type(4){
+	background:#FEC032;
+}
+
+#activity .progress .hexagon:nth-of-type(4):before{
+	border-bottom: 5px solid #FEC032;
+}
+
+#activity .progress .hexagon:nth-of-type(4):after{
+	border-top: 5px solid #FEC032;
 }
 
 /*-----------------------------------------*/
@@ -401,23 +436,27 @@ h2{
 	font-size: 2em;
 	text-transform: uppercase;
 	text-align: center;
-	margin-top:4em;
+	margin-top:1em;
 }
 
 #ready .button{
 	margin-top:1em;
 }
 
-.progress .hexagon:nth-of-type(5){
-	background:#FA9326;
+#ready .progress {
+	margin-top:18em;
 }
 
-.progress .hexagon:nth-of-type(5):before{
-	border-bottom: 7px solid #FA9326;
+#ready .progress .hexagon:nth-of-type(5){
+	background:#FEC032;
 }
 
-.progress .hexagon:nth-of-type(5):after{
-	border-top: 7px solid #FA9326;
+#ready .progress .hexagon:nth-of-type(5):before{
+	border-bottom: 5px solid #FEC032;
+}
+
+#ready .progress .hexagon:nth-of-type(5):after{
+	border-top: 5px solid #FEC032;
 }
 /*-----------------------------------------*/
 
@@ -425,19 +464,32 @@ h2{
 
 #mainScreen h1{
 	text-transform: none;
-	font-size: 2em;
-	margin-top:1em;
+	font-size: 1.5em;
+	margin-top:0.5em;
 }
 
 #mainScreen h2{
-	margin-top:0.8em;
+	font-size: 1.4em;
+	margin-top:0.6em;
+}
+
+#mainScreen .slider li:nth-of-type(1){
+	background:#FEC032;
+}
+
+#mainScreen .slider li:nth-of-type(1):before{
+	border-bottom: 5px solid #FEC032;
+}
+
+#mainScreen .slider li:nth-of-type(1):after{
+	border-top: 5px solid #FEC032;
 }
 
 #mainScreen>span{
 	display: block;
-	font-size: 5em;
+	font-size: 2.4em;
 	text-align: center;
-	margin-top:0.8em;
+	margin-top:0.2em;
 }
 
 #mainScreen>.overlay>.wrapper{
@@ -447,9 +499,10 @@ h2{
 
 #mainScreen>.overlay>.wrapper>span{
 	display:block;
-	font-size: 2em;
+	font-size: 1.5em;
+	line-height: 1.4em;
 	text-align: center;
-	margin-top:6em;
+	margin-top:3.5em;
 }
 /*-----------------------------------------*/
 
@@ -460,10 +513,11 @@ h2{
 footer{
 	position: fixed;
 	width:100%;
-	height:5em;
+	height:4em;
 	background: #303030;
 	left:0;
 	bottom:0;
+	display: none;
 }
 
 footer>ul{
@@ -473,28 +527,24 @@ footer>ul{
 
 footer>ul li{
 	display: inline-block;
-	width: 24.8%;
-	margin-right:0;
+	width: 25%;
 	height: 100%;
 	vertical-align: top;
 	color:#E5E0CE;
 }
 
-footer>ul li:not(:nth-of-type(1)){
-	border-left: 1px solid #303030;
-}
-
 footer>ul li img{
 	display: block;
-	height: 60%;
+	height: 50%;
 	margin:auto;
-	margin-top:0.2em;
+	margin-top:0.3em;
 }
 
 footer>ul li span{
 	display: block;
 	text-align: center;
-	font-size: 1.4em;
+	font-size: 0.9em;
+	margin-top: 0.2em;
 }
 
 /*-----------------------------------------*/
