@@ -6,7 +6,7 @@ var beehome = beehome || {};
     beehome.models = beehome.models || {};
     beehome.collections = beehome.collections || {};
     beehome.views = beehome.views || {};
-    beehome.views.app = beehome.views || {};
+    beehome.views.app = beehome.views.app || {};
 
 (function(){
 
@@ -38,13 +38,14 @@ var beehome = beehome || {};
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function (){
-
+            console.log("views app main");
         },
         /*
             Renders the main view of the app
          */
         render: function ()
         {
+            console.log("render views app main");
             var templateSource = $('#template-app-main').html();
             var template = Handlebars.compile(templateSource);
             var data = {};
@@ -70,6 +71,7 @@ var beehome = beehome || {};
             Backbone.View.prototype.remove.call(this);
         }
     });
+
 })();;(function(){
 
     beehome.views.confirm = Backbone.View.extend({
@@ -81,18 +83,18 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
+            'click #beginscherm': 'onBeginschermClickHandler'
         },
         /*
             Initialize function of the view, get's called when views contructor is called
          */
-        initialize: function (){
+        initialize: function () {
 
         },
         /*
             Renders the main view of the app
          */
-        render: function ()
-        {
+        render: function () {
             var templateSource = $('#template-confirm').html();
             var template = Handlebars.compile(templateSource);
             var data = {};
@@ -104,12 +106,20 @@ var beehome = beehome || {};
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function(){
+        afterRender: function () {
+        },
+        /*
+            Click handler for the #beginscherm element
+        */
+        onBeginschermClickHandler: function() {
+            beehome.app.router.navigate("onboarding", {
+                trigger: true
+            })
         },
         /*
             Dispose function kills and deletes events and binded data
         */
-        dispose:function(){
+        dispose: function () {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -201,6 +211,55 @@ var beehome = beehome || {};
             After render function get's called after view is rendered
         */
         afterRender:function(){
+            $('.onboarding__content').jcarousel({
+                // Configuration goes here
+            });
+
+                /*
+             Prev control initialization
+             */
+            $('.onboarding__control-prev')
+                .on('jcarouselcontrol:active', function() {
+                    $(this).removeClass('inactive');
+                })
+                .on('jcarouselcontrol:inactive', function() {
+                    $(this).addClass('inactive');
+                })
+                .jcarouselControl({
+                    // Options go here
+                    target: '-=1'
+                });
+
+            /*
+             Next control initialization
+             */
+            $('.onboarding__control-next')
+                .on('jcarouselcontrol:active', function() {
+                    $(this).removeClass('inactive');
+                })
+                .on('jcarouselcontrol:inactive', function() {
+                    $(this).addClass('inactive');
+                })
+                .jcarouselControl({
+                    // Options go here
+                    target: '+=1'
+                });
+
+            /*
+             Pagination initialization
+             */
+            $('.onboarding__pagination')
+                .on('jcarouselpagination:active', 'a', function() {
+                    $(this).addClass('active');
+                })
+                .on('jcarouselpagination:inactive', 'a', function() {
+                    $(this).removeClass('active');
+                })
+                .jcarouselPagination({
+                    item: function(page) {
+                        return '<a class="hexagon"></a>';
+                    }
+                });
         },
         /*
             Dispose function kills and deletes events and binded data
@@ -272,11 +331,15 @@ var beehome = beehome || {};
 		*/
 		showView: function(view) {
 
+			console.log(view);
+
 			if(this.currentView) {
 				this.currentView.dispose();
 			};
 
 			this.currentView = view;
+
+			console.log(this.currentView.$el);
 
 			$("#main").html(this.currentView.render().$el);
 

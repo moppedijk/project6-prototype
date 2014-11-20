@@ -1,0 +1,129 @@
+body {
+    background-color: #5f5f5f;
+}
+
+.wrapper {
+    max-width: 560px;
+    min-height: 800px;
+    margin: 0 auto;
+    background-color: #E5E0CE;
+    background-image: url('../img/background.png');
+}
+
+.logo {
+    width: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.loader {
+    padding-top: 45px;
+    text-align: center;
+}
+
+.notification {
+    font-size: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.onboarding__item {
+    width: 500px;
+    height: 600px;
+}
+
+.onboarding__content {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.onboarding__content ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.onboarding__content li {
+    float: left;
+}
+
+.onboarding__section {
+    padding-top: 1px;
+    overflow: hidden;
+}
+
+.onboarding__nav {
+    padding-top: 1px;
+}
+
+.onboarding__control-next {
+    float: right;
+    background-image: url("../img/next.png");
+    width: 83px;
+    height: 94px;
+}
+
+.item__nav {
+    overflow: hidden;
+}
+
+.item__img img {
+    max-width: 80%;
+}
+
+.progress {
+    padding-top: 20px;
+    margin-top: 0;
+}
+.progress .hexagon {
+    margin: 0 5px;
+}
+.progress .hexagon.active {
+    background: #fff;
+}
+.progress .hexagon.active:before {
+    border-bottom-color: #fff;
+}
+.progress .hexagon.active:after {
+    border-top-color: #fff;
+}
+
+h1 {
+    text-transform: none;
+    font-size: 36px;
+}
+
+/*
+    Wat is height 90vh?
+*/
+section {
+    height: auto;
+    border: none;
+    background: none;
+}
+
+section img {
+    max-width: 100%;
+}
+
+#nameHouse input {
+    background: none;
+    font-size: 30px;
+}
+
+#nameHouse h1 {
+    margin-top: 0;
+    padding-top: 55px;
+}
+
+#nameHouse .input_holder {
+    margin-top: 10px;
+}
+
+.clearfix {
+    clear: both;
+}

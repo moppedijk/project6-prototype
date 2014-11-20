@@ -7,81 +7,127 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/enhanced.css" />
         <title>Project 6</title>
 
         <style>
-            body {
-                background-color: #5f5f5f;
-            }
 
-            .wrapper {
-                max-width: 560px;
-                min-height: 600px;
-                padding: 10px;
-                margin: 30px;
-                margin: 0 auto;
-                background-color: #fff;
-            }
 
         </style>
     </head>
     <body>
         <div class="wrapper" id="app">
-            <div class="notification" id="notification">
-                <p>Loading...</p>
-            </div>
-            <div class="main" id="main"></div>
+            <div class="notification" id="notification"></div>
+            <div id="main"></div>
         </div>
 
         <script type="text/x-handlebars-template" id="template-main">
-            <h1>Main template</h1>
-            <p>Beehome</p>
-            <a title="Confirm" href="#confirm">Confirm</a>
+            <section id="loadingscreen">
+                <div class="logo">
+                    <img src="img/beehome-logo.png" alt="behome logo">
+                </div>
+                <div class="loader">
+                    <a href="#confirm">
+                        <img src="img/loading-icon.png" alt="hexagon">
+                    </a>
+                </div>
+            </section>
         </script>
 
         <script type="text/x-handlebars-template" id="template-confirm">
-            <h1>Confirm</h1>
-            <p>Wij hebben ons genesteld.</p>
-            <a title="Start onboarding" href="#onboarding">Start</a>
+            <section id="beginscherm">
+                <div class="logo">
+                    <img src="img/beehome-logo.png" alt="behome logo">
+                </div>
+                <h2>Wij hebben ons genesteld</h2>
+            </section>
         </script>
 
         <script type="text/x-handlebars-template" id="template-onboarding">
-            <h1>Onboarding</h1>
             <div class="onboarding__content">
-                <section>
-                    <h1>Input house</h1>
-                    <p>Geef je huis een naam</p>
-                </section>
-                
-                <section>
-                    <h1>Input space</h1>
-                    <p>Geef je ruimte een naam</p>
-                </section>
-                
-                <section>
-                    <h1>Input sensor</h1>
-                    <p>Wattage</p>
-                    <p>Hoeveel watt was jouw vorige lamp?</p>
-                </section>
-
-                <section>
-                    <h1>Input activity</h1>
-                    <p>Activiteit</p>
-                    <p>Hoeveel minuten mag de milieu besparende lamp aanblijven na de laatste gegenereerde beweging?</p>
-                </section>
-                
-                <section>
-                    <h1>Confirm onboarding</h1>
-                    <p>Hoi! Milieu bewuste imker, wij zijn er klaar voor!</p>
-                    <p>Nu jij nog!</p>
-                    <a title="Start app" href="#app">Verder</a>
-                </section>
+                <ul>
+                    <li>
+                        <div class="onboarding__item">
+                            <section id="nameHouse">
+                                <div class="item__title">
+                                    <h1>Geef je korf een eigen naam</h1>
+                                </div>
+                                <div class="input_holder">
+                                    <input type="text" placeholder="Bijv. huis van der Vink">
+                                </div>
+                                <div class="item__img">
+                                    <img src="img/house.png" alt="house" class="houseImage">
+                                </div>
+                                <div class="item__nav">
+                                    <a href="javascript:void(0);" class="onboarding__control-next"></a>
+                                </div>
+                            </section>
+                        </div>
+                    </li> 
+                    <li>
+                        <div class="onboarding__item">
+                            <section id="nameRoom">
+                                <h1>Geef je ruimte een naam</h1>
+                                <div class="input_holder">
+                                    <input type="text">
+                                </div>
+                                <img src="img/house.png" alt="house" class="houseImage">
+                            </section>
+                        </div>
+                    </li> 
+                    <li>
+                        <div class="onboarding__item">
+                            <section id="wattage">
+                                <h1>Wattage</h1>
+                                <span class="subtext">Hoeveel Watt was jouw vorige lamp?</span>
+                                <div class="button">Weet ik niet</div>
+                                <div class="selection">
+                                    <ul class="amount">
+                                        <li>35</li>
+                                        <li>40</li>
+                                        <li>45</li>
+                                    </ul>
+                                    <span class="unit">Watt</span>
+                                </div>
+                            </section>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="onboarding__item">
+                            <section id="activity">
+                                <h1>Activiteit</h1>
+                                <span class="subtext">Hoeveel minuten mag de milieubesparende lamp na de laatst geregistreerde beweging?</span>
+                                <div class="selection">
+                                    <ul class="amount">
+                                        <li>04</li>
+                                        <li>05</li>
+                                        <li>06</li>
+                                    </ul>
+                                    <span class="unit">Minuten</span>
+                                </div>
+                            </section>
+                        </div>
+                    </li> 
+                    <li>
+                        <div class="onboarding__item">
+                            <section id="ready">
+                                <span class="subtext">Hoi! milieubewuste imker, wij zijn er klaar voor</span>
+                                <span>Nu jij nog</span>
+                                <div class="button">Verder</div>            
+                            </section>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="onboarding__pag">
+                <ul class="progress onboarding__pagination"></ul>
             </div>
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-main">
             <h1>App</h1>
-            
+            <p>Hoe sta jij er vandaag voor?</p>
+            <p>Wattage besparing<p>
         </script>
 
         <script type="text/javascript" src="static/js/lib.js"></script>
