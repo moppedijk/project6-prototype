@@ -9,7 +9,7 @@
 }
 
 body section:not(.a){
-	/*display:none;*/
+	display:none;
 }
 
 body{
@@ -21,8 +21,6 @@ section{
 	width:85%;
 	margin:auto;
 	background:#E5E0CE;
-	border-bottom: 4px solid black;
-	height:100vh;
 }
 
 h1{
@@ -265,7 +263,7 @@ h2{
 	border-bottom: 5px solid #FEC032;
 }
 
-.progress .hexagon:nth-of-type(1):after{
+#nameHouse .progress .hexagon:nth-of-type(1):after{
 	border-top: 5px solid #FEC032;
 }
 
@@ -333,6 +331,10 @@ h2{
 
 #wattage .button{
 	margin-top:1em;
+}
+
+#wattage .selection{
+	height:12em;
 }
 
 #wattage .amount {
@@ -406,7 +408,7 @@ h2{
 }
 
 #activity .progress{
-	margin-top:7em;
+	margin-top:6em;
 }
 
 #activity .progress .hexagon:nth-of-type(4){
@@ -439,6 +441,10 @@ h2{
 
 #ready .button{
 	margin-top:1em;
+}
+
+#ready .progress {
+	margin-top:18em;
 }
 
 #ready .progress .hexagon:nth-of-type(5){
@@ -511,7 +517,7 @@ footer{
 	background: #303030;
 	left:0;
 	bottom:0;
-	display:none;
+	display: none;
 }
 
 footer>ul{
