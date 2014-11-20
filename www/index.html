@@ -48,7 +48,7 @@
                 <ul>
                     <li>
                         <div class="onboarding__item">
-                            <section id="nameHouse">
+                            <section class="item" id="nameHouse">
                                 <div class="item__title">
                                     <h1>Geef je korf een eigen naam</h1>
                                 </div>
@@ -59,19 +59,26 @@
                                     <img src="img/house.png" alt="house" class="houseImage">
                                 </div>
                                 <div class="item__nav">
-                                    <a href="javascript:void(0);" class="onboarding__control-next"></a>
+                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
                                 </div>
                             </section>
                         </div>
                     </li> 
                     <li>
                         <div class="onboarding__item">
-                            <section id="nameRoom">
-                                <h1>Geef je ruimte een naam</h1>
-                                <div class="input_holder">
-                                    <input type="text">
+                            <section class="item" id="nameRoom">
+                                <div class="item__title">   
+                                    <h1>Geef je ruimte een naam</h1>
                                 </div>
-                                <img src="img/house.png" alt="house" class="houseImage">
+                                <div class="input_holder">
+                                    <input type="text" placeholder="woonkamer">
+                                </div>
+                                <div class="item__img">
+                                    <img src="img/house.png" alt="house" class="houseImage">
+                                </div>
+                                <div class="item__nav">
+                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
+                                </div>
                             </section>
                         </div>
                     </li> 
@@ -80,13 +87,13 @@
                             <section id="wattage">
                                 <h1>Wattage</h1>
                                 <span class="subtext">Hoeveel Watt was jouw vorige lamp?</span>
-                                <div class="button">Weet ik niet</div>
+                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
                                 <div class="selection">
-                                    <ul class="amount">
-                                        <li>35</li>
-                                        <li>40</li>
-                                        <li>45</li>
-                                    </ul>
+                                    <div class="amount">
+                                        <div>35</div>
+                                        <div>40</div>
+                                        <div>45</div>
+                                    </div>
                                     <span class="unit">Watt</span>
                                 </div>
                             </section>
@@ -98,11 +105,11 @@
                                 <h1>Activiteit</h1>
                                 <span class="subtext">Hoeveel minuten mag de milieubesparende lamp na de laatst geregistreerde beweging?</span>
                                 <div class="selection">
-                                    <ul class="amount">
-                                        <li>04</li>
-                                        <li>05</li>
-                                        <li>06</li>
-                                    </ul>
+                                    <div class="amount">
+                                        <div>04</div>
+                                        <div>05</div>
+                                        <div>06</div>
+                                    </div>
                                     <span class="unit">Minuten</span>
                                 </div>
                             </section>
@@ -113,7 +120,7 @@
                             <section id="ready">
                                 <span class="subtext">Hoi! milieubewuste imker, wij zijn er klaar voor</span>
                                 <span>Nu jij nog</span>
-                                <div class="button">Verder</div>            
+                                <a href="#app" class="button">Verder</a>            
                             </section>
                         </div>
                     </li>

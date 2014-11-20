@@ -343,13 +343,13 @@ h2{
 	height:100%;
 }
 
-#wattage .amount li{
+#wattage .amount div{
 	font-size: 2.5em;
 	line-height: 1.5em;
 	color:#aaa;
 }
 
-#wattage .amount li:nth-of-type(2){
+#wattage .amount div:nth-of-type(2){
 	color:black;
 	font-size: 4.3em;
 	line-height: 1.6em;
