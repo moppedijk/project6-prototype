@@ -49,5 +49,6 @@ IOS/www/
 .Spotlight-V100
 .Trashes
 
-www/node_modules
-www/.sass-cache
+node_modules
+.sass-cache
+platforms

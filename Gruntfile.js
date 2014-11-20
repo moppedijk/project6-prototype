@@ -26,7 +26,7 @@ module.exports = function(grunt) {
 	 			separator: ';',
 	 		},
 	 		app: {
-	 			src: ['development/js/index.js', 'development/js/app/app.js', 'development/js/app/models/*.js', 'development/js/app/collections/*.js', 'development/js/app/views/*.js', 'development/js/app/router.js'],
+	 			src: ['development/js/app/app.js', 'development/js/app/models/*.js', 'development/js/app/collections/*.js', 'development/js/app/views/**/*.js', 'development/js/app/router.js', 'development/js/index.js'],
 	 			dest: 'www/static/js/app.js',
 	 		},
 	 		lib: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
   				livereload: true,
   			},
   			scripts: {
-  				files: ['development/js/app/**/*.js', 'development/js/lib/*.js'],
+  				files: ['development/js/app/**/*.js', 'development/js/lib/*.js', 'developement/js/*.js'],
   				tasks: 'update-js',
   			},
   			templates: {

@@ -4,6 +4,7 @@ var phoneGap = {
     */
     initialize: function() {
         this.bindEvents();
+        // this.startApp();
     },
     /* 
         Bind Event Listeners
@@ -12,6 +13,8 @@ var phoneGap = {
     */
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('offlineready', this.onOfflineReady, false);
+        document.addEventListener('onlineready', this.onOnlineReady, false);
     },
     /*
         deviceready Event Handler
@@ -22,14 +25,18 @@ var phoneGap = {
     onDeviceReady: function() {
         phoneGap.receivedEvent('deviceready');
     },
+    onOfflineReady: function() {
+        phoneGap.receivedEvent('offlineready');
+    },
+    onOnlineReady: function() {
+        phoneGap.receivedEvent('onlineready');
+    },
     /*
         Update DOM on a Received Event
     */
     receivedEvent: function(id) {
         var parentElement = document.getElementById("notification");
             parentElement.innerHTML = "Received Event: " + id;
-
-        console.log('Received Event: ' + id);
     }
 };
 
