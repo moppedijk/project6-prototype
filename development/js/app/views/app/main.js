@@ -34,6 +34,11 @@
             After render function get's called after view is rendered
         */
         afterRender:function(){
+
+            $("#app-main-flower").animate({
+                top: 0
+            }, 1000);
+
         },
         /*
             Dispose function kills and deletes events and binded data

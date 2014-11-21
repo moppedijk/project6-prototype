@@ -104,6 +104,7 @@
                             <section id="activity">
                                 <h1>Activiteit</h1>
                                 <span class="subtext">Hoeveel minuten mag de milieubesparende lamp na de laatst geregistreerde beweging?</span>
+                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
                                 <div class="selection">
                                     <div class="amount">
                                         <div>04</div>
@@ -132,9 +133,44 @@
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-main">
-            <h1>App</h1>
-            <p>Hoe sta jij er vandaag voor?</p>
-            <p>Wattage besparing<p>
+            <section id="mainScreen">
+                <h1>Hoe sta je er vandaag voor</h1>
+                <h2>Wattage besparing</h2>
+                <span class="watt_saved">100 Watt</span>
+                <ul class="slider">
+                    <li class="hexagon"></li>
+                    <li class="hexagon"></li>
+                    <li class="hexagon"></li>
+                </ul>
+                <div id="app-main-flower" class="app-main__flower">
+                    <img src="img/flower.png" alt="flower" class="flower">
+                </div>
+                <div class="app-main__overlay overlay">
+                    <div class="wrapper">
+                        <span>De bloem groeit elke dag mee met jouw milieubesparing, hoe meer besparing hoe beter</span>
+                    </div>
+                </div>
+            </section>
+            <footer class="app-main__footer">
+                <ul><!--
+                    --><li>
+                        <img src="img/housebutton.png" alt="">
+                        <span>Huizen</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/roombutton.png" alt="">
+                        <span>Ruimtes</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/sensorbutton.png" alt="">
+                        <span>Sensors</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/optionbutton.png" alt="">
+                        <span>Opties</span>
+                    </li>
+                </ul>
+            </footer>
         </script>
 
         <script type="text/javascript" src="static/js/lib.js"></script>

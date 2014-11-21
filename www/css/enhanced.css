@@ -169,3 +169,17 @@ section img {
     font-size: 4.3em;
     line-height: 1.6em;
 }
+.app-main {
+    position: relative;
+    height: 783px;
+}
+.app-main__footer {
+    display: block;
+}
+.app-main__footer {
+    position: absolute;
+}
+.app-main__flower {
+    position: relative;
+    top: 800px;
+}
