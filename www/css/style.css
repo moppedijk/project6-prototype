@@ -9,7 +9,7 @@
 }
 
 body section:not(.a){
-	display:none;
+	/*display:none;*/
 }
 
 body{
