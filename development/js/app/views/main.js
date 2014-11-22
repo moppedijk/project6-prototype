@@ -13,14 +13,13 @@
         /*
             Initialize function of the view, get's called when views contructor is called
          */
-        initialize: function (){
+        initialize: function() {
 
         },
         /*
             Renders the main view of the app
          */
-        render: function ()
-        {
+        render: function() {
             var templateSource = $('#template-main').html();
             var template = Handlebars.compile(templateSource);
             var data = {};
@@ -32,9 +31,9 @@
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function(){
+        afterRender:function() {
 
-            window.setTimeout(function(){
+            window.setTimeout(function() {
                 beehome.app.router.navigate("confirm", {
                     trigger: true
                 });
@@ -43,13 +42,19 @@
         /*
             Dispose function kills and deletes events and binded data
         */
-        dispose:function(){
+        dispose:function() {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
             this.remove();  
             this.unbind();
             Backbone.View.prototype.remove.call(this);
+        },
+        startAnimation:function() {
+            console.log("startAnimation");
+        },
+        endAnimation: function() {
+            console.log("endAnimation");
         }
     });
 })();

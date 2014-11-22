@@ -6,9 +6,13 @@
 		*/
 		currentView: false,
 		/*
+			NextView variable holds the next view to display in the application
+		*/
+		nextView: false,
+		/*
 			Routes of the application
 			First value is the #
-			Sectond value is the function
+			Second value is the function
 		*/
 		routes: {
 			'': 'showMain',
@@ -56,21 +60,39 @@
 		*/
 		showView: function(view) {
 
-			console.log(view);
+			var _self = this;
 
-			if(this.currentView) {
-				this.currentView.dispose();
-			};
+			if(!this.currentView) {
+				this.currentView = view;
+				
+				$("#main").html(this.currentView.render().$el);
+				$(this.currentView.$el).css({ opacity: 0});
+				$(this.currentView.$el).animate({ opacity: 1}, 300);
+				if(this.currentView.afterRender){
+					this.currentView.afterRender();
+				};			
+			}else {
+				this.nextView = view;
 
-			this.currentView = view;
+				$(this.currentView.$el).css({ opacity: 1 });
+				$(this.currentView.$el).animate({ opacity: 0 });
+				$(this.currentView.$el).animate({
+					opacity: 0
+				}, 200, function() {
+					$("#main").html(_self.nextView.render().$el);
+					$(_self.nextView.$el).css({opacity: 0});
+					$(_self.nextView.$el).animate({opacity: 1}, 300);
+					if(_self.nextView.afterRender){
+						_self.nextView.afterRender();
+					};
 
-			console.log(this.currentView.$el);
+					if(_self.currentView) {
+						_self.currentView.dispose();
+					};
 
-			$("#main").html(this.currentView.render().$el);
-
-			if(this.currentView.afterRender){
-				this.currentView.afterRender();
-			};
+					_self.currentView = view;
+				});
+			}
 		}
 
 	});
