@@ -21,7 +21,7 @@
          */
         render: function ()
         {
-            var templateSource = $('#template-onboarding').html();
+            var templateSource = $("#template-onboarding").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
 
@@ -33,12 +33,10 @@
             After render function get's called after view is rendered
         */
         afterRender:function(){
-            $('.onboarding__content').jcarousel({
-                // Configuration goes here
-            });
+            $('.onboarding__content').jcarousel();
 
-                /*
-             Prev control initialization
+            /*
+                Prev control initialization
              */
             $('.onboarding__control-prev')
                 .on('jcarouselcontrol:active', function() {
@@ -53,8 +51,8 @@
                 });
 
             /*
-             Next control initialization
-             */
+                Next control initialization
+            */
             $('.onboarding__control-next')
                 .on('jcarouselcontrol:active', function() {
                     $(this).removeClass('inactive');
@@ -68,8 +66,8 @@
                 });
 
             /*
-             Pagination initialization
-             */
+                Pagination initialization
+            */
             $('.onboarding__pagination')
                 .on('jcarouselpagination:active', 'a', function() {
                     $(this).addClass('active');
@@ -82,11 +80,26 @@
                         return '<a class="hexagon"></a>';
                     }
                 });
+
+            /*
+                Swipe events
+            */
+            $(".onboarding__content").on( "swipeleft", function(event){
+                $('.onboarding__content').jcarousel('scroll', '+=1');
+            });
+
+            $(".onboarding__content").on( "swiperight", function(event){
+                $('.onboarding__content').jcarousel('scroll', '-=1');
+            });
         },
         /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function(){
+            $('onboarding__content').jcarousel('destroy');
+            $(".onboarding__content").off("swipeleft");
+            $(".onboarding__content").off("swiperight");
+
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 

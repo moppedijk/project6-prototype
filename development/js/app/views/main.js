@@ -50,9 +50,15 @@
             this.unbind();
             Backbone.View.prototype.remove.call(this);
         },
+        /*
+            Start animation 
+        */
         startAnimation:function() {
             console.log("startAnimation");
         },
+        /*
+            End animation
+        */
         endAnimation: function() {
             console.log("endAnimation");
         }

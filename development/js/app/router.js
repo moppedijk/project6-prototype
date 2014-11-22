@@ -60,8 +60,6 @@
 		*/
 		showView: function(view) {
 
-			var _self = this;
-
 			if(!this.currentView) {
 				this.currentView = view;
 				
@@ -79,19 +77,19 @@
 				$(this.currentView.$el).animate({
 					opacity: 0
 				}, 200, function() {
-					$("#main").html(_self.nextView.render().$el);
-					$(_self.nextView.$el).css({opacity: 0});
-					$(_self.nextView.$el).animate({opacity: 1}, 300);
-					if(_self.nextView.afterRender){
-						_self.nextView.afterRender();
+					$("#main").html(this.nextView.render().$el);
+					$(this.nextView.$el).css({opacity: 0});
+					$(this.nextView.$el).animate({opacity: 1}, 300);
+					if(this.nextView.afterRender){
+						this.nextView.afterRender();
 					};
 
-					if(_self.currentView) {
-						_self.currentView.dispose();
+					if(this.currentView) {
+						this.currentView.dispose();
 					};
 
-					_self.currentView = view;
-				});
+					this.currentView = view;
+				}.bind(this));
 			}
 		}
 
