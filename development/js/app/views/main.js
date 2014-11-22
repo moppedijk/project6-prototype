@@ -33,6 +33,12 @@
             After render function get's called after view is rendered
         */
         afterRender:function(){
+
+            window.setTimeout(function(){
+                beehome.app.router.navigate("confirm", {
+                    trigger: true
+                });
+            }, 2000);
         },
         /*
             Dispose function kills and deletes events and binded data

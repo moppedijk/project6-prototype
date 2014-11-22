@@ -10,15 +10,14 @@
         <link rel="stylesheet" type="text/css" href="css/enhanced.css" />
         <title>Project 6</title>
 
-        <style>
-
-
-        </style>
     </head>
     <body>
         <div class="wrapper" id="app">
             <div class="notification" id="notification"></div>
-            <div id="main"></div>
+            <div class="notification" id="notification2"></div>
+            <div id="main">
+                
+            </div>
         </div>
 
         <script type="text/x-handlebars-template" id="template-main">
@@ -28,7 +27,7 @@
                 </div>
                 <div class="loader">
                     <a href="#confirm">
-                        <img src="img/loading-icon.png" alt="hexagon">
+                        <img src="img/load.gif" alt="hexagon">
                     </a>
                 </div>
             </section>
@@ -48,7 +47,7 @@
                 <ul>
                     <li>
                         <div class="onboarding__item">
-                            <section id="nameHouse">
+                            <section class="item" id="nameHouse">
                                 <div class="item__title">
                                     <h1>Geef je korf een eigen naam</h1>
                                 </div>
@@ -59,19 +58,26 @@
                                     <img src="img/house.png" alt="house" class="houseImage">
                                 </div>
                                 <div class="item__nav">
-                                    <a href="javascript:void(0);" class="onboarding__control-next"></a>
+                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
                                 </div>
                             </section>
                         </div>
                     </li> 
                     <li>
                         <div class="onboarding__item">
-                            <section id="nameRoom">
-                                <h1>Geef je ruimte een naam</h1>
-                                <div class="input_holder">
-                                    <input type="text">
+                            <section class="item" id="nameRoom">
+                                <div class="item__title">   
+                                    <h1>Geef je ruimte een naam</h1>
                                 </div>
-                                <img src="img/house.png" alt="house" class="houseImage">
+                                <div class="input_holder">
+                                    <input type="text" placeholder="woonkamer">
+                                </div>
+                                <div class="item__img">
+                                    <img src="img/hexagon-large.png" alt="house" class="houseImage">
+                                </div>
+                                <div class="item__nav">
+                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
+                                </div>
                             </section>
                         </div>
                     </li> 
@@ -80,13 +86,13 @@
                             <section id="wattage">
                                 <h1>Wattage</h1>
                                 <span class="subtext">Hoeveel Watt was jouw vorige lamp?</span>
-                                <div class="button">Weet ik niet</div>
+                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
                                 <div class="selection">
-                                    <ul class="amount">
-                                        <li>35</li>
-                                        <li>40</li>
-                                        <li>45</li>
-                                    </ul>
+                                    <div class="amount">
+                                        <div>35</div>
+                                        <div>40</div>
+                                        <div>45</div>
+                                    </div>
                                     <span class="unit">Watt</span>
                                 </div>
                             </section>
@@ -97,12 +103,13 @@
                             <section id="activity">
                                 <h1>Activiteit</h1>
                                 <span class="subtext">Hoeveel minuten mag de milieubesparende lamp na de laatst geregistreerde beweging?</span>
+                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
                                 <div class="selection">
-                                    <ul class="amount">
-                                        <li>04</li>
-                                        <li>05</li>
-                                        <li>06</li>
-                                    </ul>
+                                    <div class="amount">
+                                        <div>04</div>
+                                        <div>05</div>
+                                        <div>06</div>
+                                    </div>
                                     <span class="unit">Minuten</span>
                                 </div>
                             </section>
@@ -113,7 +120,7 @@
                             <section id="ready">
                                 <span class="subtext">Hoi! milieubewuste imker, wij zijn er klaar voor</span>
                                 <span>Nu jij nog</span>
-                                <div class="button">Verder</div>            
+                                <a href="#app" class="button">Verder</a>            
                             </section>
                         </div>
                     </li>
@@ -125,9 +132,44 @@
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-main">
-            <h1>App</h1>
-            <p>Hoe sta jij er vandaag voor?</p>
-            <p>Wattage besparing<p>
+            <section id="mainScreen">
+                <h1>Hoe sta je er vandaag voor</h1>
+                <h2>Wattage besparing</h2>
+                <span class="watt_saved">100 Watt</span>
+                <ul class="slider">
+                    <li class="hexagon"></li>
+                    <li class="hexagon"></li>
+                    <li class="hexagon"></li>
+                </ul>
+                <div id="app-main-flower" class="app-main__flower">
+                    <img src="img/flower.png" alt="flower" class="flower">
+                </div>
+                <div class="app-main__overlay overlay">
+                    <div class="wrapper">
+                        <span>De bloem groeit elke dag mee met jouw milieubesparing, hoe meer besparing hoe beter</span>
+                    </div>
+                </div>
+            </section>
+            <footer class="app-main__footer">
+                <ul><!--
+                    --><li>
+                        <img src="img/housebutton.png" alt="">
+                        <span>Huizen</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/roombutton.png" alt="">
+                        <span>Ruimtes</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/sensorbutton.png" alt="">
+                        <span>Sensors</span>
+                    </li><!--
+                    --><li>
+                        <img src="img/optionbutton.png" alt="">
+                        <span>Opties</span>
+                    </li>
+                </ul>
+            </footer>
         </script>
 
         <script type="text/javascript" src="static/js/lib.js"></script>

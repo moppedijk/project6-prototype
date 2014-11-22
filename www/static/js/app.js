@@ -17,8 +17,13 @@ var beehome = beehome || {};
         */
         initialize: function() {
 
+            var width = $( window ).width();
+            var height = $( window ).height();
+
+            $("#notification2").append("<p>Width: " + width + " - height: " + height + " </p>");
+
             this.router = new beehome.router();
-            Backbone.history.start();
+            Backbone.history.start(); 
         }
     };
 
@@ -168,6 +173,12 @@ var beehome = beehome || {};
             After render function get's called after view is rendered
         */
         afterRender:function(){
+
+            window.setTimeout(function(){
+                beehome.app.router.navigate("confirm", {
+                    trigger: true
+                });
+            }, 2000);
         },
         /*
             Dispose function kills and deletes events and binded data

@@ -6,9 +6,13 @@ body section:not(.a) {
     display: block;
 }
 
+/**
+    Iphone width x height - 320 x 568
+**/
+
 .wrapper {
-    max-width: 560px;
-    min-height: 800px;
+    max-width: 320px;
+    min-height: 568px;
     margin: 0 auto;
     background-color: #E5E0CE;
     background-image: url('../img/background.png');
@@ -35,13 +39,17 @@ body section:not(.a) {
     padding-bottom: 5px;
 }
 
+/*
+    Carousel
+*/
+
 .onboarding__item {
-    width: 500px;
-    height: 600px;
+    width: 320px;
+    height: 500px;
 }
 
 .onboarding__content {
-    max-width: 500px;
+    max-width: 320px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -67,6 +75,10 @@ body section:not(.a) {
 .onboarding__nav {
     padding-top: 1px;
 }
+
+/*
+    End Carousel
+*/
 
 .button {
     display: block;
@@ -171,7 +183,7 @@ section img {
 }
 .app-main {
     position: relative;
-    height: 783px;
+    /*height: 783px;*/
 }
 .app-main__footer {
     display: block;

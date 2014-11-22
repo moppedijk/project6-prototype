@@ -17,8 +17,13 @@ var beehome = beehome || {};
         */
         initialize: function() {
 
+            var width = $( window ).width();
+            var height = $( window ).height();
+
+            $("#notification2").append("<p>Width: " + width + " - height: " + height + " </p>");
+
             this.router = new beehome.router();
-            Backbone.history.start();
+            Backbone.history.start(); 
         }
     };
 
