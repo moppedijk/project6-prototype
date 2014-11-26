@@ -154,7 +154,7 @@ var beehome = beehome || {};
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function() {
-
+            _.bindAll(this, "startAnimation");
         },
         /*
             Renders the main view of the app
@@ -195,12 +195,19 @@ var beehome = beehome || {};
         */
         startAnimation:function() {
             console.log("startAnimation");
+
+            $(this.$el).css({ opacity: 0});
+            $(this.$el).animate({ opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
         },
         /*
             End animation
         */
         endAnimation: function() {
             console.log("endAnimation");
+
+            this.trigger("endAnimationComplete");
         }
     });
 })();;(function(){
@@ -378,27 +385,49 @@ var beehome = beehome || {};
 			if(!this.currentView) {
 				this.currentView = view;
 				
+				// Render
 				$("#main").html(this.currentView.render().$el);
-				$(this.currentView.$el).css({ opacity: 0});
-				$(this.currentView.$el).animate({ opacity: 1}, 300);
+
+				// Animation in
+				if(this.currentView.startAnimation) {
+
+					this.currentView.on("startAnimationComplete", function() {
+						console.log("Router: startAnimationComplete");
+						this.currentView.off("startAnimationComplete");
+					}.bind(this));
+
+					this.currentView.startAnimation();
+				}else {
+					$(this.currentView.$el).css({ opacity: 0});
+					$(this.currentView.$el).animate({ opacity: 1}, 300);
+				}
+
+				// After render
 				if(this.currentView.afterRender){
 					this.currentView.afterRender();
-				};			
+				};		
 			}else {
 				this.nextView = view;
 
+				// Animation out
 				$(this.currentView.$el).css({ opacity: 1 });
-				$(this.currentView.$el).animate({ opacity: 0 });
 				$(this.currentView.$el).animate({
 					opacity: 0
-				}, 200, function() {
+				}, 400, function() {
+
+					// Render
 					$("#main").html(this.nextView.render().$el);
+
+					// Animation in
 					$(this.nextView.$el).css({opacity: 0});
 					$(this.nextView.$el).animate({opacity: 1}, 300);
+
+					// After render
 					if(this.nextView.afterRender){
 						this.nextView.afterRender();
 					};
 
+					// Dispose
 					if(this.currentView) {
 						this.currentView.dispose();
 					};

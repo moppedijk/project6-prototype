@@ -153,14 +153,13 @@ var beehome = beehome || {};
         /*
             Initialize function of the view, get's called when views contructor is called
          */
-        initialize: function (){
+        initialize: function() {
 
         },
         /*
             Renders the main view of the app
          */
-        render: function ()
-        {
+        render: function() {
             var templateSource = $('#template-main').html();
             var template = Handlebars.compile(templateSource);
             var data = {};
@@ -172,9 +171,9 @@ var beehome = beehome || {};
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function(){
+        afterRender:function() {
 
-            window.setTimeout(function(){
+            window.setTimeout(function() {
                 beehome.app.router.navigate("confirm", {
                     trigger: true
                 });
@@ -183,13 +182,25 @@ var beehome = beehome || {};
         /*
             Dispose function kills and deletes events and binded data
         */
-        dispose:function(){
+        dispose:function() {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
             this.remove();  
             this.unbind();
             Backbone.View.prototype.remove.call(this);
+        },
+        /*
+            Start animation 
+        */
+        startAnimation:function() {
+            console.log("startAnimation");
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("endAnimation");
         }
     });
 })();;(function(){
@@ -215,7 +226,7 @@ var beehome = beehome || {};
          */
         render: function ()
         {
-            var templateSource = $('#template-onboarding').html();
+            var templateSource = $("#template-onboarding").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
 
@@ -227,12 +238,10 @@ var beehome = beehome || {};
             After render function get's called after view is rendered
         */
         afterRender:function(){
-            $('.onboarding__content').jcarousel({
-                // Configuration goes here
-            });
+            $('.onboarding__content').jcarousel();
 
-                /*
-             Prev control initialization
+            /*
+                Prev control initialization
              */
             $('.onboarding__control-prev')
                 .on('jcarouselcontrol:active', function() {
@@ -247,8 +256,8 @@ var beehome = beehome || {};
                 });
 
             /*
-             Next control initialization
-             */
+                Next control initialization
+            */
             $('.onboarding__control-next')
                 .on('jcarouselcontrol:active', function() {
                     $(this).removeClass('inactive');
@@ -262,8 +271,8 @@ var beehome = beehome || {};
                 });
 
             /*
-             Pagination initialization
-             */
+                Pagination initialization
+            */
             $('.onboarding__pagination')
                 .on('jcarouselpagination:active', 'a', function() {
                     $(this).addClass('active');
@@ -276,11 +285,26 @@ var beehome = beehome || {};
                         return '<a class="hexagon"></a>';
                     }
                 });
+
+            /*
+                Swipe events
+            */
+            $(".onboarding__content").on( "swipeleft", function(event){
+                $('.onboarding__content').jcarousel('scroll', '+=1');
+            });
+
+            $(".onboarding__content").on( "swiperight", function(event){
+                $('.onboarding__content').jcarousel('scroll', '-=1');
+            });
         },
         /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function(){
+            $('onboarding__content').jcarousel('destroy');
+            $(".onboarding__content").off("swipeleft");
+            $(".onboarding__content").off("swiperight");
+
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -351,14 +375,12 @@ var beehome = beehome || {};
 		*/
 		showView: function(view) {
 
-			var _self = this;
-
 			if(!this.currentView) {
 				this.currentView = view;
 				
 				$("#main").html(this.currentView.render().$el);
 				$(this.currentView.$el).css({ opacity: 0});
-				$(this.currentView.$el).animate({ opacity: 1}, 400);
+				$(this.currentView.$el).animate({ opacity: 1}, 300);
 				if(this.currentView.afterRender){
 					this.currentView.afterRender();
 				};			
@@ -369,20 +391,20 @@ var beehome = beehome || {};
 				$(this.currentView.$el).animate({ opacity: 0 });
 				$(this.currentView.$el).animate({
 					opacity: 0
-				}, 400, function() {
-					$("#main").html(_self.nextView.render().$el);
-					$(_self.nextView.$el).css({opacity: 0});
-					$(_self.nextView.$el).animate({opacity: 1});
-					if(_self.nextView.afterRender){
-						_self.nextView.afterRender();
+				}, 200, function() {
+					$("#main").html(this.nextView.render().$el);
+					$(this.nextView.$el).css({opacity: 0});
+					$(this.nextView.$el).animate({opacity: 1}, 300);
+					if(this.nextView.afterRender){
+						this.nextView.afterRender();
 					};
 
-					if(_self.currentView) {
-						_self.currentView.dispose();
+					if(this.currentView) {
+						this.currentView.dispose();
 					};
 
-					_self.currentView = view;
-				});
+					this.currentView = view;
+				}.bind(this));
 			}
 		}
 

@@ -14,7 +14,7 @@
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function() {
-
+            _.bindAll(this, "startAnimation");
         },
         /*
             Renders the main view of the app
@@ -55,12 +55,19 @@
         */
         startAnimation:function() {
             console.log("startAnimation");
+
+            $(this.$el).css({ opacity: 0});
+            $(this.$el).animate({ opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
         },
         /*
             End animation
         */
         endAnimation: function() {
             console.log("endAnimation");
+
+            this.trigger("endAnimationComplete");
         }
     });
 })();
