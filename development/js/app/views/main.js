@@ -54,9 +54,23 @@
             Start animation 
         */
         startAnimation:function() {
-            console.log("startAnimation");
+            console.log("Main: startAnimation");
 
-            $(this.$el).css({ opacity: 0});
+            $(".logo").css({
+                paddingTop: "0px"
+            });
+            $(".logo").animate({
+                paddingTop: "100px"
+            }, 400).delay(500);
+
+            $(".loader").css({
+                opacity: 0
+            });
+            $(".loader").animate({
+                opacity: 1
+            }, 200).delay(500);
+
+            $(this.$el).css({ opacity: 1});
             $(this.$el).animate({ opacity: 1}, 300, function(){
                 this.trigger("startAnimationComplete");
             }.bind(this));
@@ -65,9 +79,12 @@
             End animation
         */
         endAnimation: function() {
-            console.log("endAnimation");
+            console.log("Main: endAnimation");
 
-            this.trigger("endAnimationComplete");
+            $(this.$el).css({ opacity: 1 });
+            $(this.$el).animate({ opacity: 0 }, 400, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
         }
     });
 })();

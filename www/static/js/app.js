@@ -17,11 +17,6 @@ var beehome = beehome || {};
         */
         initialize: function() {
 
-            var width = $( window ).width();
-            var height = $( window ).height();
-
-            $("#notification2").append("<p>Width: " + width + " - height: " + height + " </p>");
-
             this.router = new beehome.router();
             Backbone.history.start(); 
         }
@@ -68,6 +63,28 @@ var beehome = beehome || {};
                 top: 0
             }, 1000);
 
+        },
+        /*
+            Start animation
+        */
+        startAnimation: function() {
+            console.log("app main: startAnimation");
+
+            $(this.$el).css({opacity: 0});
+            $(this.$el).animate({opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("app main: endAnimation");
+
+            $(this.$el).css({opacity: 1});
+            $(this.$el).animate({opacity: 0}, 300, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
         },
         /*
             Dispose function kills and deletes events and binded data
@@ -125,6 +142,28 @@ var beehome = beehome || {};
             beehome.app.router.navigate("onboarding", {
                 trigger: true
             })
+        },
+        /*
+            Start animation
+        */
+        startAnimation: function() {
+            console.log("confirm: startAnimation");
+
+            $(this.$el).css({opacity: 0});
+            $(this.$el).animate({opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("confirm: endAnimation");
+
+            $(this.$el).css({opacity: 1});
+            $(this.$el).animate({opacity: 0}, 300, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
         },
         /*
             Dispose function kills and deletes events and binded data
@@ -194,9 +233,23 @@ var beehome = beehome || {};
             Start animation 
         */
         startAnimation:function() {
-            console.log("startAnimation");
+            console.log("Main: startAnimation");
 
-            $(this.$el).css({ opacity: 0});
+            $(".logo").css({
+                paddingTop: "0px"
+            });
+            $(".logo").animate({
+                paddingTop: "100px"
+            }, 400).delay(500);
+
+            $(".loader").css({
+                opacity: 0
+            });
+            $(".loader").animate({
+                opacity: 1
+            }, 200).delay(500);
+
+            $(this.$el).css({ opacity: 1});
             $(this.$el).animate({ opacity: 1}, 300, function(){
                 this.trigger("startAnimationComplete");
             }.bind(this));
@@ -205,9 +258,12 @@ var beehome = beehome || {};
             End animation
         */
         endAnimation: function() {
-            console.log("endAnimation");
+            console.log("Main: endAnimation");
 
-            this.trigger("endAnimationComplete");
+            $(this.$el).css({ opacity: 1 });
+            $(this.$el).animate({ opacity: 0 }, 400, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
         }
     });
 })();;(function(){
@@ -305,6 +361,28 @@ var beehome = beehome || {};
             });
         },
         /*
+            Start animation
+        */
+        startAnimation: function() {
+            console.log("onboarding: startAnimation");
+
+            $(this.$el).css({opacity: 0});
+            $(this.$el).animate({opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("onboarding: endAnimation");
+
+            $(this.$el).css({opacity: 1});
+            $(this.$el).animate({opacity: 0}, 300, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
+        },
+        /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function(){
@@ -393,7 +471,6 @@ var beehome = beehome || {};
 
 					this.currentView.on("startAnimationComplete", function() {
 						console.log("Router: startAnimationComplete");
-						this.currentView.off("startAnimationComplete");
 					}.bind(this));
 
 					this.currentView.startAnimation();
@@ -409,34 +486,38 @@ var beehome = beehome || {};
 			}else {
 				this.nextView = view;
 
-				// Animation out
-				$(this.currentView.$el).css({ opacity: 1 });
-				$(this.currentView.$el).animate({
-					opacity: 0
-				}, 400, function() {
+				this.currentView.on("endAnimationComplete", function() {
+					console.log("Router: endAnimationComplete");
 
-					// Render
+					 // Render
 					$("#main").html(this.nextView.render().$el);
 
-					// Animation in
-					$(this.nextView.$el).css({opacity: 0});
-					$(this.nextView.$el).animate({opacity: 1}, 300);
+					this.nextView.on("startAnimationComplete", function() {
+						console.log("Router: startAnimationComplete");
 
-					// After render
-					if(this.nextView.afterRender){
-						this.nextView.afterRender();
-					};
+						// After render
+						if(this.nextView.afterRender) {
+							this.nextView.afterRender();
+						};
 
-					// Dispose
-					if(this.currentView) {
-						this.currentView.dispose();
-					};
+						// Dispose
+						if(this.currentView) {
+							this.currentView.dispose();
+						};
 
-					this.currentView = view;
+						this.currentView = view;
+					}.bind(this));
+
+					// Start animation
+					this.nextView.startAnimation();
+
 				}.bind(this));
+
+				if(this.currentView.endAnimation) {
+					this.currentView.endAnimation();
+				}
 			}
 		}
-
 	});
 
 })();;var phoneGap = {

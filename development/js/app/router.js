@@ -71,7 +71,6 @@
 
 					this.currentView.on("startAnimationComplete", function() {
 						console.log("Router: startAnimationComplete");
-						this.currentView.off("startAnimationComplete");
 					}.bind(this));
 
 					this.currentView.startAnimation();
@@ -87,34 +86,38 @@
 			}else {
 				this.nextView = view;
 
-				// Animation out
-				$(this.currentView.$el).css({ opacity: 1 });
-				$(this.currentView.$el).animate({
-					opacity: 0
-				}, 400, function() {
+				this.currentView.on("endAnimationComplete", function() {
+					console.log("Router: endAnimationComplete");
 
-					// Render
+					 // Render
 					$("#main").html(this.nextView.render().$el);
 
-					// Animation in
-					$(this.nextView.$el).css({opacity: 0});
-					$(this.nextView.$el).animate({opacity: 1}, 300);
+					this.nextView.on("startAnimationComplete", function() {
+						console.log("Router: startAnimationComplete");
 
-					// After render
-					if(this.nextView.afterRender){
-						this.nextView.afterRender();
-					};
+						// After render
+						if(this.nextView.afterRender) {
+							this.nextView.afterRender();
+						};
 
-					// Dispose
-					if(this.currentView) {
-						this.currentView.dispose();
-					};
+						// Dispose
+						if(this.currentView) {
+							this.currentView.dispose();
+						};
 
-					this.currentView = view;
+						this.currentView = view;
+					}.bind(this));
+
+					// Start animation
+					this.nextView.startAnimation();
+
 				}.bind(this));
+
+				if(this.currentView.endAnimation) {
+					this.currentView.endAnimation();
+				}
 			}
 		}
-
 	});
 
 })();

@@ -93,6 +93,28 @@
             });
         },
         /*
+            Start animation
+        */
+        startAnimation: function() {
+            console.log("onboarding: startAnimation");
+
+            $(this.$el).css({opacity: 0});
+            $(this.$el).animate({opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("onboarding: endAnimation");
+
+            $(this.$el).css({opacity: 1});
+            $(this.$el).animate({opacity: 0}, 300, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
+        },
+        /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function(){

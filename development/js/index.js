@@ -35,8 +35,8 @@ var phoneGap = {
         Update DOM on a Received Event
     */
     receivedEvent: function(id) {
-        var parentElement = document.getElementById("notification");
-            parentElement.innerHTML = "Received Event: " + id;
+        // var parentElement = document.getElementById("notification");
+        //     parentElement.innerHTML = "Received Event: " + id;
     }
 };
 
