@@ -1,0 +1,64 @@
+/*
+	Onboarding scss
+*/
+/* line 7, ../../scss/blocks/onboarding.scss */
+.onboarding input {
+  border: none;
+  width: 100%;
+  font-size: 2em;
+  color: #555;
+  background: #E5E0CE;
+  font-family: Anivers-Regular;
+}
+/* line 17, ../../scss/blocks/onboarding.scss */
+.onboarding__item {
+  width: 320px;
+  height: 500px;
+}
+/* line 21, ../../scss/blocks/onboarding.scss */
+.onboarding__item-title {
+  padding-top: 25px;
+}
+/* line 25, ../../scss/blocks/onboarding.scss */
+.onboarding__item-img {
+  padding-top: 25px;
+}
+/* line 28, ../../scss/blocks/onboarding.scss */
+.onboarding__item-img img {
+  max-width: 100%;
+}
+/* line 33, ../../scss/blocks/onboarding.scss */
+.onboarding__item-input {
+  border-bottom: 1px solid black;
+  padding: 25px 0px 4px;
+}
+/* line 39, ../../scss/blocks/onboarding.scss */
+.onboarding__content {
+  max-width: 320px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+/* line 46, ../../scss/blocks/onboarding.scss */
+.onboarding__section {
+  padding-top: 1px;
+  overflow: hidden;
+}
+/* line 51, ../../scss/blocks/onboarding.scss */
+.onboarding__nav {
+  padding-top: 1px;
+}
+/* line 55, ../../scss/blocks/onboarding.scss */
+.onboarding__pag {
+  padding-top: 25px;
+}
+/* line 58, ../../scss/blocks/onboarding.scss */
+.onboarding__pag-ul {
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+}
+/* line 64, ../../scss/blocks/onboarding.scss */
+.onboarding__pag-li {
+  display: inline-block;
+}

@@ -21,6 +21,20 @@ module.exports = function(grunt) {
 	 			dest: 'www/static/js/lib.min.js',
 	 		}
 	 	},
+	 	compass: {
+	 		dist: {
+	 			options: {
+	 				sassDir: 'development/scss/',
+	 				cssDir: 'development/css/',
+	 			},
+	 		},
+	 	},
+	 	concat_css: {
+    		all: {
+      			src: ['development/css/font.css', 'development/css/layout.css', 'development/css/blocks/*.css'],
+      			dest: 'www/static/css/style.css',
+    		},
+  		},
 	 	concat: {
 	 		options: {
 	 			separator: ';',
@@ -34,6 +48,10 @@ module.exports = function(grunt) {
 	 			dest: 'www/static/js/lib.js',
 	 		},
 	 	},
+  		clean: {
+  			css: ['www/static/css', 'development/css'],
+  			js: ['www/static/js'],
+  		},
   		watch: {
   			options: {
   				livereload: true,
@@ -42,13 +60,14 @@ module.exports = function(grunt) {
   				files: ['development/js/app/**/*.js', 'development/js/lib/*.js', 'developement/js/*.js'],
   				tasks: 'update-js',
   			},
+  			css: {
+  				files: ['development/scss/**/*.scss'],
+  				tasks: 'update-css',
+  			},
   			templates: {
   				files: 'index.html',
   			},
   		},
-  		clean: {
-  			js: ['www/static/js'],
-  		}
 	});
 
 	/** Load npm tasks from node_modules **/
@@ -56,14 +75,17 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-concat-css');
 
 	/** Grunt tasks **/
 
 	grunt.registerTask('update-js', ['clean:js', 'concat:app', 'concat:lib', 'uglify:app', 'uglify:lib' ]);
+	grunt.registerTask('update-css', ['clean:css', 'compass', 'concat_css']);
 
-	grunt.registerTask('default', ['update-js']);
-	grunt.registerTask('development', ['update-js']);
+	grunt.registerTask('default', ['update-js', 'update-css']);
+	grunt.registerTask('development', ['update-js', 'update-css']);
 };
 
 // Don't cross this line ----------------------------------

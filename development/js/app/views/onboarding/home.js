@@ -1,14 +1,14 @@
 (function(){
 
-    beehome.views.app.main = Backbone.View.extend({
+    beehome.views.onboarding.home = Backbone.View.extend({
         /*
             ClassName of the view, creates html element wrapped around the template
         */
-        className: "app",
+        className: "onboarding",
         /*
-
+            Subview id inside the main template
         */
-        subView: "#app-subview",
+        subView: "#onboarding-subview",
         /* 
             Events of the view
         */
@@ -18,15 +18,14 @@
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function (){
-            console.log("views app main");
+
         },
         /*
-            Renders the main view of the app
+            Renders the home view of the app
          */
         render: function ()
         {
-            console.log("render views app main");
-            var templateSource = $('#template-app').html();
+            var templateSource = $("#template-onboarding").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
 
@@ -37,14 +36,23 @@
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function(){
+        afterRender:function()
+        {
+            console.log("After render");
 
+            var templateSource = $("#template-onboarding-home").html();
+            var template = Handlebars.compile(templateSource);
+            var data = {};
+            var subView = template(data);
+
+            $(this.subView).html(subView);
+            $("#onboarding-input-home").focus();
         },
         /*
             Start animation
         */
         startAnimation: function() {
-            console.log("app main: startAnimation");
+            console.log("onboarding: startAnimation");
 
             $(this.$el).css({opacity: 0});
             $(this.$el).animate({opacity: 1}, 300, function(){
@@ -55,7 +63,7 @@
             End animation
         */
         endAnimation: function() {
-            console.log("app main: endAnimation");
+            console.log("onboarding: endAnimation");
 
             $(this.$el).css({opacity: 1});
             $(this.$el).animate({opacity: 0}, 300, function(){
@@ -65,7 +73,7 @@
         /*
             Dispose function kills and deletes events and binded data
         */
-        dispose:function(){
+        dispose:function() {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -74,5 +82,4 @@
             Backbone.View.prototype.remove.call(this);
         }
     });
-
 })();

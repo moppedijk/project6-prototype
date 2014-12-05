@@ -1,27 +1,31 @@
 (function(){
 
-    beehome.views.confirm = Backbone.View.extend({
+    beehome.views.app.sensor = Backbone.View.extend({
         /*
             ClassName of the view, creates html element wrapped around the template
         */
-        className: "confirm",
+        className: "app",
+        /*
+            Subview id inside the main template
+        */
+        subView: "#app-subview",
         /* 
             Events of the view
         */
         events: {
-            'click #beginscherm': 'onBeginschermClickHandler'
         },
         /*
             Initialize function of the view, get's called when views contructor is called
          */
-        initialize: function () {
+        initialize: function (){
 
         },
         /*
-            Renders the main view of the app
+            Renders the room view of the app
          */
-        render: function () {
-            var templateSource = $('#template-confirm').html();
+        render: function ()
+        {
+            var templateSource = $("#template-app").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
 
@@ -32,21 +36,22 @@
         /*
             After render function get's called after view is rendered
         */
-        afterRender: function () {
-        },
-        /*
-            Click handler for the #beginscherm element
-        */
-        onBeginschermClickHandler: function() {
-            beehome.app.router.navigate("onboarding", {
-                trigger: true
-            })
+        afterRender:function()
+        {
+            console.log("After render");
+
+            var templateSource = $("#template-app-sensor").html();
+            var template = Handlebars.compile(templateSource);
+            var data = {};
+            var subView = template(data);
+
+            $(this.subView).html(subView);
         },
         /*
             Start animation
         */
         startAnimation: function() {
-            console.log("confirm: startAnimation");
+            console.log("app: startAnimation");
 
             $(this.$el).css({opacity: 0});
             $(this.$el).animate({opacity: 1}, 300, function(){
@@ -57,7 +62,7 @@
             End animation
         */
         endAnimation: function() {
-            console.log("confirm: endAnimation");
+            console.log("app: endAnimation");
 
             $(this.$el).css({opacity: 1});
             $(this.$el).animate({opacity: 0}, 300, function(){
@@ -67,7 +72,7 @@
         /*
             Dispose function kills and deletes events and binded data
         */
-        dispose: function () {
+        dispose:function() {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 

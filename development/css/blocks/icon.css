@@ -1,0 +1,18 @@
+/* line 1, ../../scss/blocks/icon.scss */
+.icon {
+  display: inline-block;
+}
+/* line 4, ../../scss/blocks/icon.scss */
+.icon--loader {
+  background-image: url("../../img/loader.gif");
+  background-size: 96px 105px;
+  width: 96px;
+  height: 105px;
+}
+/* line 10, ../../scss/blocks/icon.scss */
+.icon--wifi {
+  background-image: url("../../img/wifi.gif");
+  background-size: 99px 78px;
+  width: 99px;
+  height: 78px;
+}

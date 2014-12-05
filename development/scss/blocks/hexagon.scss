@@ -1,0 +1,41 @@
+.hexagon {
+
+	width: 20px;
+	height: 11px;
+	background: #FA9326;
+	position: relative;
+	display:inline-block;
+
+	&:before {
+
+		content: "";
+		position: absolute;
+		top: -5px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-bottom: 5px solid #FA9326;
+	}
+
+	&:after {
+
+		content: "";
+		position: absolute;
+		bottom: -5px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 5px solid #FA9326;
+	}
+
+	&-large{
+		
+		display: block;
+		width: 40vh;
+		margin: 0 auto;
+	}
+}

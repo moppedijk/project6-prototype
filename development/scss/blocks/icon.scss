@@ -1,0 +1,16 @@
+.icon {
+	display: inline-block;
+
+	&--loader {
+		background-image: url("../../img/loader.gif");
+		background-size: 96px 105px;
+		width: 96px;
+		height: 105px;
+	}
+	&--wifi {
+		background-image: url("../../img/wifi.gif");
+		background-size: 99px 78px;
+		width: 99px;
+		height: 78px;
+	}
+}

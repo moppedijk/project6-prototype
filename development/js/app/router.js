@@ -1,6 +1,6 @@
-(function(){
+( function ( ) {
 
-	beehome.router = Backbone.Router.extend({
+	beehome.router = Backbone.Router.extend ( {
 		/*
 			Currentview variable holds the current view of the application
 		*/
@@ -16,73 +16,122 @@
 		*/
 		routes: {
 			'': 'showMain',
-			'main': 'showMain',
-			'confirm': 'showConfirm',
 			'onboarding': 'showOnboarding',
-			'app': 'showAppMain'
+			'onboarding/:page': 'showOnboarding',
+			'app': 'showApp',
+			'app/:page': 'showApp',
+			'app/:page/:action': 'showApp'
 		},
 		/*
 			Initialize function is called when contructor object get's called
 		*/
-		initialize: function() {
+		initialize: function ( ) {
 		},
 		/*
 			Show main function creates the main view
 		*/
-		showMain: function() {
+		showMain: function ( ) {
 			var view = new beehome.views.main();
 			this.showView(view);
 		},
 		/*
 			Show confirm function creates confirm view
 		*/
-		showConfirm: function () {
-			var view = new beehome.views.confirm();
-			this.showView(view);
-		},
-		/*
-			Show confirm function creates confirm view
-		*/
-		showOnboarding: function () {
-			var view = new beehome.views.onboarding();
-			this.showView(view);
+		showOnboarding: function ( page ) {
+
+			if(!page) {
+				var view = new beehome.views.onboarding.main();
+				this.showView(view);
+			} else {
+				switch(page) {
+					case "home":
+						var view = new beehome.views.onboarding.home();
+						this.showView(view);
+					break;
+					case "room":
+						var view = new beehome.views.onboarding.room();
+						this.showView(view);
+					break;
+					case "sensor":
+						var view = new beehome.views.onboarding.sensor();
+						this.showView(view);
+					break;
+					case "sensor2":
+						var view = new beehome.views.onboarding.sensor2();
+						this.showView(view);
+					break;
+					case "end":
+						var view = new beehome.views.onboarding.end();
+						this.showView(view);
+					break;
+				}
+			}
 		},
 		/*
 			Show app main function creates confirm view
 		*/
-		showAppMain: function () {
-			var view = new beehome.views.app.main();
-			this.showView(view);
+		showApp: function ( page, action ) {
+			console.log("showApp");
+
+			if(!page) {
+				var view = new beehome.views.app.main();
+				this.showView(view);
+			} else {
+				switch(page) {
+					case "dashboard":
+						var view = new beehome.views.app.dashboard();
+						this.showView(view);
+					break;
+					case "home":
+						var view = new beehome.views.app.home();
+						this.showView(view);
+					break;
+					case "room":
+						var view = new beehome.views.app.room();
+						this.showView(view);
+					break;
+					case "sensor":
+						var view = new beehome.views.app.sensor();
+						this.showView(view);
+					break;
+					case "options":
+						var view = new beehome.views.app.option();
+						this.showView(view);
+					break;
+				}
+			}
 		},
 		/*
 			Show view shows the new view
 			@params: view object
 		*/
-		showView: function(view) {
+		showView: function( view ) {
 
+			// If their is no view
 			if(!this.currentView) {
 				this.currentView = view;
 				
 				// Render
 				$("#main").html(this.currentView.render().$el);
 
+				// After render
+				if(this.currentView.afterRender){
+					this.currentView.afterRender();
+				};
+
 				// Animation in
 				if(this.currentView.startAnimation) {
 
 					this.currentView.on("startAnimationComplete", function() {
 						console.log("Router: startAnimationComplete");
+						this.currentView.off("startAnimationComplete");
 					}.bind(this));
 
 					this.currentView.startAnimation();
 				}else {
-					$(this.currentView.$el).css({ opacity: 0});
-					$(this.currentView.$el).animate({ opacity: 1}, 300);
+					alert("NO currentView in animation");
 				}
 
-				// After render
-				if(this.currentView.afterRender){
-					this.currentView.afterRender();
-				};		
 			}else {
 				this.nextView = view;
 
@@ -92,13 +141,13 @@
 					 // Render
 					$("#main").html(this.nextView.render().$el);
 
+					// After render
+					if(this.nextView.afterRender) {
+						this.nextView.afterRender();
+					};
+
 					this.nextView.on("startAnimationComplete", function() {
 						console.log("Router: startAnimationComplete");
-
-						// After render
-						if(this.nextView.afterRender) {
-							this.nextView.afterRender();
-						};
 
 						// Dispose
 						if(this.currentView) {
@@ -106,6 +155,7 @@
 						};
 
 						this.currentView = view;
+						this.currentView.off("startAnimationComplete");
 					}.bind(this));
 
 					// Start animation
@@ -115,6 +165,8 @@
 
 				if(this.currentView.endAnimation) {
 					this.currentView.endAnimation();
+				}else {
+					alert("NO currentView end animation");
 				}
 			}
 		}

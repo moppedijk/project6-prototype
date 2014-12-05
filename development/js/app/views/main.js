@@ -14,7 +14,6 @@
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function() {
-            _.bindAll(this, "startAnimation");
         },
         /*
             Renders the main view of the app
@@ -33,11 +32,6 @@
         */
         afterRender:function() {
 
-            window.setTimeout(function() {
-                beehome.app.router.navigate("confirm", {
-                    trigger: true
-                });
-            }, 2000);
         },
         /*
             Dispose function kills and deletes events and binded data
@@ -56,24 +50,41 @@
         startAnimation:function() {
             console.log("Main: startAnimation");
 
-            $(".logo").css({
-                paddingTop: "0px"
+            $("#main-logo").css({
+                marginTop: "-100px"
             });
-            $(".logo").animate({
-                paddingTop: "100px"
-            }, 400).delay(500);
 
-            $(".loader").css({
+            $("#main-loader").css({
                 opacity: 0
             });
-            $(".loader").animate({
-                opacity: 1
-            }, 200).delay(500);
+            $("#main-tagline1").css({
+                opacity: 0
+            });
+            $("#main-tagline2").css({
+                opacity: 0
+            });
 
-            $(this.$el).css({ opacity: 1});
-            $(this.$el).animate({ opacity: 1}, 300, function(){
-                this.trigger("startAnimationComplete");
-            }.bind(this));
+            // Animation in
+            TweenLite.to("#main-logo", 0.5, { marginTop: 100, ease:Elastic.easeIn });
+            TweenLite.to("#main-loader", 0.5, { opacity:1, delay:1 } );
+            TweenLite.to("#main-tagline1", 0.5, { opacity:1, delay:1.5 } );
+            TweenLite.to("#main-found", 0.5, { opacity:1, delay:2 } );
+
+            //Animation out
+            TweenLite.to("#main-tagline1", 0.3, { opacity:0, delay:9, onComplete: function ( ) {
+                $("#main-tagline1").hide();
+            } } );
+            TweenLite.to("#main-loader", 0.3, { opacity:0, delay:9.3, onComplete: function ( ) {
+                $("#main-loader").hide();
+            } } );
+            TweenLite.to("#main-logo", 0.3, { marginTop: 40, delay:10 } );
+
+            TweenLite.to("#main-tagline2", 1, { opacity:1, delay: 10.3, onComplete: this.animationComplete });
+        },
+        animationComplete: function ( ) {
+            beehome.app.router.navigate("onboarding/home", {
+                trigger: true
+            })
         },
         /*
             End animation
@@ -81,8 +92,10 @@
         endAnimation: function() {
             console.log("Main: endAnimation");
 
-            $(this.$el).css({ opacity: 1 });
-            $(this.$el).animate({ opacity: 0 }, 400, function(){
+            TweenLite.to("#main-tagline2", 0.5, { opacity:0 });
+            TweenLite.to("#main-found", 0.5, { opacity:0 } );
+
+            $("#main-logo").animate({ marginTop: "-100", opacity: 0 }, 700, function(){
                 this.trigger("endAnimationComplete");
             }.bind(this));
         }

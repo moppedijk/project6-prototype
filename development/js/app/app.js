@@ -7,6 +7,7 @@ var beehome = beehome || {};
     beehome.collections = beehome.collections || {};
     beehome.views = beehome.views || {};
     beehome.views.app = beehome.views.app || {};
+    beehome.views.onboarding = beehome.views.onboarding || {};
 
 (function(){
 
