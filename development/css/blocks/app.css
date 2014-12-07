@@ -1,4 +1,86 @@
-/* line 3, ../../scss/blocks/app.scss */
+/* line 4, ../../scss/blocks/app.scss */
+.app__title h1 {
+  font-size: 21px;
+}
+/* line 9, ../../scss/blocks/app.scss */
+.app__carousel {
+  height: 110px;
+  overflow: hidden;
+  padding-top: 10px;
+}
+/* line 14, ../../scss/blocks/app.scss */
+.app__carousel ul {
+  width: 20000em;
+  position: relative;
+  list-style: none;
+  margin: 0;
+}
+/* line 21, ../../scss/blocks/app.scss */
+.app__carousel li {
+  float: left;
+  width: 272px;
+}
+/* line 27, ../../scss/blocks/app.scss */
+.app__carousel-hgroup h1 {
+  font-size: 29px;
+}
+/* line 30, ../../scss/blocks/app.scss */
+.app__carousel-hgroup h2 {
+  font-size: 60px;
+}
+/* line 35, ../../scss/blocks/app.scss */
+.app__carousel-nav {
+  text-align: center;
+  padding: 10px 0px;
+  margin-bottom: 29px;
+}
+/* line 40, ../../scss/blocks/app.scss */
+.app__carousel-nav a {
+  margin: 0px 5px;
+}
+/* line 43, ../../scss/blocks/app.scss */
+.app__carousel-nav a .icon {
+  transition: background-position .2s ease;
+  background-position: top left;
+}
+/* line 50, ../../scss/blocks/app.scss */
+.app__carousel-nav .active .icon {
+  background-position: bottom left;
+}
+/* line 57, ../../scss/blocks/app.scss */
+.app__flower {
+  background-image: url("../../img/app-flower.png");
+  background-size: 119px 254px;
+  width: 119px;
+  height: 254px;
+  margin: 0 auto;
+}
+/* line 65, ../../scss/blocks/app.scss */
+.app__overlay {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(242, 215, 173, 0.9);
+  z-index: 1;
+}
+/* line 75, ../../scss/blocks/app.scss */
+.app__overlay-content {
+  padding: 70px 25px 25px;
+}
+/* line 78, ../../scss/blocks/app.scss */
+.app__overlay-content p {
+  font-size: 18px;
+}
+/* line 83, ../../scss/blocks/app.scss */
+.app__overlay-nav {
+  padding: 0px 25px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+/* line 90, ../../scss/blocks/app.scss */
 .app__menu-bar {
   position: absolute;
   width: 100%;
@@ -7,12 +89,12 @@
   left: 0;
   bottom: 0;
 }
-/* line 11, ../../scss/blocks/app.scss */
+/* line 98, ../../scss/blocks/app.scss */
 .app__menu-bar ul {
   list-style: none;
   height: 100%;
 }
-/* line 15, ../../scss/blocks/app.scss */
+/* line 102, ../../scss/blocks/app.scss */
 .app__menu-bar ul li {
   float: left;
   width: 25%;
@@ -20,14 +102,14 @@
   vertical-align: top;
   color: #E5E0CE;
 }
-/* line 22, ../../scss/blocks/app.scss */
+/* line 109, ../../scss/blocks/app.scss */
 .app__menu-bar ul li img {
   display: block;
   height: 50%;
   margin: auto;
   margin-top: 0.3em;
 }
-/* line 29, ../../scss/blocks/app.scss */
+/* line 116, ../../scss/blocks/app.scss */
 .app__menu-bar ul li span {
   display: block;
   text-align: center;

@@ -16,12 +16,24 @@ var beehome = beehome || {};
             Initialize function of the beehome application
             Start the router and backbone history
         */
-        initialize: function() {
-
+        initialize: function (){
+            
             this.router = new beehome.router();
             Backbone.history.start(); 
         }
     };
+
+})();;(function(){
+	
+	beehome.models.user = Backbone.Model.extend({
+		initialize: function () {
+			console.log("User model");
+		},
+		reset: function () {
+			console.log("User model reset");
+		}
+
+	});
 
 })();;(function(){
 
@@ -38,6 +50,7 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
+            "click #btn-close-app-overlay": "onCloseOverlayClick"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -71,6 +84,36 @@ var beehome = beehome || {};
             var subView = template(data);
 
             $(this.subView).html(subView);
+
+            setTimeout(this.initCarousel, 500);
+        },
+        initCarousel: function () {
+            $('.app__carousel').jcarousel({
+                animation: {
+                    duration: 200
+                }
+            });
+
+            $('.app__carousel-nav')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination({
+                'item': function(page, carouselItems) {
+                    return '<a href="javascript:void(0);"><i class="icon icon--hexagon"></i></a>';
+                }
+            });
+        },
+        onCloseOverlayClick: function() {
+            $("#app-overlay").css({
+                opacity: 1
+            });
+            TweenLite.to("#app-overlay", 0.5, { opacity: 0, onComplete: function() {
+                $("#app-overlay").hide();
+            } });
         },
         /*
             Start animation
@@ -554,6 +597,8 @@ var beehome = beehome || {};
             Dispose function kills and deletes events and binded data
         */
         dispose:function() {
+            console.log("Dipsose");
+
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -578,6 +623,9 @@ var beehome = beehome || {};
                 opacity: 0
             });
             $("#main-tagline2").css({
+                opacity: 0
+            });
+            $("#main-found").css({
                 opacity: 0
             });
 
@@ -611,10 +659,9 @@ var beehome = beehome || {};
 
             TweenLite.to("#main-tagline2", 0.5, { opacity:0 });
             TweenLite.to("#main-found", 0.5, { opacity:0 } );
-
-            $("#main-logo").animate({ marginTop: "-100", opacity: 0 }, 700, function(){
+            TweenLite.to("#main-logo", 0.5, {opacity: 0, delay: 1, onComplete: function () {
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this) } );
         }
     });
 })();;(function(){
@@ -713,17 +760,17 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
+            "keypress #onboarding-input-home": "onInputKeyPress"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function (){
-
         },
         /*
             Renders the home view of the app
          */
-        render: function ()
+        render: function()
         {
             var templateSource = $("#template-onboarding").html();
             var template = Handlebars.compile(templateSource);
@@ -736,7 +783,7 @@ var beehome = beehome || {};
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function()
+        afterRender: function()
         {
             console.log("After render");
 
@@ -748,16 +795,49 @@ var beehome = beehome || {};
             $(this.subView).html(subView);
             $("#onboarding-input-home").focus();
         },
+        onInputKeyPress: function(e)
+        {
+            // On enter
+            if(e.keyCode == 13) {
+
+                // Save user data
+                beehome.app.user.set({
+                    home: e.currentTarget.value
+                });
+
+                // Navigate to next step
+                beehome.app.router.navigate("onboarding/room", {
+                    trigger: true
+                });
+            }
+        },
         /*
             Start animation
         */
         startAnimation: function() {
             console.log("onboarding: startAnimation");
 
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
+            $("#onboarding-nav").css({
+                opacity: 0
+            });
+            $("#onboarding-home-title").css({
+                opacity: 0
+            });
+            $("#onboarding-home-img").css({
+                left: -300,
+                opacity: 0
+            });
+            $("#onboarding-home-input").css({
+                opacity: 0
+            });
+
+            // Animation in
+            TweenLite.to("#onboarding-home-img", 0.5, { left: 0, opacity: 1, delay: 0 });
+            TweenLite.to("#onboarding-nav", 0.4, { opacity: 1, delay: 0.5 });
+            TweenLite.to("#onboarding-home-title", 0.4, { opacity: 1, delay: 0.9 });
+            TweenLite.to("#onboarding-home-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
                 this.trigger("startAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             End animation
@@ -765,15 +845,25 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
+            $("#onboarding-home-bee").css({
+                top: 400,
+                left: 400,
+                opacity: 1
+            });
+
+            TweenLite.to("#onboarding-home-title", 0.4, { opacity: 0 });
+            TweenLite.to("#onboarding-home-input", 0.4, { opacity: 0, delay: 0.4 });
+            TweenLite.to("#onboarding-home-bee", 1, { top: 198, left: 154, delay: 1});
+            TweenLite.to("#onboarding-home-img", 0.5, { opacity: 0, delay: 2.5 });
+            TweenLite.to("#onboarding-home-bee", 0.5, { opacity: 0, delay: 2.5, onComplete: function(){
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function() {
+            console.log("Dispose onboarding home");
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -869,6 +959,7 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
+            "keypress #onboarding-input-room": "onInputKeyPress"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -899,7 +990,27 @@ var beehome = beehome || {};
             var data = {};
             var subView = template(data);
 
+            // Add to stage
             $(this.subView).html(subView);
+
+            // Focus input
+            $("#onboarding-input-room").focus();
+        },
+        onInputKeyPress: function(e)
+        {
+            // On enter
+            if(e.keyCode == 13) {
+
+                // Save user data
+                beehome.app.user.set({
+                    room: e.currentTarget.value
+                });
+
+                // Navigate to next step
+                beehome.app.router.navigate("onboarding/sensor", {
+                    trigger: true
+                });
+            }
         },
         /*
             Start animation
@@ -907,10 +1018,22 @@ var beehome = beehome || {};
         startAnimation: function() {
             console.log("onboarding: startAnimation");
 
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
+            $("#onboarding-room-title").css({
+                opacity: 0
+            });
+            $("#onboarding-room-img").css({
+                opacity: 0,
+                left: -400
+            })
+            $("#onboarding-room-input").css({
+                opacity: 0
+            });
+
+            TweenLite.to("#onboarding-room-img", 0.5, { left: 0, opacity: 1, delay: 0 });
+            TweenLite.to("#onboarding-room-title", 0.4, { opacity: 1, delay: 0.9 });
+            TweenLite.to("#onboarding-room-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
                 this.trigger("startAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             End animation
@@ -918,10 +1041,24 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
+            // onboarding-room-animation
+
+            $("#onboarding-room-bee").css({
+                left: 400,
+                top: 400,
+                opacity: 1
+            })
+
+            TweenLite.to("#onboarding-room-title", 0.4, { opacity: 0 });
+            TweenLite.to("#onboarding-room-input", 0.4, { opacity: 0, delay: 0.4 });
+            TweenLite.to("#onboarding-room-img", 0.5, { opacity: 0, left: 400, delay: 1 });
+            TweenLite.to("#onboarding-room-animation", 0.5, { opacity: 1, delay: 1.5 });
+            TweenLite.to("#onboarding-room-bee", 0.5, { top: 180, left: 210, delay: 1.5 });
+
+            TweenLite.to("#onboarding-room-animation", 0.5, { opacity: 0, delay: 5 });
+            TweenLite.to("#onboarding-room-bee", 0.5, { opacity: 0, delay: 5, onComplete: function(){
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             Dispose function kills and deletes events and binded data
@@ -946,10 +1083,16 @@ var beehome = beehome || {};
             Subview
         */
         subView: "#onboarding-subview",
+        /*
+            Sensor input value, default 35
+        */
+        sensorInputValue: 35,
         /* 
             Events of the view
         */
         events: {
+            "click #btn-sensor-save": "onSensorSaveClick",
+            "click #btn-sensor-next": "onSensorNextClick"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -980,34 +1123,103 @@ var beehome = beehome || {};
             var data = {};
             var subView = template(data);
 
+            // Add to stage
             $(this.subView).html(subView);
+
+            // Init carousel
+            setTimeout(this.initCarousel, 500);
+        },
+        initCarousel: function ()
+        {
+            $('.onboarding__selection').jcarousel({
+                animation: {
+                    duration: 200
+                }
+            });
+            $('.onboarding__selection').jcarousel('scroll', 6);
+
+            $('.onboarding__selection').on('jcarousel:targetin', 'li', function() {
+                $(this).addClass('active');
+                beehome.views.onboarding.sensor.sensorInputValue = $(this).attr('data-rel');
+            });
+
+            $('.onboarding__selection').on('jcarousel:targetout', 'li', function() {
+                $(this).removeClass('active');
+            })
+
+            $('.onboarding__selection-next').click(function() {
+                $('.onboarding__selection').jcarousel('scroll', '-=1');
+            });
+
+            $('.onboarding__selection-prev').click(function() {
+                $('.onboarding__selection').jcarousel('scroll', '+=1');
+            });
+        },
+        onSensorSaveClick: function() {
+            beehome.app.user.set({sensor: beehome.views.onboarding.sensor.sensorInputValue});
+            beehome.app.router.navigate("onboarding/sensor2", {
+                trigger: true
+            });
+            this.setWattValue();
+        },
+        onSensorNextClick: function() {
+            beehome.app.user.set({sensor: false});
+            beehome.app.router.navigate("onboarding/sensor2", {
+                trigger: true
+            });
+            this.setWattValue();
+        },
+        setWattValue: function() {
+            $("#onboarding-sensor-watt").html(beehome.app.user.get("sensor"));
         },
         /*
             Start animation
         */
         startAnimation: function() {
-            console.log("onboarding: startAnimation");
+            console.log("Sensor: startAnimation");
 
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
+            $("#onboarding-sensor-title").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor-carousel").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor-amount").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor-nav").css({
+                opacity: 0
+            });
+
+            // Animation in
+            TweenLite.to("#onboarding-sensor-title", 0.4, { opacity: 1 });
+            TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 1, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor-amount", 0.4, { opacity: 1, delay: 0.9 });
+            TweenLite.to("#onboarding-sensor-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
                 this.trigger("startAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             End animation
         */
         endAnimation: function() {
-            console.log("onboarding: endAnimation");
+            console.log("Sensor: endAnimation");
 
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
+            TweenLite.to("#onboarding-sensor-title", 0.4, { opacity: 0 });
+            TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor-amount", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor-nav", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor-animation", 0.4, { opacity: 1, delay: 1 });
+            TweenLite.to("#onboarding-sensor-animation", 0.4, { opacity: 0, delay: 4, onComplete: function() {
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this)  });
         },
         /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function() {
+            console.log("Sensor: dispose");
+
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -1027,10 +1239,15 @@ var beehome = beehome || {};
             Subview
         */
         subView: "#onboarding-subview",
+        /*
+            Sensor 2 input value
+        */
+        sensor2InputValue: 07,
         /* 
             Events of the view
         */
         events: {
+            "click #btn-sensor2-save": "onBtnSensor2Click"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -1062,33 +1279,90 @@ var beehome = beehome || {};
             var subView = template(data);
 
             $(this.subView).html(subView);
+
+            // Init carousel
+            setTimeout(this.initCarousel, 500);
+        },
+        initCarousel: function ()
+        {
+            $('.onboarding__selection').jcarousel({
+                animation: {
+                    duration: 200
+                }
+            });
+            $('.onboarding__selection').jcarousel('scroll', 6);
+
+            $('.onboarding__selection').on('jcarousel:targetin', 'li', function() {
+                $(this).addClass('active');
+                beehome.views.onboarding.sensor2.sensor2InputValue = $(this).attr('data-rel');
+            });
+
+            $('.onboarding__selection').on('jcarousel:targetout', 'li', function() {
+                $(this).removeClass('active');
+            })
+
+            $('.onboarding__selection-next').click(function() {
+                $('.onboarding__selection').jcarousel('scroll', '-=1');
+            });
+
+            $('.onboarding__selection-prev').click(function() {
+                $('.onboarding__selection').jcarousel('scroll', '+=1');
+            });
+        },
+        onBtnSensor2Click: function() {
+            beehome.app.user.set({sensor2: beehome.views.onboarding.sensor2.sensor2InputValue })
+            beehome.app.router.navigate("onboarding/end", {
+                trigger: true
+            })
         },
         /*
             Start animation
         */
         startAnimation: function() {
-            console.log("onboarding: startAnimation");
+            console.log("Sensor2: startAnimation");
 
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
+            $("#onboarding-sensor2-title").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor2-carousel").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor2-amount").css({
+                opacity: 0
+            });
+            $("#onboarding-sensor2-nav").css({
+                opacity: 0
+            });
+
+            // Animation in
+            TweenLite.to("#onboarding-sensor2-title", 0.4, { opacity: 1 });
+            TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 1, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor2-amount", 0.4, { opacity: 1, delay: 0.9 });
+            TweenLite.to("#onboarding-sensor2-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
                 this.trigger("startAnimationComplete");
-            }.bind(this));
+            }.bind(this) });
         },
         /*
             End animation
         */
         endAnimation: function() {
-            console.log("onboarding: endAnimation");
+            console.log("Sensor2: endAnimation");
 
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
+            TweenLite.to("#onboarding-sensor2-title", 0.4, { opacity: 0 });
+            TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor2-amount", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor2-nav", 0.4, { opacity: 0, delay: 0.5 });
+            TweenLite.to("#onboarding-sensor2-animation", 0.4, { opacity: 1, delay: 1 });
+            TweenLite.to("#onboarding-sensor2-animation", 0.4, { opacity: 0, delay: 4, onComplete: function() {
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this)  });
         },
         /*
             Dispose function kills and deletes events and binded data
         */
         dispose:function() {
+            console.log("Sensor2: dispose");
+            
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -1125,6 +1399,7 @@ var beehome = beehome || {};
 			Initialize function is called when contructor object get's called
 		*/
 		initialize: function ( ) {
+			beehome.app.user = new beehome.models.user();
 		},
 		/*
 			Show main function creates the main view

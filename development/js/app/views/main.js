@@ -37,6 +37,8 @@
             Dispose function kills and deletes events and binded data
         */
         dispose:function() {
+            console.log("Dipsose");
+
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -61,6 +63,9 @@
                 opacity: 0
             });
             $("#main-tagline2").css({
+                opacity: 0
+            });
+            $("#main-found").css({
                 opacity: 0
             });
 
@@ -94,10 +99,9 @@
 
             TweenLite.to("#main-tagline2", 0.5, { opacity:0 });
             TweenLite.to("#main-found", 0.5, { opacity:0 } );
-
-            $("#main-logo").animate({ marginTop: "-100", opacity: 0 }, 700, function(){
+            TweenLite.to("#main-logo", 0.5, {opacity: 0, delay: 1, onComplete: function () {
                 this.trigger("endAnimationComplete");
-            }.bind(this));
+            }.bind(this) } );
         }
     });
 })();

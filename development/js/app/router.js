@@ -26,6 +26,7 @@
 			Initialize function is called when contructor object get's called
 		*/
 		initialize: function ( ) {
+			beehome.app.user = new beehome.models.user();
 		},
 		/*
 			Show main function creates the main view

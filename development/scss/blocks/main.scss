@@ -21,6 +21,10 @@
 	}
 	&__tagline {
 		text-align: center;
+
+		&--second {
+			padding-top: 70px;
+		}
 	}
 	&__found {
 		text-align: center;

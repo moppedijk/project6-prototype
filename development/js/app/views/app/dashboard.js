@@ -13,6 +13,7 @@
             Events of the view
         */
         events: {
+            "click #btn-close-app-overlay": "onCloseOverlayClick"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -46,6 +47,36 @@
             var subView = template(data);
 
             $(this.subView).html(subView);
+
+            setTimeout(this.initCarousel, 500);
+        },
+        initCarousel: function () {
+            $('.app__carousel').jcarousel({
+                animation: {
+                    duration: 200
+                }
+            });
+
+            $('.app__carousel-nav')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination({
+                'item': function(page, carouselItems) {
+                    return '<a href="javascript:void(0);"><i class="icon icon--hexagon"></i></a>';
+                }
+            });
+        },
+        onCloseOverlayClick: function() {
+            $("#app-overlay").css({
+                opacity: 1
+            });
+            TweenLite.to("#app-overlay", 0.5, { opacity: 0, onComplete: function() {
+                $("#app-overlay").hide();
+            } });
         },
         /*
             Start animation

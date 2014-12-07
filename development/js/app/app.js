@@ -16,8 +16,8 @@ var beehome = beehome || {};
             Initialize function of the beehome application
             Start the router and backbone history
         */
-        initialize: function() {
-
+        initialize: function (){
+            
             this.router = new beehome.router();
             Backbone.history.start(); 
         }

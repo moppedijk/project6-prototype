@@ -1,0 +1,110 @@
+.button {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	color: #000;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	span {
+		display: inline-block;
+	}
+
+	&__left {
+		// transition: background-position .1s ease;
+		background-position: bottom left;
+		float: left;
+	}
+
+	&__right {
+		// transition: background-position .1s ease;
+		background-position: bottom right;
+		float: left;
+	}
+
+	&:active {
+		.button {
+			&__left {
+				background-position: top left;
+			}
+			&__right {
+				background-position: top right;
+			}
+		}
+	}
+
+	&--large {
+		font-size: 30px;
+
+		.button {
+			&__left {
+				background-image: url("../../img/button-yellow-large.png");
+				padding-left: 19px;
+				height: 70px;
+			}
+			&__label {
+				padding: 17px 16px;
+			}
+			&__right {
+				background-image: url("../../img/button-yellow-large.png");
+				padding-right: 19px;
+				height: 70px;
+			}
+		}
+
+		&:active {
+			.button__label {
+				padding: 18px 16px 15px;
+			}
+		}
+	}
+
+	&--small {
+		font-size: 13px;
+
+		.button {
+			&__left {
+				background-image: url("../../img/button-yellow-small.png");
+				padding-left: 11px;
+				height: 45px;
+			}
+			&__label {
+				padding: 17px 5px;
+			}
+			&__right {
+				background-image: url("../../img/button-yellow-small.png");
+				padding-right: 11px;
+				height: 45px;
+			}
+		}
+
+		&:active {
+			.button__label {
+				padding: 18px 5px 15px;
+			}
+		}
+	}
+
+	&--uppercase {
+		text-transform: uppercase;
+	}
+
+	&--block {
+		display: block;
+		width: 100%;
+	}
+
+	&--light {
+		text-align: center;
+		color: #fff;
+		background-color: #303030;
+		padding: 2px 0px 7px 0px;
+
+		i, span {
+			vertical-align: text-top;
+		}
+		span {
+			padding-top: 3px;
+			padding-left: 3px;
+		}
+	}
+}

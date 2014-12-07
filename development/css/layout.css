@@ -20,30 +20,29 @@ section {
 /* line 17, ../scss/layout.scss */
 h1 {
   text-align: center;
-  font-size: 2.4em;
   font-weight: 100;
   line-height: 1.3em;
   font-size: 36px;
 }
 
-/* line 25, ../scss/layout.scss */
+/* line 24, ../scss/layout.scss */
 h2 {
   font-size: 2.2em;
   font-weight: 100;
   text-align: center;
 }
 
-/* line 31, ../scss/layout.scss */
+/* line 30, ../scss/layout.scss */
 input:focus {
   outline: none;
 }
 
-/* line 35, ../scss/layout.scss */
+/* line 34, ../scss/layout.scss */
 .wrapper {
   max-width: 320px;
   min-height: 568px;
   margin: 0 auto;
-  background-color: #E5E0CE;
+  background-color: #f2d7ad;
   position: relative;
   overflow: hidden;
 }

@@ -16,3 +16,17 @@
   width: 99px;
   height: 78px;
 }
+/* line 16, ../../scss/blocks/icon.scss */
+.icon--light {
+  background-image: url("../../img/icon-light.png");
+  background-size: 19px 22px;
+  width: 19px;
+  height: 22px;
+}
+/* line 22, ../../scss/blocks/icon.scss */
+.icon--hexagon {
+  background-image: url("../../img/icon-hexagon.png");
+  background-size: 17px 38px;
+  width: 17px;
+  height: 19px;
+}
