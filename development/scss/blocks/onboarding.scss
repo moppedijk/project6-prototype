@@ -3,6 +3,12 @@
 */
 .onboarding {
 
+	p,
+	h1,
+	h2 {
+		color: #fff;
+	}
+
 	input {
 		border: none;
 		width:100%;
@@ -11,34 +17,36 @@
 		background: none;
 		font-family: Anivers-Regular;
 		padding: 5px 0px;
+		color: #fff;
 	}
 
 	::-webkit-input-placeholder {
-	   	color: #4c4c4c;
+	   	color: #fff;
 	}
 
 	:-moz-placeholder { /* Firefox 18- */
-		color: #4c4c4c;
+		color: #fff;
 	}
 
 	::-moz-placeholder {  /* Firefox 19+ */
-	   	color: #4c4c4c;
+	   	color: #fff;
 	}
 
 	:-ms-input-placeholder {  
-	    color: #4c4c4c;
+	    color: #fff;
 	}
 
 	&__input-border {
 		background-image: url('../../img/onboarding-input-border.png');
 		background-position: center;
+		background-size: 175px 5px;
 		width: 100%;
 		height: 5px;
 	}
 
 	&__item {
 	    width: 320px;
-	    height: 500px;
+	    height: 480px;
 
 	    &-title {
 	    	padding-top: 25px;
@@ -124,6 +132,7 @@
 
 	&__pag {
 		padding-top: 25px;
+		height: 55px;
 		
 		&-ul {
 			list-style: none;
@@ -132,7 +141,18 @@
 		}
 
 		&-li {
+			transition: width .2s;
+
 			display: inline-block;
+			width: 30px;
+
+			img {
+				width: 100%;
+			}
+
+			&--active {
+				width: 50px;
+			}
 		}
 	}
 
@@ -182,7 +202,7 @@
 	    text-align: center;
 	    font-size: 55px;
 	    padding-top: 20px;
-	    color: #81725a;
+	    color: #c0d8dc;
 
 	    transition: color 0.2s ease;
 	    transition: padding-top 0.2s;
@@ -190,7 +210,7 @@
 	}
 
 	&__selection .active {
-		color: #000;
+		color: #fff;
 		font-size: 71px;
 		padding-top: 10px;
 	}

@@ -2,7 +2,7 @@
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
-	color: #000;
+	color: #fff;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 
 	span {
@@ -33,27 +33,27 @@
 	}
 
 	&--large {
-		font-size: 30px;
+		font-size: 25px;
 
 		.button {
 			&__left {
 				background-image: url("../../img/button-yellow-large.png");
-				padding-left: 19px;
-				height: 70px;
+				padding-left: 11px;
+				height: 35px;
 			}
 			&__label {
-				padding: 17px 16px;
+				padding: 2px 16px;
 			}
 			&__right {
 				background-image: url("../../img/button-yellow-large.png");
-				padding-right: 19px;
-				height: 70px;
+				padding-right: 11px;
+				height: 35px;
 			}
 		}
 
 		&:active {
 			.button__label {
-				padding: 18px 16px 15px;
+				padding: 3px 16px 0px;
 			}
 		}
 	}
@@ -65,21 +65,21 @@
 			&__left {
 				background-image: url("../../img/button-yellow-small.png");
 				padding-left: 11px;
-				height: 45px;
+				height: 27px;
 			}
 			&__label {
-				padding: 17px 5px;
+				padding: 5px;
 			}
 			&__right {
 				background-image: url("../../img/button-yellow-small.png");
 				padding-right: 11px;
-				height: 45px;
+				height: 27px;
 			}
 		}
 
 		&:active {
 			.button__label {
-				padding: 18px 5px 15px;
+				padding: 6px 5px 0px;
 			}
 		}
 	}
@@ -96,7 +96,7 @@
 	&--light {
 		text-align: center;
 		color: #fff;
-		background-color: #303030;
+		background-color: #246c76;
 		padding: 2px 0px 7px 0px;
 
 		i, span {

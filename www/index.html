@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
         <!-- New -->
         <link rel="stylesheet" type="text/css" href="static/css/style.css" />
@@ -43,10 +43,11 @@
         <script type="text/x-handlebars-template" id="template-onboarding">
             <div id="onboarding-nav" class="onboarding__pag">
                 <ul class="onboarding__pag-ul">
-                    <li class="onboarding__pag-li">X</li>
-                    <li class="onboarding__pag-li">X</li>
-                    <li class="onboarding__pag-li">X</li>
-                    <li class="onboarding__pag-li">X</li>
+                    <li id="onboarding-nav-home" class="onboarding__pag-li"><img src="img/icon-onboarding-home.svg"/></li>
+                    <li id="onboarding-nav-room" class="onboarding__pag-li"><img src="img/icon-onboarding-room.svg"/></li>
+                    <li id="onboarding-nav-light" class="onboarding__pag-li"><img src="img/icon-onboarding-light.svg"/></li>
+                    <li id="onboarding-nav-money" class="onboarding__pag-li"><img src="img/icon-onboarding-money.svg"/></li>
+                    <li id="onboarding-nav-end" class="onboarding__pag-li"><img src="img/icon-onboarding-end.svg"/></li>
                 </ul>
             </div>
             <div id="onboarding-subview" class="onboarding__content">Loading...</div>
@@ -77,10 +78,10 @@
                         <h1>Geef je ruimte een naam</h1>
                     </div>
                     <div id="onboarding-room-img" class="onboarding__item-img">
-                        <img src="img/hexagon-large.png" alt="house" class="houseImage">
+                        <img src="img/onboarding-room.png" alt="house" class="houseImage">
                     </div>
                     <div id="onboarding-room-input" class="onboarding__item-input">
-                        <input id="onboarding-input-room" type="text" placeholder="woonkamer">
+                        <input id="onboarding-input-room" type="text" placeholder="Woonkamer">
                         <div class="onboarding__input-border"></div>
                     </div>
                 </section>
@@ -96,8 +97,8 @@
         <script type="text/x-handlebars-template" id="template-onboarding-sensor">
             <div class="onboarding__item">
                 <section>
-                    <div id="onboarding-sensor-title" class="onboarding__item-title onboarding__item-title--uppercase">   
-                        <h1>Hoeveel Watt was jouw vorige lamp?</h1>
+                    <div id="onboarding-sensor-title" class="onboarding__item-title">   
+                        <h1>Hoeveel watt was jou vorige lamp?</h1>
                     </div>
                     <div id="onboarding-sensor-carousel" class="onboarding__selection-holder">
                         <a href="javascript:void(0);" class="onboarding__selection-prev"></a>
@@ -151,7 +152,7 @@
         <script type="text/x-handlebars-template" id="template-onboarding-sensor2">
             <div class="onboarding__item">
                 <section>
-                    <div id="onboarding-sensor2-title" class="onboarding__item-title onboarding__item-title--uppercase onboarding__item-title--small">
+                    <div id="onboarding-sensor2-title" class="onboarding__item-title onboarding__item-title--small">
                         <h1>HOEVEEL MINUTEN MAG DE MILIEU BESPARENDE LAMP AANBLIJVEN NA DE LAATSTE GEREGISTREERDE BEWEGING</h1>
                     </div>
                     <div id="onboarding-sensor2-carousel" class="onboarding__selection-holder">
@@ -226,20 +227,28 @@
             <div class="app__menu-bar">
                 <ul>
                     <li>
-                        <img src="img/housebutton.png">
-                        <span>Huizen</span>
+                        <a href="#app/home">
+                            <i class="icon icon--app-home"></i>
+                            <span>Huizen</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="img/roombutton.png">
-                        <span>Ruimtes</span>
+                        <a href="#app/room">
+                            <i class="icon icon--app-room"></i>
+                            <span>Ruimtes</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="img/sensorbutton.png">
-                        <span>Sensors</span>
+                        <a href="#app/sensor">
+                            <i class="icon icon--app-sensor"></i>
+                            <span>Sensors</span>
+                        </a>
                     </li>
                     <li>
-                        <img src="img/optionbutton.png">
-                        <span>Opties</span>
+                        <a href="#app/options">
+                            <i class="icon icon--app-options"></i>
+                            <span>Opties</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -258,7 +267,9 @@
                         <span class="button__right"></span>
                     </a>
                 </div>
-                <div class="app__flower"></div>
+                <div class="app__flower">
+                    <div class="app__flower-content"></div>
+                </div>
             </div>
             <div class="app__header">
                 <a href="javascript:void(0);" class="button button--block button--light">
@@ -299,13 +310,22 @@
                     </ul>
                 </div>
                 <div class="app__carousel-nav"></div>
-                <div class="app__flower"></div>
+                <div class="app__flower">
+                    <div class="app__flower-content"></div>
+                </div>
             </section>
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-home">
+            <div class="app__header">
+                <a href="javascript:void(0);" class="button button--close">
+                    <i class="icon icon--close"></i>
+                </a>
+            </div>
             <section>
-                <h1>App Home</h1>
+                <div class="app__title">
+                    <h1>Kies jouw huis om te besturen</h1>
+                </div>
             </section>
         </script>
 
@@ -337,7 +357,7 @@
 
         <!-- Cordovajs get's loaded in xcode bin -->
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="static/js/app.js"></script>
+        <script type="text/javascript" src="static/js/app.min.js"></script>
 
         <script type="text/javascript">
             (function(){
@@ -345,7 +365,8 @@
                     Inititalze the application
                 */
                 beehome.app.initialize({
-                    mobile: false
+                    mobile: false,
+                    remoteIp: "145.28.222.212:8888/P6/Processing/"
                 });
             })();
         </script>  

@@ -1,32 +1,68 @@
 /* line 1, ../../scss/blocks/icon.scss */
 .icon {
   display: inline-block;
+  background-repeat: no-repeat;
 }
-/* line 4, ../../scss/blocks/icon.scss */
+/* line 5, ../../scss/blocks/icon.scss */
 .icon--loader {
   background-image: url("../../img/loader.gif");
   background-size: 96px 105px;
   width: 96px;
   height: 105px;
 }
-/* line 10, ../../scss/blocks/icon.scss */
+/* line 11, ../../scss/blocks/icon.scss */
 .icon--wifi {
   background-image: url("../../img/wifi.gif");
   background-size: 99px 78px;
   width: 99px;
   height: 78px;
 }
-/* line 16, ../../scss/blocks/icon.scss */
+/* line 17, ../../scss/blocks/icon.scss */
 .icon--light {
   background-image: url("../../img/icon-light.png");
   background-size: 19px 22px;
   width: 19px;
   height: 22px;
 }
-/* line 22, ../../scss/blocks/icon.scss */
+/* line 23, ../../scss/blocks/icon.scss */
 .icon--hexagon {
   background-image: url("../../img/icon-hexagon.png");
   background-size: 17px 38px;
   width: 17px;
   height: 19px;
+}
+/* line 29, ../../scss/blocks/icon.scss */
+.icon--close {
+  background-image: url("../../img/icon-app-close.png");
+  background-size: 23px 22px;
+  width: 23px;
+  height: 22px;
+}
+/* line 37, ../../scss/blocks/icon.scss */
+.icon--app-home {
+  background-image: url("../../img/icon-app-home.png");
+  background-size: 37px 29px;
+  width: 37px;
+  height: 29px;
+}
+/* line 43, ../../scss/blocks/icon.scss */
+.icon--app-room {
+  background-image: url("../../img/icon-app-room.png");
+  background-size: 27px 32px;
+  width: 27px;
+  height: 23px;
+}
+/* line 49, ../../scss/blocks/icon.scss */
+.icon--app-sensor {
+  background-image: url("../../img/icon-app-sensor.png");
+  background-size: 31px 31px;
+  width: 31px;
+  height: 31px;
+}
+/* line 55, ../../scss/blocks/icon.scss */
+.icon--app-options {
+  background-image: url("../../img/icon-app-options.png");
+  background-size: 31px 31px;
+  width: 31px;
+  height: 31px;
 }

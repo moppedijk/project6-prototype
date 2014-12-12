@@ -13,6 +13,7 @@
             Events of the view
         */
         events: {
+            "click .button--close": "onBtnCloseClick"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -46,6 +47,11 @@
             var subView = template(data);
 
             $(this.subView).html(subView);
+        },
+        onBtnCloseClick: function () {
+            beehome.app.router.navigate("app/dashboard", {
+                trigger: true
+            })
         },
         /*
             Start animation

@@ -109,6 +109,9 @@
             TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-sensor2-amount", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-sensor2-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+                
+                $("#onboarding-nav-money").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -117,6 +120,8 @@
         */
         endAnimation: function() {
             console.log("Sensor2: endAnimation");
+
+            $("#onboarding-nav-money").removeClass("onboarding__pag-li--active");
 
             TweenLite.to("#onboarding-sensor2-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 0, delay: 0.5 });

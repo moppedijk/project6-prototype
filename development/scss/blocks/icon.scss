@@ -1,5 +1,6 @@
 .icon {
 	display: inline-block;
+	background-repeat: no-repeat;
 
 	&--loader {
 		background-image: url("../../img/loader.gif");
@@ -24,5 +25,38 @@
 		background-size: 17px 38px;
 		width: 17px;
 		height: 19px;
+	}
+	&--close {
+		background-image: url("../../img/icon-app-close.png");
+		background-size: 23px 22px;
+		width: 23px;
+		height: 22px;
+	}
+
+	&--app {
+		&-home {
+			background-image: url("../../img/icon-app-home.png");
+			background-size: 37px 29px;
+			width: 37px;
+			height: 29px;
+		}
+		&-room {
+			background-image: url("../../img/icon-app-room.png");
+			background-size: 27px 32px;
+			width: 27px;
+			height: 23px;	
+		}
+		&-sensor {
+			background-image: url("../../img/icon-app-sensor.png");
+			background-size: 31px 31px;
+			width: 31px;
+			height: 31px;	
+		}
+		&-options {
+			background-image: url("../../img/icon-app-options.png");
+			background-size: 31px 31px;
+			width: 31px;
+			height: 31px;	
+		}
 	}
 }

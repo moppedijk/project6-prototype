@@ -122,6 +122,9 @@
             TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-sensor-amount", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-sensor-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-light").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -130,6 +133,8 @@
         */
         endAnimation: function() {
             console.log("Sensor: endAnimation");
+            
+            $("#onboarding-nav-light").removeClass("onboarding__pag-li--active");
 
             TweenLite.to("#onboarding-sensor-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 0, delay: 0.5 });

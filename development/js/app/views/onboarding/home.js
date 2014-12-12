@@ -89,7 +89,11 @@
             TweenLite.to("#onboarding-nav", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-home-title", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-home").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
+
             }.bind(this) });
         },
         /*
@@ -98,6 +102,7 @@
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-nav-home").removeClass("onboarding__pag-li--active");
             $("#onboarding-home-bee").css({
                 top: 400,
                 left: 400,

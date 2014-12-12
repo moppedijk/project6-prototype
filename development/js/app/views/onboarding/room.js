@@ -86,6 +86,9 @@
             TweenLite.to("#onboarding-room-img", 0.5, { left: 0, opacity: 1, delay: 0 });
             TweenLite.to("#onboarding-room-title", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-room-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-room").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -95,8 +98,7 @@
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
-            // onboarding-room-animation
-
+            $("#onboarding-nav-room").removeClass("onboarding__pag-li--active");
             $("#onboarding-room-bee").css({
                 left: 400,
                 top: 400,

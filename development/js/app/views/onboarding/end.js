@@ -53,6 +53,8 @@
 
             $(this.$el).css({opacity: 0});
             $(this.$el).animate({opacity: 1}, 300, function(){
+                $("#onboarding-nav-end").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this));
         },
@@ -62,6 +64,7 @@
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-nav-end").removeClass("onboarding__pag-li--active");
             $(this.$el).css({opacity: 1});
             $(this.$el).animate({opacity: 0}, 300, function(){
                 this.trigger("endAnimationComplete");

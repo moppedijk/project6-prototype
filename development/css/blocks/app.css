@@ -1,61 +1,84 @@
-/* line 4, ../../scss/blocks/app.scss */
+/* line 3, ../../scss/blocks/app.scss */
+.app p,
+.app h1,
+.app h2 {
+  color: #fff;
+}
+/* line 9, ../../scss/blocks/app.scss */
+.app__header {
+  overflow: hidden;
+}
+/* line 12, ../../scss/blocks/app.scss */
+.app__header .button--close {
+  float: right;
+  margin: 15px;
+}
+/* line 19, ../../scss/blocks/app.scss */
 .app__title h1 {
   font-size: 21px;
 }
-/* line 9, ../../scss/blocks/app.scss */
+/* line 24, ../../scss/blocks/app.scss */
 .app__carousel {
   height: 110px;
   overflow: hidden;
   padding-top: 10px;
 }
-/* line 14, ../../scss/blocks/app.scss */
+/* line 29, ../../scss/blocks/app.scss */
 .app__carousel ul {
   width: 20000em;
   position: relative;
   list-style: none;
   margin: 0;
 }
-/* line 21, ../../scss/blocks/app.scss */
+/* line 36, ../../scss/blocks/app.scss */
 .app__carousel li {
   float: left;
   width: 272px;
 }
-/* line 27, ../../scss/blocks/app.scss */
+/* line 42, ../../scss/blocks/app.scss */
 .app__carousel-hgroup h1 {
   font-size: 29px;
 }
-/* line 30, ../../scss/blocks/app.scss */
+/* line 45, ../../scss/blocks/app.scss */
 .app__carousel-hgroup h2 {
   font-size: 60px;
 }
-/* line 35, ../../scss/blocks/app.scss */
+/* line 50, ../../scss/blocks/app.scss */
 .app__carousel-nav {
   text-align: center;
   padding: 10px 0px;
   margin-bottom: 29px;
 }
-/* line 40, ../../scss/blocks/app.scss */
+/* line 55, ../../scss/blocks/app.scss */
 .app__carousel-nav a {
   margin: 0px 5px;
 }
-/* line 43, ../../scss/blocks/app.scss */
+/* line 58, ../../scss/blocks/app.scss */
 .app__carousel-nav a .icon {
   transition: background-position .2s ease;
   background-position: top left;
 }
-/* line 50, ../../scss/blocks/app.scss */
+/* line 65, ../../scss/blocks/app.scss */
 .app__carousel-nav .active .icon {
   background-position: bottom left;
 }
-/* line 57, ../../scss/blocks/app.scss */
+/* line 72, ../../scss/blocks/app.scss */
 .app__flower {
+  width: 100%;
+  height: 345px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+/* line 79, ../../scss/blocks/app.scss */
+.app__flower-content {
   background-image: url("../../img/app-flower.png");
-  background-size: 119px 254px;
-  width: 119px;
-  height: 254px;
+  background-size: 142px 345px;
+  width: 142px;
+  height: 345px;
   margin: 0 auto;
 }
-/* line 65, ../../scss/blocks/app.scss */
+/* line 88, ../../scss/blocks/app.scss */
 .app__overlay {
   width: 100%;
   height: 100%;
@@ -63,56 +86,59 @@
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(242, 215, 173, 0.9);
+  background-color: rgba(36, 141, 155, 0.9);
   z-index: 1;
 }
-/* line 75, ../../scss/blocks/app.scss */
+/* line 98, ../../scss/blocks/app.scss */
 .app__overlay-content {
-  padding: 70px 25px 25px;
+  padding: 33px 16px;
 }
-/* line 78, ../../scss/blocks/app.scss */
+/* line 101, ../../scss/blocks/app.scss */
 .app__overlay-content p {
   font-size: 18px;
 }
-/* line 83, ../../scss/blocks/app.scss */
+/* line 106, ../../scss/blocks/app.scss */
 .app__overlay-nav {
   padding: 0px 25px;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 57px;
 }
-/* line 90, ../../scss/blocks/app.scss */
+/* line 113, ../../scss/blocks/app.scss */
 .app__menu-bar {
   position: absolute;
   width: 100%;
   height: 4em;
-  background-color: #303030;
   left: 0;
   bottom: 0;
 }
-/* line 98, ../../scss/blocks/app.scss */
+/* line 120, ../../scss/blocks/app.scss */
 .app__menu-bar ul {
   list-style: none;
   height: 100%;
 }
-/* line 102, ../../scss/blocks/app.scss */
+/* line 124, ../../scss/blocks/app.scss */
 .app__menu-bar ul li {
   float: left;
   width: 25%;
   height: 100%;
   vertical-align: top;
-  color: #E5E0CE;
+  color: #fff;
+  text-align: center;
 }
-/* line 109, ../../scss/blocks/app.scss */
-.app__menu-bar ul li img {
-  display: block;
-  height: 50%;
-  margin: auto;
-  margin-top: 0.3em;
+/* line 132, ../../scss/blocks/app.scss */
+.app__menu-bar ul li a {
+  text-decoration: none;
 }
-/* line 116, ../../scss/blocks/app.scss */
+/* line 136, ../../scss/blocks/app.scss */
+.app__menu-bar ul li i {
+  vertical-align: text-top;
+  height: 35px;
+}
+/* line 141, ../../scss/blocks/app.scss */
 .app__menu-bar ul li span {
   display: block;
   text-align: center;
   font-size: 0.9em;
-  margin-top: 0.2em;
+  vertical-align: text-top;
+  color: #fff;
 }

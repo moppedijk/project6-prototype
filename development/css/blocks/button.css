@@ -3,7 +3,7 @@
   display: inline-block;
   position: relative;
   text-decoration: none;
-  color: #000;
+  color: #fff;
   -webkit-tap-highlight-color: transparent;
 }
 /* line 8, ../../scss/blocks/button.scss */
@@ -30,27 +30,27 @@
 }
 /* line 35, ../../scss/blocks/button.scss */
 .button--large {
-  font-size: 30px;
+  font-size: 25px;
 }
 /* line 39, ../../scss/blocks/button.scss */
 .button--large .button__left {
   background-image: url("../../img/button-yellow-large.png");
-  padding-left: 19px;
-  height: 70px;
+  padding-left: 11px;
+  height: 35px;
 }
 /* line 44, ../../scss/blocks/button.scss */
 .button--large .button__label {
-  padding: 17px 16px;
+  padding: 2px 16px;
 }
 /* line 47, ../../scss/blocks/button.scss */
 .button--large .button__right {
   background-image: url("../../img/button-yellow-large.png");
-  padding-right: 19px;
-  height: 70px;
+  padding-right: 11px;
+  height: 35px;
 }
 /* line 55, ../../scss/blocks/button.scss */
 .button--large:active .button__label {
-  padding: 18px 16px 15px;
+  padding: 3px 16px 0px;
 }
 /* line 61, ../../scss/blocks/button.scss */
 .button--small {
@@ -60,21 +60,21 @@
 .button--small .button__left {
   background-image: url("../../img/button-yellow-small.png");
   padding-left: 11px;
-  height: 45px;
+  height: 27px;
 }
 /* line 70, ../../scss/blocks/button.scss */
 .button--small .button__label {
-  padding: 17px 5px;
+  padding: 5px;
 }
 /* line 73, ../../scss/blocks/button.scss */
 .button--small .button__right {
   background-image: url("../../img/button-yellow-small.png");
   padding-right: 11px;
-  height: 45px;
+  height: 27px;
 }
 /* line 81, ../../scss/blocks/button.scss */
 .button--small:active .button__label {
-  padding: 18px 5px 15px;
+  padding: 6px 5px 0px;
 }
 /* line 87, ../../scss/blocks/button.scss */
 .button--uppercase {
@@ -89,7 +89,7 @@
 .button--light {
   text-align: center;
   color: #fff;
-  background-color: #303030;
+  background-color: #246c76;
   padding: 2px 0px 7px 0px;
 }
 /* line 102, ../../scss/blocks/button.scss */

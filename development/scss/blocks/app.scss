@@ -1,5 +1,20 @@
 .app {
 
+	p,
+	h1,
+	h2 {
+		color: #fff;
+	}
+
+	&__header {
+		overflow: hidden;
+
+		.button--close {
+			float: right;
+			margin: 15px;
+		}
+	}
+
 	&__title {
 		h1 {
 			font-size: 21px;
@@ -55,11 +70,19 @@
 	}
 
 	&__flower {
-		background-image: url("../../img/app-flower.png");
-		background-size: 119px 254px;
-		width: 119px;
-		height: 254px;
-		margin: 0 auto;
+		width: 100%;
+		height: 345px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+
+		&-content {
+			background-image: url("../../img/app-flower.png");
+			background-size: 142px 345px;
+			width: 142px;
+			height: 345px;
+			margin: 0 auto;
+		}
 	}
 
 	&__overlay {
@@ -69,11 +92,11 @@
 		position: absolute;
 		left: 0;
 		top: 0;
-		background-color: rgba(242, 215, 173, 0.9);
+		background-color: rgba(36, 141, 155, 0.9);
 		z-index: 1;
 
 		&-content {
-			padding: 70px 25px 25px;
+			padding: 33px 16px;
 
 			p {
 				font-size: 18px;
@@ -83,7 +106,7 @@
 		&-nav {
 			padding: 0px 25px;
 			text-align: center;
-			margin-bottom: 40px;
+			margin-bottom: 57px;
 		}
 	}
 
@@ -91,7 +114,6 @@
 		position: absolute;
 		width: 100%;
 		height: 4em;
-		background-color: #303030;
 		left: 0;
 		bottom: 0;
 
@@ -104,20 +126,24 @@
 				width: 25%;
 				height: 100%;
 				vertical-align: top;
-				color:#E5E0CE;
+				color: #fff;
+				text-align: center;
 
-				img{
-					display: block;
-					height: 50%;
-					margin:auto;
-					margin-top:0.3em;
+				a {
+					text-decoration: none;
 				}
 
-				span{
+				i {
+					vertical-align: text-top;
+					height: 35px;
+				}
+
+				span {
 					display: block;
 					text-align: center;
 					font-size: 0.9em;
-					margin-top: 0.2em;
+					vertical-align: text-top;
+					color: #fff;
 				}
 			}
 		}

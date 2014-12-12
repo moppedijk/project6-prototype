@@ -164,6 +164,7 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
+            "click .button--close": "onBtnCloseClick"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -197,6 +198,11 @@ var beehome = beehome || {};
             var subView = template(data);
 
             $(this.subView).html(subView);
+        },
+        onBtnCloseClick: function () {
+            beehome.app.router.navigate("app/dashboard", {
+                trigger: true
+            })
         },
         /*
             Start animation
@@ -719,6 +725,8 @@ var beehome = beehome || {};
 
             $(this.$el).css({opacity: 0});
             $(this.$el).animate({opacity: 1}, 300, function(){
+                $("#onboarding-nav-end").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this));
         },
@@ -728,6 +736,7 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-nav-end").removeClass("onboarding__pag-li--active");
             $(this.$el).css({opacity: 1});
             $(this.$el).animate({opacity: 0}, 300, function(){
                 this.trigger("endAnimationComplete");
@@ -836,7 +845,11 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-nav", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-home-title", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-home").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
+
             }.bind(this) });
         },
         /*
@@ -845,6 +858,7 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-nav-home").removeClass("onboarding__pag-li--active");
             $("#onboarding-home-bee").css({
                 top: 400,
                 left: 400,
@@ -1032,6 +1046,9 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-room-img", 0.5, { left: 0, opacity: 1, delay: 0 });
             TweenLite.to("#onboarding-room-title", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-room-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-room").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -1041,8 +1058,7 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
-            // onboarding-room-animation
-
+            $("#onboarding-nav-room").removeClass("onboarding__pag-li--active");
             $("#onboarding-room-bee").css({
                 left: 400,
                 top: 400,
@@ -1196,6 +1212,9 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-sensor-amount", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-sensor-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+
+                $("#onboarding-nav-light").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -1204,6 +1223,8 @@ var beehome = beehome || {};
         */
         endAnimation: function() {
             console.log("Sensor: endAnimation");
+            
+            $("#onboarding-nav-light").removeClass("onboarding__pag-li--active");
 
             TweenLite.to("#onboarding-sensor-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-sensor-carousel", 0.4, { opacity: 0, delay: 0.5 });
@@ -1339,6 +1360,9 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 1, delay: 0.5 });
             TweenLite.to("#onboarding-sensor2-amount", 0.4, { opacity: 1, delay: 0.9 });
             TweenLite.to("#onboarding-sensor2-nav", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
+                
+                $("#onboarding-nav-money").addClass("onboarding__pag-li--active");
+
                 this.trigger("startAnimationComplete");
             }.bind(this) });
         },
@@ -1347,6 +1371,8 @@ var beehome = beehome || {};
         */
         endAnimation: function() {
             console.log("Sensor2: endAnimation");
+
+            $("#onboarding-nav-money").removeClass("onboarding__pag-li--active");
 
             TweenLite.to("#onboarding-sensor2-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-sensor2-carousel", 0.4, { opacity: 0, delay: 0.5 });

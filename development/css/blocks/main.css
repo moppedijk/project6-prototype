@@ -2,32 +2,37 @@
 	Main scss
 */
 /* line 7, ../../scss/blocks/main.scss */
+.main p,
+.main h1 {
+  color: #fff;
+}
+/* line 12, ../../scss/blocks/main.scss */
 .main__content {
   padding-top: 1px;
 }
-/* line 10, ../../scss/blocks/main.scss */
+/* line 15, ../../scss/blocks/main.scss */
 .main__logo {
   margin: 0 auto 40px;
   width: 250px;
 }
-/* line 14, ../../scss/blocks/main.scss */
+/* line 19, ../../scss/blocks/main.scss */
 .main__logo img {
   max-width: 100%;
 }
-/* line 18, ../../scss/blocks/main.scss */
+/* line 23, ../../scss/blocks/main.scss */
 .main__loader {
   text-align: center;
   margin: 0 auto 40px;
 }
-/* line 22, ../../scss/blocks/main.scss */
+/* line 27, ../../scss/blocks/main.scss */
 .main__tagline {
   text-align: center;
 }
-/* line 25, ../../scss/blocks/main.scss */
+/* line 30, ../../scss/blocks/main.scss */
 .main__tagline--second {
   padding-top: 70px;
 }
-/* line 29, ../../scss/blocks/main.scss */
+/* line 34, ../../scss/blocks/main.scss */
 .main__found {
   text-align: center;
   position: absolute;
