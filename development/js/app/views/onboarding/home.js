@@ -46,7 +46,6 @@
             var subView = template(data);
 
             $(this.subView).html(subView);
-            $("#onboarding-input-home").focus();
         },
         onInputKeyPress: function(e)
         {
@@ -91,6 +90,7 @@
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
 
                 $("#onboarding-nav-home").addClass("onboarding__pag-li--active");
+                $("#onboarding-input-home").focus();
 
                 this.trigger("startAnimationComplete");
 
@@ -102,6 +102,7 @@
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-input-home").blur();
             $("#onboarding-nav-home").removeClass("onboarding__pag-li--active");
             $("#onboarding-home-bee").css({
                 top: 400,
@@ -111,7 +112,7 @@
 
             TweenLite.to("#onboarding-home-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 0, delay: 0.4 });
-            TweenLite.to("#onboarding-home-bee", 1, { top: 198, left: 154, delay: 1});
+            TweenLite.to("#onboarding-home-bee", 1, { top: 138, left: 154, delay: 1});
             TweenLite.to("#onboarding-home-img", 0.5, { opacity: 0, delay: 2.5 });
             TweenLite.to("#onboarding-home-bee", 0.5, { opacity: 0, delay: 2.5, onComplete: function(){
                 this.trigger("endAnimationComplete");

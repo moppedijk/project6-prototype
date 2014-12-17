@@ -6,173 +6,649 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/enhanced.css" />
+
+        <!-- New -->
+        <link rel="stylesheet" type="text/css" href="static/css/style.css" />
+
         <title>Project 6</title>
 
     </head>
     <body>
+
+        <script src="//localhost:35729/livereload.js"></script>
+
         <div class="wrapper" id="app">
-            <div class="notification" id="notification"></div>
-            <div class="notification" id="notification2"></div>
-            <div id="main">
-                
-            </div>
+            <div id="main"></div>
         </div>
 
         <script type="text/x-handlebars-template" id="template-main">
-            <section id="loadingscreen">
-                <div class="logo">
-                    <img src="img/beehome-logo.png" alt="behome logo">
+            <section class="main__content">
+                <div id="main-logo" class="main__logo">
+                    <img src="img/beehome-logo.png" alt="Behome logo">
                 </div>
-                <div class="loader">
-                    <a href="#confirm">
-                        <img src="img/load.gif" alt="hexagon">
-                    </a>
+                <div id="main-loader" class="main__loader">
+                    <i class="icon icon--wifi"></i>
                 </div>
-            </section>
-        </script>
-
-        <script type="text/x-handlebars-template" id="template-confirm">
-            <section id="beginscherm">
-                <div class="logo">
-                    <img src="img/beehome-logo.png" alt="behome logo">
+                <div id="main-tagline1" class="main__tagline">
+                    <p>bezig met sensors toevoegen</p>
                 </div>
-                <h2>Wij hebben ons genesteld</h2>
+                <div id="main-tagline2" class="main__tagline main__tagline--second">
+                    <h1>Wij hebben ons genesteld</h1>
+                </div>
+                <div id="main-found" class="main__found">
+                    <p>1 van 2 gevonden</p>
+                </div>
             </section>
         </script>
 
         <script type="text/x-handlebars-template" id="template-onboarding">
-            <div class="onboarding__content">
-                <ul>
-                    <li>
-                        <div class="onboarding__item">
-                            <section class="item" id="nameHouse">
-                                <div class="item__title">
-                                    <h1>Geef je korf een eigen naam</h1>
-                                </div>
-                                <div class="input_holder">
-                                    <input type="text" placeholder="Bijv. huis van der Vink">
-                                </div>
-                                <div class="item__img">
-                                    <img src="img/house.png" alt="house" class="houseImage">
-                                </div>
-                                <div class="item__nav">
-                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
-                                </div>
-                            </section>
-                        </div>
-                    </li> 
-                    <li>
-                        <div class="onboarding__item">
-                            <section class="item" id="nameRoom">
-                                <div class="item__title">   
-                                    <h1>Geef je ruimte een naam</h1>
-                                </div>
-                                <div class="input_holder">
-                                    <input type="text" placeholder="woonkamer">
-                                </div>
-                                <div class="item__img">
-                                    <img src="img/hexagon-large.png" alt="house" class="houseImage">
-                                </div>
-                                <div class="item__nav">
-                                    <a href="javascript:void(0);" class="button--arrow onboarding__control-next"></a>
-                                </div>
-                            </section>
-                        </div>
-                    </li> 
-                    <li>
-                        <div class="onboarding__item">
-                            <section id="wattage">
-                                <h1>Wattage</h1>
-                                <span class="subtext">Hoeveel Watt was jouw vorige lamp?</span>
-                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
-                                <div class="selection">
-                                    <div class="amount">
-                                        <div>35</div>
-                                        <div>40</div>
-                                        <div>45</div>
-                                    </div>
-                                    <span class="unit">Watt</span>
-                                </div>
-                            </section>
-                        </div>
+            <div class="wrapper__status-bar"></div>
+            <div id="onboarding-nav" class="onboarding__pag">
+                <ul class="onboarding__pag-ul">
+                    <li id="onboarding-nav-home" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-home.svg"/></div>
                     </li>
-                    <li>
-                        <div class="onboarding__item">
-                            <section id="activity">
-                                <h1>Activiteit</h1>
-                                <span class="subtext">Hoeveel minuten mag de milieubesparende lamp na de laatst geregistreerde beweging?</span>
-                                <a href="javascript:void(0);" class="button onboarding__control-next">Weet ik niet</a>
-                                <div class="selection">
-                                    <div class="amount">
-                                        <div>04</div>
-                                        <div>05</div>
-                                        <div>06</div>
-                                    </div>
-                                    <span class="unit">Minuten</span>
-                                </div>
-                            </section>
-                        </div>
-                    </li> 
-                    <li>
-                        <div class="onboarding__item">
-                            <section id="ready">
-                                <span class="subtext">Hoi! milieubewuste imker, wij zijn er klaar voor</span>
-                                <span>Nu jij nog</span>
-                                <a href="#app" class="button">Verder</a>            
-                            </section>
-                        </div>
+                    <li id="onboarding-nav-room" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-room.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-light" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-light.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-money" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-money.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-end" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-end.svg"/></div>
                     </li>
                 </ul>
             </div>
-            <div class="onboarding__pag">
-                <ul class="progress onboarding__pagination"></ul>
+            <div id="onboarding-subview" class="onboarding__content">Loading...</div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-onboarding-home">
+            <div class="onboarding__item">
+                <section>
+                    <div id="onboarding-home-title" class="onboarding__item-title">
+                        <h1>Geef je huis een naam</h1>
+                    </div>
+                    <div id="onboarding-home-img" class="onboarding__item-img">
+                        <img src="img/onboarding-home.png" alt="house" class="houseImage">
+                    </div>
+                    <div id="onboarding-home-input" class="onboarding__item-input">
+                        <input id="onboarding-input-home" type="text" placeholder="Huis van der vij">
+                        <div class="onboarding__input-border"></div>
+                    </div>
+                    <div id="onboarding-home-bee" class="onboarding__item-bee"></div>
+                </section>
+            </div> 
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-onboarding-room">
+            <div class="onboarding__item">
+                <section>
+                    <div id="onboarding-room-title" class="onboarding__item-title">   
+                        <h1>Geef je ruimte een naam</h1>
+                    </div>
+                    <div id="onboarding-room-img" class="onboarding__item-img">
+                        <img src="img/onboarding-room.png" alt="house" class="houseImage">
+                    </div>
+                    <div id="onboarding-room-input" class="onboarding__item-input">
+                        <input id="onboarding-input-room" type="text" placeholder="Woonkamer">
+                        <div class="onboarding__input-border"></div>
+                    </div>
+                </section>
+            </div>
+            <div id="onboarding-room-animation" class="onboarding__animation">
+                <div class="onboarding__animation-inner">
+                    <p>Laten we de sensors nu wat slimmer maken</p>
+                </div>
+            </div>
+            <div id="onboarding-room-bee" class="onboarding__item-bee"></div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-onboarding-sensor">
+            <div class="onboarding__item">
+                <section>
+                    <div id="onboarding-sensor-title" class="onboarding__item-title">   
+                        <h1>Hoeveel watt was jou vorige lamp?</h1>
+                    </div>
+                    <div id="onboarding-sensor-carousel" class="onboarding__selection-holder">
+                        <a href="javascript:void(0);" class="onboarding__selection-prev"></a>
+                        <a href="javascript:void(0);" class="onboarding__selection-next"></a>
+                        <div class="onboarding__selection">
+                            <ul>
+                                <li data-rel="05">05</li>
+                                <li data-rel="10">10</li>
+                                <li data-rel="15">15</li>
+                                <li data-rel="20">20</li>
+                                <li data-rel="25">25</li>
+                                <li data-rel="30">30</li>
+                                <li data-rel="35" class="active">35</li>
+                                <li data-rel="40">40</li>
+                                <li data-rel="45">45</li>
+                                <li data-rel="50">50</li>
+                                <li data-rel="55">55</li>
+                                <li data-rel="60">60</li>
+                                <li data-rel="65">65</li>
+                                <li data-rel="70">70</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="onboarding-sensor-amount" class="onboarding__amount">
+                        <h2>Watt</h2>
+                    </div>
+                    <div id="onboarding-sensor-nav" class="onboarding__item-nav">
+                        <a id="btn-sensor-save" href="javascript:void(0);" class="button button--large button--uppercase">
+                            <span class="button__left">
+                                <span class="button__label">Verder</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                        <a id="btn-sensor-next" href="javascript:void(0);" class="button button--small button--uppercase">
+                            <span class="button__left">
+                                <span class="button__label">Weet ik niet</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </section>
+                <div id="onboarding-sensor-animation" class="onboarding__animation">
+                    <div class="onboarding__animation-inner">
+                        <p>WIJ GAAN HEEL WAT BESPAREN NU JOU <span id="onboarding-sensor-watt">40</span> WATT LAMP IS VERVANGEN</p>
+                    </div>
+                </div>
+                <div id="onboarding-sensor-bee" class="onboarding__item-bee"></div>
             </div>
         </script>
 
-        <script type="text/x-handlebars-template" id="template-app-main">
-            <section id="mainScreen">
-                <h1>Hoe sta je er vandaag voor</h1>
-                <h2>Wattage besparing</h2>
-                <span class="watt_saved">100 Watt</span>
-                <ul class="slider">
-                    <li class="hexagon"></li>
-                    <li class="hexagon"></li>
-                    <li class="hexagon"></li>
-                </ul>
-                <div id="app-main-flower" class="app-main__flower">
-                    <img src="img/flower.png" alt="flower" class="flower">
+        <script type="text/x-handlebars-template" id="template-onboarding-sensor2">
+            <div class="onboarding__item">
+                <section>
+                    <div id="onboarding-sensor2-title" class="onboarding__item-title onboarding__item-title--small">
+                        <h1>HOEVEEL MINUTEN MAG DE MILIEU BESPARENDE LAMP AANBLIJVEN NA DE LAATSTE GEREGISTREERDE BEWEGING</h1>
+                    </div>
+                    <div id="onboarding-sensor2-carousel" class="onboarding__selection-holder">
+                        <a href="javascript:void(0);" class="onboarding__selection-prev"></a>
+                        <a href="javascript:void(0);" class="onboarding__selection-next"></a>
+                        <div class="onboarding__selection">
+                            <ul>
+                                <li data-rel="01">01</li>
+                                <li data-rel="02">02</li>
+                                <li data-rel="03">03</li>
+                                <li data-rel="04">04</li>
+                                <li data-rel="05">05</li>
+                                <li data-rel="06">06</li>
+                                <li data-rel="07" class="active">07</li>
+                                <li data-rel="08">08</li>
+                                <li data-rel="09">09</li>
+                                <li data-rel="10">10</li>
+                                <li data-rel="11">11</li>
+                                <li data-rel="12">12</li>
+                                <li data-rel="13">13</li>
+                                <li data-rel="14">14</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="onboarding-sensor2-amount" class="onboarding__amount">
+                        <h2>Minuten</h2>
+                    </div>
+                    <div id="onboarding-sensor2-nav" class="onboarding__item-nav">
+                        <a id="btn-sensor2-save" href="javascript:void(0);" class="button button--large button--uppercase">
+                            <span class="button__left">
+                                <span class="button__label">Verder</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </section>
+                <div id="onboarding-sensor2-animation" class="onboarding__animation">
+                    <div class="onboarding__animation-inner">
+                        <p>WIJ ZULLEN HET LICHTNA <span id="onboarding-sensor-minutes">5</span> MINUTEN UITDOEN</p>
+                    </div>
                 </div>
-                <div class="app-main__overlay overlay">
-                    <div class="wrapper">
-                        <span>De bloem groeit elke dag mee met jouw milieubesparing, hoe meer besparing hoe beter</span>
+                <div id="onboarding-sensor2-bee" class="onboarding__item-bee"></div>
+            </div> 
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-onboarding-end">
+            <div class="onboarding__item">
+                <section id="onboarding-end">
+                    <div class="onboarding__item-title onboarding__item-title--uppercase onboarding__item-title--small">
+                        <h1>Imker, wij zijn er klaar voor!</h1>
+                    </div>
+                    <div class="onboarding__item-img">
+                        <img src="img/onboarding-imker.png" alt="Imker"/>
+                    </div>
+                    <div class="onboarding__item-subtitle onboarding__item-subtitle--uppercase">
+                        <h2>Nu jij nog!</h2>
+                    </div>
+                    <div class="onboarding__item-nav">
+                        <a href="#app/dashboard" class="button button--large button--uppercase">
+                            <span class="button__left">
+                                <span class="button__label">Verder</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app">
+            <div class="app__content" id="app-subview">Loading...</div>
+            <div class="app__menu-bar">
+                <ul>
+                    <li>
+                        <a href="#app/home">
+                            <i class="icon icon--app-home"></i>
+                            <span>Huizen</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#app/room">
+                            <i class="icon icon--app-room"></i>
+                            <span>Ruimtes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#app/sensor">
+                            <i class="icon icon--app-sensor"></i>
+                            <span>Sensors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#app/options">
+                            <i class="icon icon--app-options"></i>
+                            <span>Opties</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-dashboard">
+            <div id="app-overlay" class="app__overlay">
+                <div id="app-walktrough-1">
+                    <div class="app__overlay-content">
+                        <p>De bloem blijft mooi wanneer je besparend bezig bent, maar verwelkt bij verwaarlozing.</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                    <div class="app__flower">
+                        <div class="app__flower-content"></div>
+                    </div>
+                </div>
+                <div id="app-walktrough-2">
+                    <div class="app__overlay-content">
+                        <p>Hier voeg je voeg je nieuwe huizen toe of pas je de naam van je huizen aan </p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="app-walktrough-3">
+                    <div class="app__overlay-content">
+                        <p>Hier kan je meer informatie over je kamers vinden en instellingen aanpassen. </p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="app-walktrough-4">
+                    <div class="app__overlay-content">
+                        <p>Hier kan jij je sensors bekijken, configureren of verwijderen.</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="app-walktrough-5">
+                    <div class="app__overlay-content">
+                        <p>Hier kan jij je acount bekijken en aanpassen, nieuwe sensors aanschaffen en terug naar fabrieksinstellingen</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="app__header">
+                <a href="javascript:void(0);" class="button button--block button--light">
+                    <i class="icon icon--light"></i>
+                    <span>Licht uit doen</span>
+                </a>
+            </div>
+            <section>
+                <div class="app__title">
+                    <h1>Hoe sta je er vandaag voor</h1>
+                </div>
+                <div class="app__carousel">
+                    <ul>
+                        <li>
+                            <div class="app__carousel-item">
+                                <div class="app__carousel-hgroup">
+                                    <h1>Geld besparing</h1>
+                                    <h2>125 Euro</h2>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-item">
+                                <div class="app__carousel-hgroup">
+                                    <h1>Weetje</h1>
+                                    <h2>Wij passen de licht intensiteit aan het uur van de dag aan!</h2>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-item">
+                                <div class="app__carousel-hgroup">
+                                    <h1>CO2 besparing</h1>
+                                    <h2>8 Kg</h2>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="app__carousel-nav"></div>
+                <div class="app__flower">
+                    <div class="app__flower-content"></div>
+                </div>
+            </section>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-home">
+            <div class="app__header">
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__title">
+                    <h1>Kies jouw huis om te besturen</h1>
+                </div>
+            </section>
+            <div class="app__carousel-large-holder">
+                <div class="app__carousel-large">
+                    <ul>
+                        <li>
+                            <div class="app__carousel-large-home app__carousel-large-home--new"></div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-home"></div>
+                            <div class="app__carousel-large-title">
+                                <p>Huis van der vink</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-home"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app__carousel-large-nav"></div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-room-edit">
+            <div class="app__header">
+                <div class="app__header-center app__header-center--large">
+                    <h1>Woonkamer</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Gekoppelde sensors</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-link"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Bewegingssensor</h2>
+                                <h3>LED lamp</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Actieve scenarios</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-paper"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Besparing / monitoring</h2>
+                                <h3>Bewegingssensor / LED lamp</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Wijzigen of verwijderen</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-button-holder">
+                                <a href="javascript:void(0);" id="btn-close-app-overlay" class="button button--small button--uppercase">
+                                    <span class="button__left">
+                                        <span class="button__label">Naam wijzigen</span>
+                                    </span>
+                                    <span class="button__right"></span>
+                                </a>
+                                <a href="javascript:void(0);" id="btn-close-app-overlay" class="button button--small button--uppercase">
+                                    <span class="button__left">
+                                        <span class="button__label">Verwijderen</span>
+                                    </span>
+                                    <span class="button__right"></span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-            <footer class="app-main__footer">
-                <ul><!--
-                    --><li>
-                        <img src="img/housebutton.png" alt="">
-                        <span>Huizen</span>
-                    </li><!--
-                    --><li>
-                        <img src="img/roombutton.png" alt="">
-                        <span>Ruimtes</span>
-                    </li><!--
-                    --><li>
-                        <img src="img/sensorbutton.png" alt="">
-                        <span>Sensors</span>
-                    </li><!--
-                    --><li>
-                        <img src="img/optionbutton.png" alt="">
-                        <span>Opties</span>
-                    </li>
-                </ul>
-            </footer>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-room">
+            <div class="app__header">
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__title">
+                    <h1>Van welke ruimte wil je meer informatie</h1>
+                </div>
+            </section>
+            <div class="app__carousel-large-holder">
+                <div class="app__carousel-large">
+                    <ul>
+                        <li>
+                            <div class="app__carousel-large-room app__carousel-large-room--new"></div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-room"></div>
+                            <div class="app__carousel-large-title">
+                                <p>Huiskamer</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-room"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-sensor">
+            <div class="app__header">
+                <div class="app__header-left">
+                    <a href="javascript:void(0);" class="button button--link">Wijzig</a>
+                </div>
+                <div class="app__header-center">
+                    <h1>Sensors</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Woonkamer</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-motion-sensor"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>bewegingssensor</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-light-large"></i>    
+                            </div>
+                            <div class="app__list-text">
+                                <h2>LED lamp</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Badkamer</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-fluid"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Vochtsensor</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-option">
+            <div class="app__header">
+                <div class="app__header-left">
+                    <a href="javascript:void(0);" class="button button--link">Wijzig</a>
+                </div>
+                <div class="app__header-center">
+                    <h1>Options</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Gekoppelde Apple account</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-appleid"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Max Redecker</h2>
+                                <h3>apple id: maxredecker@gmail.com</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Extra sensoren koppelen</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-cart"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Apple store</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Terug naar</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <a href="javascript:void(0);" class="button button--small">
+                                <span class="button__left">
+                                    <span class="button__label">Fabrieksinstellingen</span>
+                                </span>
+                                <span class="button__right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </script>
 
         <script type="text/javascript" src="static/js/lib.min.js"></script>
+        
+        <!-- Tweenlite -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenLite.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TimelineLite.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/easing/EasePack.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/plugins/CSSPlugin.min.js"></script>
+
         <!-- Cordovajs get's loaded in xcode bin -->
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="static/js/app.js"></script>
@@ -180,12 +656,14 @@
         <script type="text/javascript">
             (function(){
                 /*
-                    Inititalze the application
+                    Inititalze the phoneGap application
                 */
-                beehome.app.initialize({
-                    mobile: false
+                phoneGap.initialize({
+                    mobile: true,
+                    remoteIp: "145.28.222.212:8888/P6/Processing/"
                 });
+
             })();
-        </script>  
+        </script>
     </body>
 </html>

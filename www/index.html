@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
         <!-- New -->
         <link rel="stylesheet" type="text/css" href="static/css/style.css" />
@@ -14,6 +14,7 @@
 
     </head>
     <body>
+
         <script src="//localhost:35729/livereload.js"></script>
 
         <div class="wrapper" id="app">
@@ -41,13 +42,24 @@
         </script>
 
         <script type="text/x-handlebars-template" id="template-onboarding">
+            <div class="wrapper__status-bar"></div>
             <div id="onboarding-nav" class="onboarding__pag">
                 <ul class="onboarding__pag-ul">
-                    <li id="onboarding-nav-home" class="onboarding__pag-li"><img src="img/icon-onboarding-home.svg"/></li>
-                    <li id="onboarding-nav-room" class="onboarding__pag-li"><img src="img/icon-onboarding-room.svg"/></li>
-                    <li id="onboarding-nav-light" class="onboarding__pag-li"><img src="img/icon-onboarding-light.svg"/></li>
-                    <li id="onboarding-nav-money" class="onboarding__pag-li"><img src="img/icon-onboarding-money.svg"/></li>
-                    <li id="onboarding-nav-end" class="onboarding__pag-li"><img src="img/icon-onboarding-end.svg"/></li>
+                    <li id="onboarding-nav-home" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-home.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-room" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-room.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-light" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-light.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-money" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-money.svg"/></div>
+                    </li>
+                    <li id="onboarding-nav-end" class="onboarding__pag-li">
+                        <div class="nav-icon"><img src="img/icon-onboarding-end.svg"/></div>
+                    </li>
                 </ul>
             </div>
             <div id="onboarding-subview" class="onboarding__content">Loading...</div>
@@ -255,20 +267,74 @@
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-dashboard">
-            <div id="app-overlay" class="app__overlay">                    
-                <div class="app__overlay-content">
-                    <p>De bloem blijft mooi wanneer je besparend bezig bent, maar verwelkt bij verwaarlozing.</p>
+            <div id="app-overlay" class="app__overlay">
+                <div id="app-walktrough-1">
+                    <div class="app__overlay-content">
+                        <p>De bloem blijft mooi wanneer je besparend bezig bent, maar verwelkt bij verwaarlozing.</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                    <div class="app__flower">
+                        <div class="app__flower-content"></div>
+                    </div>
                 </div>
-                <div class="app__overlay-nav">
-                    <a href="javascript:void(0);" id="btn-close-app-overlay" class="button button--small button--uppercase">
-                        <span class="button__left">
-                            <span class="button__label">Ik snap het</span>
-                        </span>
-                        <span class="button__right"></span>
-                    </a>
+                <div id="app-walktrough-2">
+                    <div class="app__overlay-content">
+                        <p>Hier voeg je voeg je nieuwe huizen toe of pas je de naam van je huizen aan </p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
                 </div>
-                <div class="app__flower">
-                    <div class="app__flower-content"></div>
+                <div id="app-walktrough-3">
+                    <div class="app__overlay-content">
+                        <p>Hier kan je meer informatie over je kamers vinden en instellingen aanpassen. </p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="app-walktrough-4">
+                    <div class="app__overlay-content">
+                        <p>Hier kan jij je sensors bekijken, configureren of verwijderen.</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="app-walktrough-5">
+                    <div class="app__overlay-content">
+                        <p>Hier kan jij je acount bekijken en aanpassen, nieuwe sensors aanschaffen en terug naar fabrieksinstellingen</p>
+                    </div>
+                    <div class="app__overlay-nav">
+                        <a href="javascript:void(0);" class="button button--small button--uppercase btn-walktrough">
+                            <span class="button__left">
+                                <span class="button__label">Ik snap het</span>
+                            </span>
+                            <span class="button__right"></span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="app__header">
@@ -318,32 +384,260 @@
 
         <script type="text/x-handlebars-template" id="template-app-home">
             <div class="app__header">
-                <a href="javascript:void(0);" class="button button--close">
-                    <i class="icon icon--close"></i>
-                </a>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
             </div>
             <section>
                 <div class="app__title">
                     <h1>Kies jouw huis om te besturen</h1>
                 </div>
             </section>
+            <div class="app__carousel-large-holder">
+                <div class="app__carousel-large">
+                    <ul>
+                        <li>
+                            <div class="app__carousel-large-home app__carousel-large-home--new"></div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-home"></div>
+                            <div class="app__carousel-large-title">
+                                <p>Huis van der vink</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-home"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="app__carousel-large-nav"></div>
         </script>
 
-        <script type="text/x-handlebars-template" id="template-app-room">
+        <script type="text/x-handlebars-template" id="template-app-room-edit">
+            <div class="app__header">
+                <div class="app__header-center app__header-center--large">
+                    <h1>Woonkamer</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
             <section>
-                <h1>App Room</h1>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Gekoppelde sensors</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-link"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Bewegingssensor</h2>
+                                <h3>LED lamp</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Actieve scenarios</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-paper"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Besparing / monitoring</h2>
+                                <h3>Bewegingssensor / LED lamp</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Wijzigen of verwijderen</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-button-holder">
+                                <a href="javascript:void(0);" id="btn-close-app-overlay" class="button button--small button--uppercase">
+                                    <span class="button__left">
+                                        <span class="button__label">Naam wijzigen</span>
+                                    </span>
+                                    <span class="button__right"></span>
+                                </a>
+                                <a href="javascript:void(0);" id="btn-close-app-overlay" class="button button--small button--uppercase">
+                                    <span class="button__left">
+                                        <span class="button__label">Verwijderen</span>
+                                    </span>
+                                    <span class="button__right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </script>
 
-        <script type="text/x-handlebars-template" id="template-app-sensor">
+        <script type="text/x-handlebars-template" id="template-app-room">
+            <div class="app__header">
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
             <section>
-                <h1>App Sensor</h1>
+                <div class="app__title">
+                    <h1>Van welke ruimte wil je meer informatie</h1>
+                </div>
+            </section>
+            <div class="app__carousel-large-holder">
+                <div class="app__carousel-large">
+                    <ul>
+                        <li>
+                            <div class="app__carousel-large-room app__carousel-large-room--new"></div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-room"></div>
+                            <div class="app__carousel-large-title">
+                                <p>Huiskamer</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="app__carousel-large-room"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-handlebars-template" id="template-app-sensor">
+            <div class="app__header">
+                <div class="app__header-left">
+                    <a href="javascript:void(0);" class="button button--link">Wijzig</a>
+                </div>
+                <div class="app__header-center">
+                    <h1>Sensors</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
+            <section>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Woonkamer</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-motion-sensor"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>bewegingssensor</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-light-large"></i>    
+                            </div>
+                            <div class="app__list-text">
+                                <h2>LED lamp</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Badkamer</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-fluid"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Vochtsensor</h2>
+                                <h3>verbonden</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </script>
 
         <script type="text/x-handlebars-template" id="template-app-option">
+            <div class="app__header">
+                <div class="app__header-left">
+                    <a href="javascript:void(0);" class="button button--link">Wijzig</a>
+                </div>
+                <div class="app__header-center">
+                    <h1>Options</h1>
+                </div>
+                <div class="app__header-right">
+                    <a href="javascript:void(0);" class="button button--close">
+                        <i class="icon icon--close"></i>
+                    </a>
+                </div>
+            </div>
             <section>
-                <h1>App Options</h1>
+                <div class="app__list">
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Gekoppelde Apple account</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-appleid"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Max Redecker</h2>
+                                <h3>apple id: maxredecker@gmail.com</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Extra sensoren koppelen</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <div class="app__list-icon">
+                                <i class="icon icon--app-cart"></i>
+                            </div>
+                            <div class="app__list-text">
+                                <h2>Apple store</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app__list-item">
+                        <div class="app__list-header">
+                            <h1>Terug naar</h1>
+                        </div>
+                        <div class="app__list-item-border"></div>
+                        <div class="app__list-content">
+                            <a href="javascript:void(0);" class="button button--small">
+                                <span class="button__left">
+                                    <span class="button__label">Fabrieksinstellingen</span>
+                                </span>
+                                <span class="button__right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </section>
         </script>
 
@@ -357,18 +651,19 @@
 
         <!-- Cordovajs get's loaded in xcode bin -->
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="static/js/app.min.js"></script>
+        <script type="text/javascript" src="static/js/app.js"></script>
 
         <script type="text/javascript">
             (function(){
                 /*
-                    Inititalze the application
+                    Inititalze the phoneGap application
                 */
-                beehome.app.initialize({
-                    mobile: false,
+                phoneGap.initialize({
+                    mobile: true,
                     remoteIp: "145.28.222.212:8888/P6/Processing/"
                 });
+
             })();
-        </script>  
+        </script>
     </body>
 </html>

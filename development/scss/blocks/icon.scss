@@ -58,5 +58,47 @@
 			width: 31px;
 			height: 31px;	
 		}
+		&-motion-sensor {
+			background-image: url("../../img/icon-app-motion-sensor.png");
+			background-size: 55px 36px;
+			width: 55px;
+			height: 36px;
+		}
+		&-light-large {
+			background-image: url("../../img/icon-app-light-large.png");
+			background-size: 34px 38px;
+			width: 34px;
+			height: 38px;
+		}
+		&-fluid {
+			background-image: url("../../img/icon-app-fluid.png");
+			background-size: 20px 32px;
+			width: 20px;
+			height: 32px;
+		}
+		&-appleid {
+			background-image: url("../../img/icon-app-appleid.png");
+			background-size: 35px 35px;
+			width: 35px;
+			height: 35px;
+		}
+		&-cart {
+			background-image: url("../../img/icon-app-cart.png");
+			background-size: 28px 22px;
+			width: 28px;
+			height: 22px;
+		}
+		&-link {
+			background-image: url("../../img/icon-app-link.png");
+			background-size: 33px 33px;
+			width: 33px;
+			height: 33px;	
+		}
+		&-paper {
+			background-image: url("../../img/icon-app-paper.png");
+			background-size: 32px 29px;
+			width: 33px;
+			height: 29px;	
+		}
 	}
 }

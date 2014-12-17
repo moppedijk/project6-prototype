@@ -2,16 +2,43 @@
 
 	p,
 	h1,
-	h2 {
+	h2,
+	h3 {
 		color: #fff;
 	}
 
 	&__header {
 		overflow: hidden;
 
-		.button--close {
+		&-left {
+			float: left;
+			overflow: hidden;
+			width: 25%;
+
+			.button--link {
+				float: left;
+				margin: 15px;
+			}
+		}
+		&-center {
+			display: inline-block;
+			overflow: hidden;
+			width: 50%;
+			text-align: center;
+
+			&--large {
+				width: 70%;
+			}
+		}
+		&-right {
 			float: right;
-			margin: 15px;
+			overflow: hidden;
+			width: 25%;
+
+			.button--close {
+				float: right;
+				margin: 15px;
+			}
 		}
 	}
 
@@ -69,15 +96,80 @@
 		}
 	}
 
+	&__carousel-large {
+		height: 250px;
+		overflow: hidden;
+		padding-top: 35px;
+		margin-left: -80px;
+
+		&-holder {
+			overflow: hidden;
+			width: 100%;
+			height: 250px;
+		}
+
+		ul {
+			width: 20000em;
+	    	position: relative;
+	    	list-style: none;
+	    	margin: 0;
+		}
+
+		li {
+			float: left;
+			width: 160px;
+		}
+
+		&-nav {
+			text-align: center;
+			padding: 10px 0px;
+			margin-bottom: 29px;
+		}
+		&-title {
+			padding-top: 30px;
+
+			p {
+				text-align: center;
+				font-size: 21px;
+			}
+		}
+
+		&-home {
+			background-image: url("../../img/app-home.png");
+			background-size: 141px 320px;
+			background-position: top left;
+			width: 141px;
+			height: 160px;
+			margin: 0 auto;
+
+			&--new {
+				background-position: bottom right;
+			}
+		}
+		&-room {
+			background-image: url("../../img/app-room.png");
+			background-size: 141px 320px;
+			background-position: top left;
+			width: 141px;
+			height: 160px;
+			margin: 0 auto;
+
+			&--new {
+				background-position: bottom right;
+			}
+		}
+	}
+
 	&__flower {
 		width: 100%;
-		height: 345px;
+		height: 330px;
 		position: absolute;
 		bottom: 0;
 		left: 0;
 
 		&-content {
 			background-image: url("../../img/app-flower.png");
+			background-position: top left;
 			background-size: 142px 345px;
 			width: 142px;
 			height: 345px;
@@ -146,6 +238,56 @@
 					color: #fff;
 				}
 			}
+		}
+	}
+	&__list {
+		h1 {
+			text-align: left;
+			font-size: 21px;
+		}
+		h2 {
+			text-align: left;
+			font-size: 17px;
+		}
+		h3 {
+			text-align: left;
+			font-size:  14px;
+		}
+		&-header {
+			padding-bottom: 10px;
+		}
+		&-button-holder {
+			width: 200px;
+			margin: 0 auto;
+		}
+		&-item {
+			padding-top: 30px;
+
+			&-border {
+				background-image: url("../../img/app-list-border.png");
+				background-position: center;
+				background-size: 262px 7px;
+				width: 100%;
+				height: 7px;
+			}
+		}
+		&-content {
+			overflow: hidden;
+			padding: 10px 0px;
+			text-align: center;
+		}
+		&-icon {
+			width: 25%;
+			float: left;
+
+			i {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+		&-text {
+			width: 75%;
+			float: left;
 		}
 	}
 }

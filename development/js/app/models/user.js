@@ -6,8 +6,8 @@
 		},
 		reset: function () {
 			console.log("User model reset");
-		}
-
+		},
+		tutorialSeen: false
 	});
 
 })();

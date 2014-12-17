@@ -46,3 +46,8 @@ input:focus {
   margin: 0 auto;
   position: relative;
 }
+/* line 42, ../scss/layout.scss */
+.wrapper__status-bar {
+  width: 100%;
+  height: 20px;
+}

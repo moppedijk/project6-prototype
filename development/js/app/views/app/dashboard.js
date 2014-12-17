@@ -1,6 +1,7 @@
 (function(){
 
     beehome.views.app.dashboard = Backbone.View.extend({
+        walkTroughIndex: 0,
         /*
             ClassName of the view, creates html element wrapped around the template
         */
@@ -13,13 +14,12 @@
             Events of the view
         */
         events: {
-            "click #btn-close-app-overlay": "onCloseOverlayClick"
+            "click .btn-walktrough": "onBtnWalktrough"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function (){
-
         },
         /*
             Renders the home view of the app
@@ -47,6 +47,10 @@
             var subView = template(data);
 
             $(this.subView).html(subView);
+            $("#app-walktrough-2").hide();
+            $("#app-walktrough-3").hide();
+            $("#app-walktrough-4").hide();
+            $("#app-walktrough-5").hide();
 
             setTimeout(this.initCarousel, 500);
         },
@@ -70,13 +74,39 @@
                 }
             });
         },
-        onCloseOverlayClick: function() {
-            $("#app-overlay").css({
-                opacity: 1
-            });
-            TweenLite.to("#app-overlay", 0.5, { opacity: 0, onComplete: function() {
-                $("#app-overlay").hide();
-            } });
+        onBtnWalktrough: function() {
+
+            switch(this.walkTroughIndex) {
+                case 0:
+                    console.log("App walktrough 1");
+                    $("#app-walktrough-1").hide();
+                    $("#app-walktrough-2").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 1:
+                    console.log("App walktrough 2");
+                    $("#app-walktrough-2").hide();
+                    $("#app-walktrough-3").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 2:
+                    console.log("App walktrough 3");
+                    $("#app-walktrough-3").hide();
+                    $("#app-walktrough-4").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 3:
+                    console.log("App walktrough 4");
+                    $("#app-walktrough-4").hide();
+                    $("#app-walktrough-5").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 4:
+                    console.log("App walktrough 5");
+                    beehome.models.user.set({ tutorialSeen: true });
+                    $("#app-overlay").hide();
+                    break;
+            }
         },
         /*
             Start animation

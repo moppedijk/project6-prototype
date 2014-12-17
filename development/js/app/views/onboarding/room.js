@@ -46,9 +46,6 @@
 
             // Add to stage
             $(this.subView).html(subView);
-
-            // Focus input
-            $("#onboarding-input-room").focus();
         },
         onInputKeyPress: function(e)
         {
@@ -88,6 +85,7 @@
             TweenLite.to("#onboarding-room-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
 
                 $("#onboarding-nav-room").addClass("onboarding__pag-li--active");
+                $("#onboarding-input-room").focus();
 
                 this.trigger("startAnimationComplete");
             }.bind(this) });
@@ -98,6 +96,7 @@
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-input-room").blur();
             $("#onboarding-nav-room").removeClass("onboarding__pag-li--active");
             $("#onboarding-room-bee").css({
                 left: 400,

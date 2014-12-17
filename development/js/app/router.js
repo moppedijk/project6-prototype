@@ -20,7 +20,7 @@
 			'onboarding/:page': 'showOnboarding',
 			'app': 'showApp',
 			'app/:page': 'showApp',
-			'app/:page/:action': 'showApp'
+			'app/:page/:action': 'showAppEdit'
 		},
 		/*
 			Initialize function is called when contructor object get's called
@@ -34,6 +34,7 @@
 		showMain: function ( ) {
 			var view = new beehome.views.main();
 			this.showView(view);
+			// this.showApp("dashboard");
 		},
 		/*
 			Show confirm function creates confirm view
@@ -71,7 +72,7 @@
 		/*
 			Show app main function creates confirm view
 		*/
-		showApp: function ( page, action ) {
+		showApp: function ( page ) {
 			console.log("showApp");
 
 			if(!page) {
@@ -100,6 +101,21 @@
 						this.showView(view);
 					break;
 				}
+			}
+		},
+		showAppEdit: function ( page, action ) {
+			console.log("showAppEdit");
+
+			if( page && action ) {
+				switch(page + "/" + action) {
+					case "room/edit":
+						var view = new beehome.views.app.roomEdit();
+						this.showView(view);
+					break;
+				}
+			}else {
+				var view = new beehome.views.app.main();
+				this.showView(view);
 			}
 		},
 		/*

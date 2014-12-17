@@ -9,7 +9,9 @@ var beehome = beehome || {};
     beehome.views.app = beehome.views.app || {};
     beehome.views.onboarding = beehome.views.onboarding || {};
 
-(function(){
+var phoneGap = phoneGap || {};
+
+(function() {
 
     beehome.app = {
         /*
@@ -17,13 +19,61 @@ var beehome = beehome || {};
             Start the router and backbone history
         */
         initialize: function (){
-            
+            console.log("beehome initialize");
             this.router = new beehome.router();
-            Backbone.history.start(); 
+            Backbone.history.start();
         }
     };
 
-})();;(function(){
+    phoneGap = {
+        /*
+            phoneGaplication Constructor
+        */
+        initialize: function(settings) {
+            console.log("phoneGap initialize");
+            this.settings = settings;
+
+            if(this.settings.mobile) {
+                this.bindEvents();
+            } else {
+                beehome.app.initialize();
+            }
+        },
+        /* 
+            Bind Event Listeners
+            Bind any events that are required on startup. Common events are:
+            'load', 'deviceready', 'offline', and 'online'.
+        */
+        bindEvents: function() {
+            console.log("phoneGap bindEvents");
+            document.addEventListener('deviceready', this.onDeviceReady, false);
+            document.addEventListener('offlineready', this.onOfflineReady, false);
+            document.addEventListener('onlineready', this.onOnlineReady, false);
+        },
+        /*
+            deviceready Event Handler
+        
+            The scope of 'this' is the event. In order to call the 'receivedEvent'
+            function, we must explicitly call 'phoneGap.receivedEvent(...);'
+        */
+        onDeviceReady: function() {
+            console.log("phoneGap onDeviceReady");
+
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.disableScroll(true);
+
+            beehome.app.initialize();
+        },
+        onOfflineReady: function() {
+            console.log("phoneGap onOfflineReady");
+        },
+        onOnlineReady: function() {
+            console.log("phoneGap onOfflineReady");
+        }
+    };
+
+})();
+;(function(){
 	
 	beehome.models.user = Backbone.Model.extend({
 		initialize: function () {
@@ -31,13 +81,14 @@ var beehome = beehome || {};
 		},
 		reset: function () {
 			console.log("User model reset");
-		}
-
+		},
+		tutorialSeen: false
 	});
 
 })();;(function(){
 
     beehome.views.app.dashboard = Backbone.View.extend({
+        walkTroughIndex: 0,
         /*
             ClassName of the view, creates html element wrapped around the template
         */
@@ -50,13 +101,12 @@ var beehome = beehome || {};
             Events of the view
         */
         events: {
-            "click #btn-close-app-overlay": "onCloseOverlayClick"
+            "click .btn-walktrough": "onBtnWalktrough"
         },
         /*
             Initialize function of the view, get's called when views contructor is called
          */
         initialize: function (){
-
         },
         /*
             Renders the home view of the app
@@ -84,6 +134,10 @@ var beehome = beehome || {};
             var subView = template(data);
 
             $(this.subView).html(subView);
+            $("#app-walktrough-2").hide();
+            $("#app-walktrough-3").hide();
+            $("#app-walktrough-4").hide();
+            $("#app-walktrough-5").hide();
 
             setTimeout(this.initCarousel, 500);
         },
@@ -107,13 +161,39 @@ var beehome = beehome || {};
                 }
             });
         },
-        onCloseOverlayClick: function() {
-            $("#app-overlay").css({
-                opacity: 1
-            });
-            TweenLite.to("#app-overlay", 0.5, { opacity: 0, onComplete: function() {
-                $("#app-overlay").hide();
-            } });
+        onBtnWalktrough: function() {
+
+            switch(this.walkTroughIndex) {
+                case 0:
+                    console.log("App walktrough 1");
+                    $("#app-walktrough-1").hide();
+                    $("#app-walktrough-2").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 1:
+                    console.log("App walktrough 2");
+                    $("#app-walktrough-2").hide();
+                    $("#app-walktrough-3").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 2:
+                    console.log("App walktrough 3");
+                    $("#app-walktrough-3").hide();
+                    $("#app-walktrough-4").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 3:
+                    console.log("App walktrough 4");
+                    $("#app-walktrough-4").hide();
+                    $("#app-walktrough-5").show();
+                    this.walkTroughIndex++;
+                    break;
+                case 4:
+                    console.log("App walktrough 5");
+                    beehome.models.user.set({ tutorialSeen: true });
+                    $("#app-overlay").hide();
+                    break;
+            }
         },
         /*
             Start animation
@@ -240,83 +320,6 @@ var beehome = beehome || {};
     });
 })();;(function(){
 
-    beehome.views.app.main = Backbone.View.extend({
-        /*
-            ClassName of the view, creates html element wrapped around the template
-        */
-        className: "app",
-        /*
-
-        */
-        subView: "#app-subview",
-        /* 
-            Events of the view
-        */
-        events: {
-        },
-        /*
-            Initialize function of the view, get's called when views contructor is called
-         */
-        initialize: function (){
-            console.log("views app main");
-        },
-        /*
-            Renders the main view of the app
-         */
-        render: function ()
-        {
-            console.log("render views app main");
-            var templateSource = $('#template-app').html();
-            var template = Handlebars.compile(templateSource);
-            var data = {};
-
-            this.$el.html(template(data));
-
-            return this;
-        },
-        /*
-            After render function get's called after view is rendered
-        */
-        afterRender:function(){
-
-        },
-        /*
-            Start animation
-        */
-        startAnimation: function() {
-            console.log("app main: startAnimation");
-
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
-                this.trigger("startAnimationComplete");
-            }.bind(this));
-        },
-        /*
-            End animation
-        */
-        endAnimation: function() {
-            console.log("app main: endAnimation");
-
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
-                this.trigger("endAnimationComplete");
-            }.bind(this));
-        },
-        /*
-            Dispose function kills and deletes events and binded data
-        */
-        dispose:function(){
-            // Regular disposing
-            this.undelegateEvents();
-            this.$el.removeData().unbind(); 
-            this.remove();  
-            this.unbind();
-            Backbone.View.prototype.remove.call(this);
-        }
-    });
-
-})();;(function(){
-
     beehome.views.app.option = Backbone.View.extend({
         /*
             ClassName of the view, creates html element wrapped around the template
@@ -441,6 +444,89 @@ var beehome = beehome || {};
             console.log("After render");
 
             var templateSource = $("#template-app-room").html();
+            var template = Handlebars.compile(templateSource);
+            var data = {};
+            var subView = template(data);
+
+            $(this.subView).html(subView);
+        },
+        /*
+            Start animation
+        */
+        startAnimation: function() {
+            console.log("app: startAnimation");
+
+            $(this.$el).css({opacity: 0});
+            $(this.$el).animate({opacity: 1}, 300, function(){
+                this.trigger("startAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            End animation
+        */
+        endAnimation: function() {
+            console.log("app: endAnimation");
+
+            $(this.$el).css({opacity: 1});
+            $(this.$el).animate({opacity: 0}, 300, function(){
+                this.trigger("endAnimationComplete");
+            }.bind(this));
+        },
+        /*
+            Dispose function kills and deletes events and binded data
+        */
+        dispose:function() {
+            // Regular disposing
+            this.undelegateEvents();
+            this.$el.removeData().unbind(); 
+            this.remove();  
+            this.unbind();
+            Backbone.View.prototype.remove.call(this);
+        }
+    });
+})();;(function(){
+
+    beehome.views.app.roomEdit = Backbone.View.extend({
+        /*
+            ClassName of the view, creates html element wrapped around the template
+        */
+        className: "app",
+        /*
+            Subview id inside the main template
+        */
+        subView: "#app-subview",
+        /* 
+            Events of the view
+        */
+        events: {
+        },
+        /*
+            Initialize function of the view, get's called when views contructor is called
+         */
+        initialize: function (){
+
+        },
+        /*
+            Renders the home view of the app
+         */
+        render: function ()
+        {
+            var templateSource = $("#template-app").html();
+            var template = Handlebars.compile(templateSource);
+            var data = {};
+
+            this.$el.html(template(data));
+
+            return this;
+        },
+        /*
+            After render function get's called after view is rendered
+        */
+        afterRender:function()
+        {
+            console.log("After render");
+
+            var templateSource = $("#template-app-room-edit").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
             var subView = template(data);
@@ -802,7 +888,6 @@ var beehome = beehome || {};
             var subView = template(data);
 
             $(this.subView).html(subView);
-            $("#onboarding-input-home").focus();
         },
         onInputKeyPress: function(e)
         {
@@ -847,6 +932,7 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
 
                 $("#onboarding-nav-home").addClass("onboarding__pag-li--active");
+                $("#onboarding-input-home").focus();
 
                 this.trigger("startAnimationComplete");
 
@@ -858,6 +944,7 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-input-home").blur();
             $("#onboarding-nav-home").removeClass("onboarding__pag-li--active");
             $("#onboarding-home-bee").css({
                 top: 400,
@@ -867,7 +954,7 @@ var beehome = beehome || {};
 
             TweenLite.to("#onboarding-home-title", 0.4, { opacity: 0 });
             TweenLite.to("#onboarding-home-input", 0.4, { opacity: 0, delay: 0.4 });
-            TweenLite.to("#onboarding-home-bee", 1, { top: 198, left: 154, delay: 1});
+            TweenLite.to("#onboarding-home-bee", 1, { top: 138, left: 154, delay: 1});
             TweenLite.to("#onboarding-home-img", 0.5, { opacity: 0, delay: 2.5 });
             TweenLite.to("#onboarding-home-bee", 0.5, { opacity: 0, delay: 2.5, onComplete: function(){
                 this.trigger("endAnimationComplete");
@@ -878,78 +965,6 @@ var beehome = beehome || {};
         */
         dispose:function() {
             console.log("Dispose onboarding home");
-            // Regular disposing
-            this.undelegateEvents();
-            this.$el.removeData().unbind(); 
-            this.remove();  
-            this.unbind();
-            Backbone.View.prototype.remove.call(this);
-        }
-    });
-})();;(function(){
-
-    beehome.views.onboarding.main = Backbone.View.extend({
-        /*
-            ClassName of the view, creates html element wrapped around the template
-        */
-        className: "onboarding",
-        /* 
-            Events of the view
-        */
-        events: {
-            
-        },
-        /*
-            Initialize function of the view, get's called when views contructor is called
-         */
-        initialize: function (){
-
-        },
-        /*
-            Renders the main view of the app
-         */
-        render: function ()
-        {
-            var templateSource = $("#template-onboarding").html();
-            var template = Handlebars.compile(templateSource);
-            var data = {};
-
-            this.$el.html(template(data));
-
-            return this;
-        },
-        /*
-            After render function get's called after view is rendered
-        */
-        afterRender:function(){
-            
-        },
-        /*
-            Start animation
-        */
-        startAnimation: function() {
-            console.log("onboarding: startAnimation");
-
-            $(this.$el).css({opacity: 0});
-            $(this.$el).animate({opacity: 1}, 300, function(){
-                this.trigger("startAnimationComplete");
-            }.bind(this));
-        },
-        /*
-            End animation
-        */
-        endAnimation: function() {
-            console.log("onboarding: endAnimation");
-
-            $(this.$el).css({opacity: 1});
-            $(this.$el).animate({opacity: 0}, 300, function(){
-                this.trigger("endAnimationComplete");
-            }.bind(this));
-        },
-        /*
-            Dispose function kills and deletes events and binded data
-        */
-        dispose:function() {
             // Regular disposing
             this.undelegateEvents();
             this.$el.removeData().unbind(); 
@@ -1006,9 +1021,6 @@ var beehome = beehome || {};
 
             // Add to stage
             $(this.subView).html(subView);
-
-            // Focus input
-            $("#onboarding-input-room").focus();
         },
         onInputKeyPress: function(e)
         {
@@ -1048,6 +1060,7 @@ var beehome = beehome || {};
             TweenLite.to("#onboarding-room-input", 0.4, { opacity: 1, delay: 1.3, onComplete: function() {
 
                 $("#onboarding-nav-room").addClass("onboarding__pag-li--active");
+                $("#onboarding-input-room").focus();
 
                 this.trigger("startAnimationComplete");
             }.bind(this) });
@@ -1058,6 +1071,7 @@ var beehome = beehome || {};
         endAnimation: function() {
             console.log("onboarding: endAnimation");
 
+            $("#onboarding-input-room").blur();
             $("#onboarding-nav-room").removeClass("onboarding__pag-li--active");
             $("#onboarding-room-bee").css({
                 left: 400,
@@ -1419,7 +1433,7 @@ var beehome = beehome || {};
 			'onboarding/:page': 'showOnboarding',
 			'app': 'showApp',
 			'app/:page': 'showApp',
-			'app/:page/:action': 'showApp'
+			'app/:page/:action': 'showAppEdit'
 		},
 		/*
 			Initialize function is called when contructor object get's called
@@ -1433,6 +1447,7 @@ var beehome = beehome || {};
 		showMain: function ( ) {
 			var view = new beehome.views.main();
 			this.showView(view);
+			// this.showApp("dashboard");
 		},
 		/*
 			Show confirm function creates confirm view
@@ -1470,7 +1485,7 @@ var beehome = beehome || {};
 		/*
 			Show app main function creates confirm view
 		*/
-		showApp: function ( page, action ) {
+		showApp: function ( page ) {
 			console.log("showApp");
 
 			if(!page) {
@@ -1499,6 +1514,21 @@ var beehome = beehome || {};
 						this.showView(view);
 					break;
 				}
+			}
+		},
+		showAppEdit: function ( page, action ) {
+			console.log("showAppEdit");
+
+			if( page && action ) {
+				switch(page + "/" + action) {
+					case "room/edit":
+						var view = new beehome.views.app.roomEdit();
+						this.showView(view);
+					break;
+				}
+			}else {
+				var view = new beehome.views.app.main();
+				this.showView(view);
 			}
 		},
 		/*
@@ -1572,46 +1602,4 @@ var beehome = beehome || {};
 		}
 	});
 
-})();;var phoneGap = {
-    /*
-        phoneGaplication Constructor
-    */
-    initialize: function() {
-        this.bindEvents();
-        // this.startApp();
-    },
-    /* 
-        Bind Event Listeners
-        Bind any events that are required on startup. Common events are:
-        'load', 'deviceready', 'offline', and 'online'.
-    */
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener('offlineready', this.onOfflineReady, false);
-        document.addEventListener('onlineready', this.onOnlineReady, false);
-    },
-    /*
-        deviceready Event Handler
-    
-        The scope of 'this' is the event. In order to call the 'receivedEvent'
-        function, we must explicitly call 'phoneGap.receivedEvent(...);'
-    */
-    onDeviceReady: function() {
-        phoneGap.receivedEvent('deviceready');
-    },
-    onOfflineReady: function() {
-        phoneGap.receivedEvent('offlineready');
-    },
-    onOnlineReady: function() {
-        phoneGap.receivedEvent('onlineready');
-    },
-    /*
-        Update DOM on a Received Event
-    */
-    receivedEvent: function(id) {
-        // var parentElement = document.getElementById("notification");
-        //     parentElement.innerHTML = "Received Event: " + id;
-    }
-};
-
-phoneGap.initialize();
+})();

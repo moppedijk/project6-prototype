@@ -1,15 +1,18 @@
 (function(){
 
-    beehome.views.onboarding.main = Backbone.View.extend({
+    beehome.views.app.roomEdit = Backbone.View.extend({
         /*
             ClassName of the view, creates html element wrapped around the template
         */
-        className: "onboarding",
+        className: "app",
+        /*
+            Subview id inside the main template
+        */
+        subView: "#app-subview",
         /* 
             Events of the view
         */
         events: {
-            
         },
         /*
             Initialize function of the view, get's called when views contructor is called
@@ -18,11 +21,11 @@
 
         },
         /*
-            Renders the main view of the app
+            Renders the home view of the app
          */
         render: function ()
         {
-            var templateSource = $("#template-onboarding").html();
+            var templateSource = $("#template-app").html();
             var template = Handlebars.compile(templateSource);
             var data = {};
 
@@ -33,14 +36,22 @@
         /*
             After render function get's called after view is rendered
         */
-        afterRender:function(){
-            
+        afterRender:function()
+        {
+            console.log("After render");
+
+            var templateSource = $("#template-app-room-edit").html();
+            var template = Handlebars.compile(templateSource);
+            var data = {};
+            var subView = template(data);
+
+            $(this.subView).html(subView);
         },
         /*
             Start animation
         */
         startAnimation: function() {
-            console.log("onboarding: startAnimation");
+            console.log("app: startAnimation");
 
             $(this.$el).css({opacity: 0});
             $(this.$el).animate({opacity: 1}, 300, function(){
@@ -51,7 +62,7 @@
             End animation
         */
         endAnimation: function() {
-            console.log("onboarding: endAnimation");
+            console.log("app: endAnimation");
 
             $(this.$el).css({opacity: 1});
             $(this.$el).animate({opacity: 0}, 300, function(){
