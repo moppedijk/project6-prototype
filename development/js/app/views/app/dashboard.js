@@ -125,19 +125,11 @@
 
                 console.log(remoteUrlOff);
                 
-                // $.ajax({
-                //     type: "POST",
-                //     url: remoteUrlOff
-                // }).done(function() {
-                //     console.log("Uit");
-                // });
-
-                JSONP({
-                    url: remoteUrlOff,
+                $.ajax({
                     type: "POST",
-                    success: function(data) {
-                        console.log("succes");
-                    }
+                    url: remoteUrlOff
+                }).done(function() {
+                    console.log("Uit");
                 });
 
                 $(".button--light").removeClass('button--active');
@@ -146,23 +138,15 @@
                 this.light = false;
             }else {
                 // False
-                var remoteUrlOn = phoneGap.settings.remoteIp + "?state=on";
+                var remoteUrlOn = "http://" + phoneGap.settings.remoteIp + "?state=on";
 
                 console.log(remoteUrlOn);
 
-                // $.ajax({
-                //     type: "POST",
-                //     url: remoteUrlOn
-                // }).done(function() {
-                //     console.log("Aan");
-                // });
-
-                JSONP({
-                    url: remoteUrlOn,
+                $.ajax({
                     type: "POST",
-                    success: function(data) {
-                        console.log("succes");
-                    }
+                    url: remoteUrlOn
+                }).done(function() {
+                    console.log("Aan");
                 });
 
                 $(".button--light").addClass('button--active');

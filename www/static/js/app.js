@@ -212,19 +212,11 @@ var phoneGap = phoneGap || {};
 
                 console.log(remoteUrlOff);
                 
-                // $.ajax({
-                //     type: "POST",
-                //     url: remoteUrlOff
-                // }).done(function() {
-                //     console.log("Uit");
-                // });
-
-                JSONP({
-                    url: remoteUrlOff,
+                $.ajax({
                     type: "POST",
-                    success: function(data) {
-                        console.log("succes");
-                    }
+                    url: remoteUrlOff
+                }).done(function() {
+                    console.log("Uit");
                 });
 
                 $(".button--light").removeClass('button--active');
@@ -237,19 +229,11 @@ var phoneGap = phoneGap || {};
 
                 console.log(remoteUrlOn);
 
-                // $.ajax({
-                //     type: "POST",
-                //     url: remoteUrlOn
-                // }).done(function() {
-                //     console.log("Aan");
-                // });
-
-                JSONP({
-                    url: remoteUrlOn,
+                $.ajax({
                     type: "POST",
-                    success: function(data) {
-                        console.log("succes");
-                    }
+                    url: remoteUrlOn
+                }).done(function() {
+                    console.log("Aan");
                 });
 
                 $(".button--light").addClass('button--active');
