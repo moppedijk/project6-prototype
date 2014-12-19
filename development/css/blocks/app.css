@@ -139,12 +139,13 @@
   width: 141px;
   height: 160px;
   margin: 0 auto;
+  display: block;
 }
-/* line 145, ../../scss/blocks/app.scss */
+/* line 146, ../../scss/blocks/app.scss */
 .app__carousel-large-home--new {
   background-position: bottom right;
 }
-/* line 149, ../../scss/blocks/app.scss */
+/* line 150, ../../scss/blocks/app.scss */
 .app__carousel-large-room {
   background-image: url("../../img/app-room.png");
   background-size: 141px 320px;
@@ -152,12 +153,13 @@
   width: 141px;
   height: 160px;
   margin: 0 auto;
+  display: block;
 }
-/* line 157, ../../scss/blocks/app.scss */
+/* line 159, ../../scss/blocks/app.scss */
 .app__carousel-large-room--new {
   background-position: bottom right;
 }
-/* line 163, ../../scss/blocks/app.scss */
+/* line 165, ../../scss/blocks/app.scss */
 .app__flower {
   width: 100%;
   height: 330px;
@@ -165,7 +167,7 @@
   bottom: 0;
   left: 0;
 }
-/* line 170, ../../scss/blocks/app.scss */
+/* line 172, ../../scss/blocks/app.scss */
 .app__flower-content {
   background-image: url("../../img/app-flower.png");
   background-position: top left;
@@ -174,7 +176,12 @@
   height: 345px;
   margin: 0 auto;
 }
-/* line 180, ../../scss/blocks/app.scss */
+/* line 181, ../../scss/blocks/app.scss */
+.app__flower--percentage {
+  background-image: url("../../img/app-flower-percentage.png");
+  background-repeat: no-repeat;
+}
+/* line 187, ../../scss/blocks/app.scss */
 .app__overlay {
   width: 100%;
   height: 100%;
@@ -185,21 +192,41 @@
   background-color: rgba(36, 141, 155, 0.9);
   z-index: 1;
 }
-/* line 190, ../../scss/blocks/app.scss */
+/* line 197, ../../scss/blocks/app.scss */
 .app__overlay-content {
   padding: 33px 16px;
 }
-/* line 193, ../../scss/blocks/app.scss */
+/* line 200, ../../scss/blocks/app.scss */
 .app__overlay-content p {
   font-size: 18px;
 }
-/* line 198, ../../scss/blocks/app.scss */
+/* line 203, ../../scss/blocks/app.scss */
+.app__overlay-content--2 {
+  margin-top: 300px;
+}
+/* line 206, ../../scss/blocks/app.scss */
+.app__overlay-content--3 {
+  margin-top: 300px;
+}
+/* line 209, ../../scss/blocks/app.scss */
+.app__overlay-content--4 {
+  margin-top: 300px;
+}
+/* line 212, ../../scss/blocks/app.scss */
+.app__overlay-content--5 {
+  margin-top: 300px;
+}
+/* line 217, ../../scss/blocks/app.scss */
 .app__overlay-nav {
   padding: 0px 25px;
   text-align: center;
   margin-bottom: 57px;
 }
-/* line 205, ../../scss/blocks/app.scss */
+/* line 225, ../../scss/blocks/app.scss */
+.app__menu-item--inactive {
+  opacity: .5;
+}
+/* line 230, ../../scss/blocks/app.scss */
 .app__menu-bar {
   position: absolute;
   width: 100%;
@@ -207,12 +234,12 @@
   left: 0;
   bottom: 0;
 }
-/* line 212, ../../scss/blocks/app.scss */
+/* line 237, ../../scss/blocks/app.scss */
 .app__menu-bar ul {
   list-style: none;
   height: 100%;
 }
-/* line 216, ../../scss/blocks/app.scss */
+/* line 241, ../../scss/blocks/app.scss */
 .app__menu-bar ul li {
   float: left;
   width: 25%;
@@ -221,16 +248,16 @@
   color: #fff;
   text-align: center;
 }
-/* line 224, ../../scss/blocks/app.scss */
+/* line 249, ../../scss/blocks/app.scss */
 .app__menu-bar ul li a {
   text-decoration: none;
 }
-/* line 228, ../../scss/blocks/app.scss */
+/* line 253, ../../scss/blocks/app.scss */
 .app__menu-bar ul li i {
   vertical-align: text-top;
   height: 35px;
 }
-/* line 233, ../../scss/blocks/app.scss */
+/* line 258, ../../scss/blocks/app.scss */
 .app__menu-bar ul li span {
   display: block;
   text-align: center;
@@ -238,35 +265,35 @@
   vertical-align: text-top;
   color: #fff;
 }
-/* line 244, ../../scss/blocks/app.scss */
+/* line 269, ../../scss/blocks/app.scss */
 .app__list h1 {
   text-align: left;
   font-size: 21px;
 }
-/* line 248, ../../scss/blocks/app.scss */
+/* line 273, ../../scss/blocks/app.scss */
 .app__list h2 {
   text-align: left;
   font-size: 17px;
 }
-/* line 252, ../../scss/blocks/app.scss */
+/* line 277, ../../scss/blocks/app.scss */
 .app__list h3 {
   text-align: left;
   font-size: 14px;
 }
-/* line 256, ../../scss/blocks/app.scss */
+/* line 281, ../../scss/blocks/app.scss */
 .app__list-header {
   padding-bottom: 10px;
 }
-/* line 259, ../../scss/blocks/app.scss */
+/* line 284, ../../scss/blocks/app.scss */
 .app__list-button-holder {
   width: 200px;
   margin: 0 auto;
 }
-/* line 263, ../../scss/blocks/app.scss */
+/* line 288, ../../scss/blocks/app.scss */
 .app__list-item {
   padding-top: 30px;
 }
-/* line 266, ../../scss/blocks/app.scss */
+/* line 291, ../../scss/blocks/app.scss */
 .app__list-item-border {
   background-image: url("../../img/app-list-border.png");
   background-position: center;
@@ -274,23 +301,23 @@
   width: 100%;
   height: 7px;
 }
-/* line 274, ../../scss/blocks/app.scss */
+/* line 299, ../../scss/blocks/app.scss */
 .app__list-content {
   overflow: hidden;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 279, ../../scss/blocks/app.scss */
+/* line 304, ../../scss/blocks/app.scss */
 .app__list-icon {
   width: 25%;
   float: left;
 }
-/* line 283, ../../scss/blocks/app.scss */
+/* line 308, ../../scss/blocks/app.scss */
 .app__list-icon i {
   display: block;
   margin: 0 auto;
 }
-/* line 288, ../../scss/blocks/app.scss */
+/* line 313, ../../scss/blocks/app.scss */
 .app__list-text {
   width: 75%;
   float: left;

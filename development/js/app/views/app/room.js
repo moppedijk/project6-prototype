@@ -42,8 +42,10 @@
 
             var templateSource = $("#template-app-room").html();
             var template = Handlebars.compile(templateSource);
-            var data = {};
+            var data = this.model;
             var subView = template(data);
+
+            console.log(data);
 
             $(this.subView).html(subView);
         },

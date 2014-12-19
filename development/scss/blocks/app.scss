@@ -141,6 +141,7 @@
 			width: 141px;
 			height: 160px;
 			margin: 0 auto;
+			display: block;
 
 			&--new {
 				background-position: bottom right;
@@ -153,6 +154,7 @@
 			width: 141px;
 			height: 160px;
 			margin: 0 auto;
+			display: block;
 
 			&--new {
 				background-position: bottom right;
@@ -175,6 +177,11 @@
 			height: 345px;
 			margin: 0 auto;
 		}
+
+		&--percentage {
+			background-image: url("../../img/app-flower-percentage.png");
+			background-repeat: no-repeat;
+		}
 	}
 
 	&__overlay {
@@ -193,12 +200,30 @@
 			p {
 				font-size: 18px;
 			}
+			&--2 {
+				margin-top: 300px;
+			}
+			&--3 {
+				margin-top: 300px;
+			}
+			&--4 {
+				margin-top: 300px;
+			}
+			&--5 {
+				margin-top: 300px;
+			}
 		}
 
 		&-nav {
 			padding: 0px 25px;
 			text-align: center;
 			margin-bottom: 57px;
+		}
+	}
+
+	&__menu-item {
+		&--inactive {
+			opacity: .5;
 		}
 	}
 

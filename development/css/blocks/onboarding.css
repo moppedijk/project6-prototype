@@ -21,22 +21,26 @@
 /* line 23, ../../scss/blocks/onboarding.scss */
 .onboarding ::-webkit-input-placeholder {
   color: #fff;
+  opacity: 0.3;
 }
-/* line 27, ../../scss/blocks/onboarding.scss */
+/* line 28, ../../scss/blocks/onboarding.scss */
 .onboarding :-moz-placeholder {
   /* Firefox 18- */
   color: #fff;
+  opacity: 0.3;
 }
-/* line 31, ../../scss/blocks/onboarding.scss */
+/* line 33, ../../scss/blocks/onboarding.scss */
 .onboarding ::-moz-placeholder {
   /* Firefox 19+ */
   color: #fff;
+  opacity: 0.3;
 }
-/* line 35, ../../scss/blocks/onboarding.scss */
+/* line 38, ../../scss/blocks/onboarding.scss */
 .onboarding :-ms-input-placeholder {
   color: #fff;
+  opacity: 0.3;
 }
-/* line 39, ../../scss/blocks/onboarding.scss */
+/* line 43, ../../scss/blocks/onboarding.scss */
 .onboarding__input-border {
   background-image: url("../../img/onboarding-input-border.png");
   background-position: center;
@@ -44,66 +48,66 @@
   width: 100%;
   height: 5px;
 }
-/* line 47, ../../scss/blocks/onboarding.scss */
+/* line 51, ../../scss/blocks/onboarding.scss */
 .onboarding__item {
   width: 320px;
   height: 480px;
 }
-/* line 51, ../../scss/blocks/onboarding.scss */
+/* line 55, ../../scss/blocks/onboarding.scss */
 .onboarding__item-title {
   padding-top: 10px;
 }
-/* line 54, ../../scss/blocks/onboarding.scss */
-.onboarding__item-title h1 {
-  font-size: 27px;
-}
 /* line 58, ../../scss/blocks/onboarding.scss */
+.onboarding__item-title h1 {
+  font-size: 26px;
+}
+/* line 62, ../../scss/blocks/onboarding.scss */
 .onboarding__item-title--uppercase {
   text-transform: uppercase;
 }
-/* line 63, ../../scss/blocks/onboarding.scss */
+/* line 67, ../../scss/blocks/onboarding.scss */
 .onboarding__item-title--small h1 {
   font-size: 21px;
 }
-/* line 69, ../../scss/blocks/onboarding.scss */
+/* line 73, ../../scss/blocks/onboarding.scss */
 .onboarding__item-subtitle {
   padding-top: 25px;
 }
-/* line 72, ../../scss/blocks/onboarding.scss */
+/* line 76, ../../scss/blocks/onboarding.scss */
 .onboarding__item-subtitle h2 {
   font-size: 21px;
 }
-/* line 76, ../../scss/blocks/onboarding.scss */
+/* line 80, ../../scss/blocks/onboarding.scss */
 .onboarding__item-subtitle--uppercase {
   text-transform: uppercase;
 }
-/* line 81, ../../scss/blocks/onboarding.scss */
+/* line 85, ../../scss/blocks/onboarding.scss */
 .onboarding__item-img {
   padding-top: 10px;
   width: 90px;
   margin: 0 auto;
   position: relative;
 }
-/* line 87, ../../scss/blocks/onboarding.scss */
+/* line 91, ../../scss/blocks/onboarding.scss */
 .onboarding__item-img img {
   max-width: 100%;
 }
-/* line 92, ../../scss/blocks/onboarding.scss */
+/* line 96, ../../scss/blocks/onboarding.scss */
 .onboarding__item-input {
   padding: 10px 0px 4px;
   width: 175px;
   margin: 0 auto;
 }
-/* line 98, ../../scss/blocks/onboarding.scss */
+/* line 102, ../../scss/blocks/onboarding.scss */
 .onboarding__item-nav {
   text-align: center;
   width: 250px;
 }
-/* line 102, ../../scss/blocks/onboarding.scss */
+/* line 106, ../../scss/blocks/onboarding.scss */
 .onboarding__item-nav .button {
   margin: 18px 0px;
 }
-/* line 107, ../../scss/blocks/onboarding.scss */
+/* line 111, ../../scss/blocks/onboarding.scss */
 .onboarding__item-bee {
   background-image: url("../../img/onboarding-home-bee.png");
   background-size: 37px 36px;
@@ -113,62 +117,62 @@
   display: inline-block;
   position: absolute;
 }
-/* line 118, ../../scss/blocks/onboarding.scss */
+/* line 122, ../../scss/blocks/onboarding.scss */
 .onboarding__content {
   max-width: 320px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
-/* line 125, ../../scss/blocks/onboarding.scss */
+/* line 129, ../../scss/blocks/onboarding.scss */
 .onboarding__section {
   padding-top: 1px;
   overflow: hidden;
 }
-/* line 130, ../../scss/blocks/onboarding.scss */
+/* line 134, ../../scss/blocks/onboarding.scss */
 .onboarding__nav {
   padding-top: 1px;
 }
-/* line 134, ../../scss/blocks/onboarding.scss */
+/* line 138, ../../scss/blocks/onboarding.scss */
 .onboarding__pag {
   padding-top: 5px;
   height: 55px;
 }
-/* line 138, ../../scss/blocks/onboarding.scss */
+/* line 142, ../../scss/blocks/onboarding.scss */
 .onboarding__pag-ul {
   list-style: none;
   overflow: hidden;
   margin: 0 auto;
   width: 250px;
 }
-/* line 145, ../../scss/blocks/onboarding.scss */
+/* line 149, ../../scss/blocks/onboarding.scss */
 .onboarding__pag-li {
   float: left;
   width: 50px;
   height: 55px;
 }
-/* line 150, ../../scss/blocks/onboarding.scss */
+/* line 154, ../../scss/blocks/onboarding.scss */
 .onboarding__pag-li .nav-icon {
   transition: margin .2s;
   margin: 10px;
 }
-/* line 155, ../../scss/blocks/onboarding.scss */
+/* line 159, ../../scss/blocks/onboarding.scss */
 .onboarding__pag-li img {
   width: 100%;
 }
-/* line 160, ../../scss/blocks/onboarding.scss */
+/* line 164, ../../scss/blocks/onboarding.scss */
 .onboarding__pag-li--active .nav-icon {
   transition: margin .2s;
   margin: 0px;
 }
-/* line 168, ../../scss/blocks/onboarding.scss */
+/* line 172, ../../scss/blocks/onboarding.scss */
 .onboarding__selection {
   position: relative;
   width: 182px;
   margin-left: 90px;
   height: 120px;
 }
-/* line 174, ../../scss/blocks/onboarding.scss */
+/* line 178, ../../scss/blocks/onboarding.scss */
 .onboarding__selection-next, .onboarding__selection-prev {
   width: 90px;
   height: 126px;
@@ -176,17 +180,17 @@
   z-index: 1;
   -webkit-tap-highlight-color: transparent;
 }
-/* line 183, ../../scss/blocks/onboarding.scss */
+/* line 187, ../../scss/blocks/onboarding.scss */
 .onboarding__selection-prev {
   top: 0;
   right: 0;
 }
-/* line 187, ../../scss/blocks/onboarding.scss */
+/* line 191, ../../scss/blocks/onboarding.scss */
 .onboarding__selection-next {
   top: 0;
   left: 0;
 }
-/* line 191, ../../scss/blocks/onboarding.scss */
+/* line 195, ../../scss/blocks/onboarding.scss */
 .onboarding__selection-holder {
   width: 272px;
   overflow: hidden;
@@ -194,7 +198,7 @@
   padding: 20px 0px 0px;
   height: 100px;
 }
-/* line 200, ../../scss/blocks/onboarding.scss */
+/* line 204, ../../scss/blocks/onboarding.scss */
 .onboarding__selection ul {
   width: 20000em;
   position: relative;
@@ -202,7 +206,7 @@
   margin: 0;
   padding: 0;
 }
-/* line 208, ../../scss/blocks/onboarding.scss */
+/* line 212, ../../scss/blocks/onboarding.scss */
 .onboarding__selection li {
   float: left;
   width: 90px;
@@ -214,23 +218,23 @@
   transition: padding-top 0.2s;
   transition: font-size 0.2s ease;
 }
-/* line 221, ../../scss/blocks/onboarding.scss */
+/* line 225, ../../scss/blocks/onboarding.scss */
 .onboarding__selection .active {
   color: #fff;
   font-size: 71px;
   padding-top: 10px;
 }
-/* line 227, ../../scss/blocks/onboarding.scss */
+/* line 231, ../../scss/blocks/onboarding.scss */
 .onboarding__amount {
   margin-bottom: 30px;
 }
-/* line 230, ../../scss/blocks/onboarding.scss */
+/* line 234, ../../scss/blocks/onboarding.scss */
 .onboarding__amount h2 {
   font-size: 37px;
   text-transform: uppercase;
   text-align: center;
 }
-/* line 237, ../../scss/blocks/onboarding.scss */
+/* line 241, ../../scss/blocks/onboarding.scss */
 .onboarding__animation {
   position: absolute;
   top: 0;
@@ -239,11 +243,11 @@
   max-height: 100%;
   opacity: 0;
 }
-/* line 245, ../../scss/blocks/onboarding.scss */
+/* line 249, ../../scss/blocks/onboarding.scss */
 .onboarding__animation-inner {
   padding: 140px 40px 0px;
 }
-/* line 248, ../../scss/blocks/onboarding.scss */
+/* line 252, ../../scss/blocks/onboarding.scss */
 .onboarding__animation-inner p {
   text-align: center;
   font-size: 26px;

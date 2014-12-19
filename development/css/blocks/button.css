@@ -101,3 +101,8 @@
   padding-top: 3px;
   padding-left: 3px;
 }
+/* line 111, ../../scss/blocks/button.scss */
+.button--active {
+  color: #246c76;
+  background-color: #fff;
+}

@@ -22,18 +22,22 @@
 
 	::-webkit-input-placeholder {
 	   	color: #fff;
+	   	opacity: 0.3;
 	}
 
 	:-moz-placeholder { /* Firefox 18- */
 		color: #fff;
+		opacity: 0.3;
 	}
 
 	::-moz-placeholder {  /* Firefox 19+ */
 	   	color: #fff;
+	   	opacity: 0.3;
 	}
 
 	:-ms-input-placeholder {  
 	    color: #fff;
+	    opacity: 0.3;
 	}
 
 	&__input-border {
@@ -52,7 +56,7 @@
 	    	padding-top: 10px;
 
 	    	h1 {
-	    		font-size: 27px;
+	    		font-size: 26px;
 	    	}
 
 	    	&--uppercase {

@@ -89,7 +89,9 @@
 						this.showView(view);
 					break;
 					case "room":
-						var view = new beehome.views.app.room();
+						var view = new beehome.views.app.room({
+							model: beehome.app.user
+						});
 						this.showView(view);
 					break;
 					case "sensor":
