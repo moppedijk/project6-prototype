@@ -225,7 +225,7 @@ var phoneGap = phoneGap || {};
                 this.light = false;
             }else {
                 // False
-                var remoteUrlOn = phoneGap.settings.remoteIp + "?state=on";
+                var remoteUrlOn = "http://" + phoneGap.settings.remoteIp + "?state=on";
 
                 console.log(remoteUrlOn);
 

@@ -10,12 +10,12 @@
         <!-- New -->
         <link rel="stylesheet" type="text/css" href="static/css/style.css" />
 
-        <title>Project 6</title>
+        <title>Beehome</title>
 
     </head>
     <body>
 
-        <script src="//localhost:35729/livereload.js"></script>
+        <!-- // <script src="//localhost:35729/livereload.js"></script> -->
 
         <div class="wrapper" id="app">
             <div id="main"></div>
@@ -117,20 +117,20 @@
                         <a href="javascript:void(0);" class="onboarding__selection-next"></a>
                         <div class="onboarding__selection">
                             <ul>
-                                <li data-rel="05">05</li>
-                                <li data-rel="10">10</li>
-                                <li data-rel="15">15</li>
                                 <li data-rel="20">20</li>
                                 <li data-rel="25">25</li>
                                 <li data-rel="30">30</li>
-                                <li data-rel="35" class="active">35</li>
+                                <li data-rel="35">35</li>
                                 <li data-rel="40">40</li>
                                 <li data-rel="45">45</li>
-                                <li data-rel="50">50</li>
+                                <li data-rel="50" class="active">50</li>
                                 <li data-rel="55">55</li>
                                 <li data-rel="60">60</li>
                                 <li data-rel="65">65</li>
                                 <li data-rel="70">70</li>
+                                <li data-rel="75">75</li>
+                                <li data-rel="80">80</li>
+                                <li data-rel="85">85</li>
                             </ul>
                         </div>
                     </div>
@@ -768,7 +768,7 @@
 
         <!-- Cordovajs get's loaded in xcode bin -->
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="static/js/app.js"></script>
+        <script type="text/javascript" src="static/js/app.min.js"></script>
 
         <script type="text/javascript">
             (function(){
@@ -776,8 +776,8 @@
                     Inititalze the phoneGap application
                 */
                 phoneGap.initialize({
-                    mobile: false,
-                    remoteIp: "145.28.232.174:8888/P6/Processing/"
+                    mobile: true,
+                    remoteIp: "145.28.221.181/index.php"
                 });
 
             })();
