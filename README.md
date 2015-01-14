@@ -1,4 +1,4 @@
-# Project 6 - Beehome
+# Project 6 - Be home
 
 Project 6 is een groepsproject van de Hogeschool van Amsterdam opleiding Communication and Multimedia Design.
 Tijdens dit project hebben we samengewerkt met UNITiD Amsterdam als opdrachtgeven vanuit de HVA.
