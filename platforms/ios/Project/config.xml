@@ -22,7 +22,7 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
-    <name>Beehome</name>
+    <name>Project</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>

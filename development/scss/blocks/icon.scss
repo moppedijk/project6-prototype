@@ -19,6 +19,13 @@
 		background-size: 19px 22px;
 		width: 19px;
 		height: 22px;
+
+		&-full {
+			background-image: url("../../img/icon-light-full.png");
+			background-size: 19px 22px;
+			width: 19px;
+			height: 22px;
+		}
 	}
 	&--hexagon {
 		background-image: url("../../img/icon-hexagon.png");

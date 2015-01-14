@@ -25,90 +25,97 @@
   height: 22px;
 }
 /* line 23, ../../scss/blocks/icon.scss */
+.icon--light-full {
+  background-image: url("../../img/icon-light-full.png");
+  background-size: 19px 22px;
+  width: 19px;
+  height: 22px;
+}
+/* line 30, ../../scss/blocks/icon.scss */
 .icon--hexagon {
   background-image: url("../../img/icon-hexagon.png");
   background-size: 17px 38px;
   width: 17px;
   height: 19px;
 }
-/* line 29, ../../scss/blocks/icon.scss */
+/* line 36, ../../scss/blocks/icon.scss */
 .icon--close {
   background-image: url("../../img/icon-app-close.png");
   background-size: 23px 22px;
   width: 23px;
   height: 22px;
 }
-/* line 37, ../../scss/blocks/icon.scss */
+/* line 44, ../../scss/blocks/icon.scss */
 .icon--app-home {
   background-image: url("../../img/icon-app-home.png");
   background-size: 37px 29px;
   width: 37px;
   height: 29px;
 }
-/* line 43, ../../scss/blocks/icon.scss */
+/* line 50, ../../scss/blocks/icon.scss */
 .icon--app-room {
   background-image: url("../../img/icon-app-room.png");
   background-size: 27px 32px;
   width: 27px;
   height: 23px;
 }
-/* line 49, ../../scss/blocks/icon.scss */
+/* line 56, ../../scss/blocks/icon.scss */
 .icon--app-sensor {
   background-image: url("../../img/icon-app-sensor.png");
   background-size: 31px 31px;
   width: 31px;
   height: 31px;
 }
-/* line 55, ../../scss/blocks/icon.scss */
+/* line 62, ../../scss/blocks/icon.scss */
 .icon--app-options {
   background-image: url("../../img/icon-app-options.png");
   background-size: 31px 31px;
   width: 31px;
   height: 31px;
 }
-/* line 61, ../../scss/blocks/icon.scss */
+/* line 68, ../../scss/blocks/icon.scss */
 .icon--app-motion-sensor {
   background-image: url("../../img/icon-app-motion-sensor.png");
   background-size: 55px 36px;
   width: 55px;
   height: 36px;
 }
-/* line 67, ../../scss/blocks/icon.scss */
+/* line 74, ../../scss/blocks/icon.scss */
 .icon--app-light-large {
   background-image: url("../../img/icon-app-light-large.png");
   background-size: 34px 38px;
   width: 34px;
   height: 38px;
 }
-/* line 73, ../../scss/blocks/icon.scss */
+/* line 80, ../../scss/blocks/icon.scss */
 .icon--app-fluid {
   background-image: url("../../img/icon-app-fluid.png");
   background-size: 20px 32px;
   width: 20px;
   height: 32px;
 }
-/* line 79, ../../scss/blocks/icon.scss */
+/* line 86, ../../scss/blocks/icon.scss */
 .icon--app-appleid {
   background-image: url("../../img/icon-app-appleid.png");
   background-size: 35px 35px;
   width: 35px;
   height: 35px;
 }
-/* line 85, ../../scss/blocks/icon.scss */
+/* line 92, ../../scss/blocks/icon.scss */
 .icon--app-cart {
   background-image: url("../../img/icon-app-cart.png");
   background-size: 28px 22px;
   width: 28px;
   height: 22px;
 }
-/* line 91, ../../scss/blocks/icon.scss */
+/* line 98, ../../scss/blocks/icon.scss */
 .icon--app-link {
   background-image: url("../../img/icon-app-link.png");
   background-size: 33px 33px;
   width: 33px;
   height: 33px;
 }
-/* line 97, ../../scss/blocks/icon.scss */
+/* line 104, ../../scss/blocks/icon.scss */
 .icon--app-paper {
   background-image: url("../../img/icon-app-paper.png");
   background-size: 32px 29px;

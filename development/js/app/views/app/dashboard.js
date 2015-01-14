@@ -150,7 +150,7 @@
                 });
 
                 $(".button--light").addClass('button--active');
-                $(".button--light").html("<i class=\"icon icon--light\"></i><span>Licht uit doen</span>");
+                $(".button--light").html("<i class=\"icon icon--light-full\"></i><span>Licht uit doen</span>");
 
                 this.light = true;
             }

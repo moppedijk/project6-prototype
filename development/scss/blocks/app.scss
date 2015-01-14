@@ -214,6 +214,46 @@
 			}
 		}
 
+		&-arrow {
+			position: absolute;
+
+			&--1 {
+				top: 117px;
+				left: 219px;
+				background-image: url('../../img/app-overlay-arrow-1.png');
+				width: 31px;
+				height: 95px;
+			}
+			&--2 {
+				left: 56px;
+				bottom: 55px;
+				background-image: url('../../img/app-overlay-arrow-2.png');
+				width: 190px;
+				height: 124px;
+			}
+			&--3 {
+				left: 147px;
+				bottom: 61px;
+				background-image: url("../../img/app-overlay-arrow-3.png");
+				width: 122px;
+				height: 124px;
+			}
+			&--4 {
+				left: 215px;
+				bottom: 76px;
+				background-image: url("../../img/app-overlay-arrow-4.png");
+				width: 21px;
+				height: 103px;
+			}
+			&--5 {
+				left: 244px;
+				bottom: 79px;
+				background-image: url("../../img/app-overlay-arrow-5.png");
+				width: 37px;
+				height: 96px;
+			}
+		}
+
 		&-nav {
 			padding: 0px 25px;
 			text-align: center;

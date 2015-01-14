@@ -68,12 +68,19 @@
             $("#main-found").css({
                 opacity: 0
             });
+            $("#main-found-2").css({
+                opacity: 0
+            });
 
             // Animation in
             TweenLite.to("#main-logo", 0.5, { marginTop: 100, ease:Elastic.easeIn });
             TweenLite.to("#main-loader", 0.5, { opacity:1, delay:1 } );
             TweenLite.to("#main-tagline1", 0.5, { opacity:1, delay:1.5 } );
             TweenLite.to("#main-found", 0.5, { opacity:1, delay:2 } );
+            TweenLite.to("#main-found", 0.2, { opacity:0, delay:5, onComplete: function () {
+                $("#main-found").hide();
+            } } );
+            TweenLite.to("#main-found-2", 0.5, { opacity:1, delay:5.2 } );
 
             //Animation out
             TweenLite.to("#main-tagline1", 0.3, { opacity:0, delay:9, onComplete: function ( ) {

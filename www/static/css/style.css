@@ -274,16 +274,60 @@ input:focus {
   margin-top: 300px;
 }
 /* line 217, ../../scss/blocks/app.scss */
+.app__overlay-arrow {
+  position: absolute;
+}
+/* line 220, ../../scss/blocks/app.scss */
+.app__overlay-arrow--1 {
+  top: 117px;
+  left: 219px;
+  background-image: url("../../img/app-overlay-arrow-1.png");
+  width: 31px;
+  height: 95px;
+}
+/* line 227, ../../scss/blocks/app.scss */
+.app__overlay-arrow--2 {
+  left: 56px;
+  bottom: 55px;
+  background-image: url("../../img/app-overlay-arrow-2.png");
+  width: 190px;
+  height: 124px;
+}
+/* line 234, ../../scss/blocks/app.scss */
+.app__overlay-arrow--3 {
+  left: 147px;
+  bottom: 61px;
+  background-image: url("../../img/app-overlay-arrow-3.png");
+  width: 122px;
+  height: 124px;
+}
+/* line 241, ../../scss/blocks/app.scss */
+.app__overlay-arrow--4 {
+  left: 215px;
+  bottom: 76px;
+  background-image: url("../../img/app-overlay-arrow-4.png");
+  width: 21px;
+  height: 103px;
+}
+/* line 248, ../../scss/blocks/app.scss */
+.app__overlay-arrow--5 {
+  left: 244px;
+  bottom: 79px;
+  background-image: url("../../img/app-overlay-arrow-5.png");
+  width: 37px;
+  height: 96px;
+}
+/* line 257, ../../scss/blocks/app.scss */
 .app__overlay-nav {
   padding: 0px 25px;
   text-align: center;
   margin-bottom: 57px;
 }
-/* line 225, ../../scss/blocks/app.scss */
+/* line 265, ../../scss/blocks/app.scss */
 .app__menu-item--inactive {
   opacity: .5;
 }
-/* line 230, ../../scss/blocks/app.scss */
+/* line 270, ../../scss/blocks/app.scss */
 .app__menu-bar {
   position: absolute;
   width: 100%;
@@ -291,12 +335,12 @@ input:focus {
   left: 0;
   bottom: 0;
 }
-/* line 237, ../../scss/blocks/app.scss */
+/* line 277, ../../scss/blocks/app.scss */
 .app__menu-bar ul {
   list-style: none;
   height: 100%;
 }
-/* line 241, ../../scss/blocks/app.scss */
+/* line 281, ../../scss/blocks/app.scss */
 .app__menu-bar ul li {
   float: left;
   width: 25%;
@@ -305,16 +349,16 @@ input:focus {
   color: #fff;
   text-align: center;
 }
-/* line 249, ../../scss/blocks/app.scss */
+/* line 289, ../../scss/blocks/app.scss */
 .app__menu-bar ul li a {
   text-decoration: none;
 }
-/* line 253, ../../scss/blocks/app.scss */
+/* line 293, ../../scss/blocks/app.scss */
 .app__menu-bar ul li i {
   vertical-align: text-top;
   height: 35px;
 }
-/* line 258, ../../scss/blocks/app.scss */
+/* line 298, ../../scss/blocks/app.scss */
 .app__menu-bar ul li span {
   display: block;
   text-align: center;
@@ -322,35 +366,35 @@ input:focus {
   vertical-align: text-top;
   color: #fff;
 }
-/* line 269, ../../scss/blocks/app.scss */
+/* line 309, ../../scss/blocks/app.scss */
 .app__list h1 {
   text-align: left;
   font-size: 21px;
 }
-/* line 273, ../../scss/blocks/app.scss */
+/* line 313, ../../scss/blocks/app.scss */
 .app__list h2 {
   text-align: left;
   font-size: 17px;
 }
-/* line 277, ../../scss/blocks/app.scss */
+/* line 317, ../../scss/blocks/app.scss */
 .app__list h3 {
   text-align: left;
   font-size: 14px;
 }
-/* line 281, ../../scss/blocks/app.scss */
+/* line 321, ../../scss/blocks/app.scss */
 .app__list-header {
   padding-bottom: 10px;
 }
-/* line 284, ../../scss/blocks/app.scss */
+/* line 324, ../../scss/blocks/app.scss */
 .app__list-button-holder {
   width: 200px;
   margin: 0 auto;
 }
-/* line 288, ../../scss/blocks/app.scss */
+/* line 328, ../../scss/blocks/app.scss */
 .app__list-item {
   padding-top: 30px;
 }
-/* line 291, ../../scss/blocks/app.scss */
+/* line 331, ../../scss/blocks/app.scss */
 .app__list-item-border {
   background-image: url("../../img/app-list-border.png");
   background-position: center;
@@ -358,23 +402,23 @@ input:focus {
   width: 100%;
   height: 7px;
 }
-/* line 299, ../../scss/blocks/app.scss */
+/* line 339, ../../scss/blocks/app.scss */
 .app__list-content {
   overflow: hidden;
   padding: 10px 0px;
   text-align: center;
 }
-/* line 304, ../../scss/blocks/app.scss */
+/* line 344, ../../scss/blocks/app.scss */
 .app__list-icon {
   width: 25%;
   float: left;
 }
-/* line 308, ../../scss/blocks/app.scss */
+/* line 348, ../../scss/blocks/app.scss */
 .app__list-icon i {
   display: block;
   margin: 0 auto;
 }
-/* line 313, ../../scss/blocks/app.scss */
+/* line 353, ../../scss/blocks/app.scss */
 .app__list-text {
   width: 75%;
   float: left;
@@ -552,90 +596,97 @@ input:focus {
   height: 22px;
 }
 /* line 23, ../../scss/blocks/icon.scss */
+.icon--light-full {
+  background-image: url("../../img/icon-light-full.png");
+  background-size: 19px 22px;
+  width: 19px;
+  height: 22px;
+}
+/* line 30, ../../scss/blocks/icon.scss */
 .icon--hexagon {
   background-image: url("../../img/icon-hexagon.png");
   background-size: 17px 38px;
   width: 17px;
   height: 19px;
 }
-/* line 29, ../../scss/blocks/icon.scss */
+/* line 36, ../../scss/blocks/icon.scss */
 .icon--close {
   background-image: url("../../img/icon-app-close.png");
   background-size: 23px 22px;
   width: 23px;
   height: 22px;
 }
-/* line 37, ../../scss/blocks/icon.scss */
+/* line 44, ../../scss/blocks/icon.scss */
 .icon--app-home {
   background-image: url("../../img/icon-app-home.png");
   background-size: 37px 29px;
   width: 37px;
   height: 29px;
 }
-/* line 43, ../../scss/blocks/icon.scss */
+/* line 50, ../../scss/blocks/icon.scss */
 .icon--app-room {
   background-image: url("../../img/icon-app-room.png");
   background-size: 27px 32px;
   width: 27px;
   height: 23px;
 }
-/* line 49, ../../scss/blocks/icon.scss */
+/* line 56, ../../scss/blocks/icon.scss */
 .icon--app-sensor {
   background-image: url("../../img/icon-app-sensor.png");
   background-size: 31px 31px;
   width: 31px;
   height: 31px;
 }
-/* line 55, ../../scss/blocks/icon.scss */
+/* line 62, ../../scss/blocks/icon.scss */
 .icon--app-options {
   background-image: url("../../img/icon-app-options.png");
   background-size: 31px 31px;
   width: 31px;
   height: 31px;
 }
-/* line 61, ../../scss/blocks/icon.scss */
+/* line 68, ../../scss/blocks/icon.scss */
 .icon--app-motion-sensor {
   background-image: url("../../img/icon-app-motion-sensor.png");
   background-size: 55px 36px;
   width: 55px;
   height: 36px;
 }
-/* line 67, ../../scss/blocks/icon.scss */
+/* line 74, ../../scss/blocks/icon.scss */
 .icon--app-light-large {
   background-image: url("../../img/icon-app-light-large.png");
   background-size: 34px 38px;
   width: 34px;
   height: 38px;
 }
-/* line 73, ../../scss/blocks/icon.scss */
+/* line 80, ../../scss/blocks/icon.scss */
 .icon--app-fluid {
   background-image: url("../../img/icon-app-fluid.png");
   background-size: 20px 32px;
   width: 20px;
   height: 32px;
 }
-/* line 79, ../../scss/blocks/icon.scss */
+/* line 86, ../../scss/blocks/icon.scss */
 .icon--app-appleid {
   background-image: url("../../img/icon-app-appleid.png");
   background-size: 35px 35px;
   width: 35px;
   height: 35px;
 }
-/* line 85, ../../scss/blocks/icon.scss */
+/* line 92, ../../scss/blocks/icon.scss */
 .icon--app-cart {
   background-image: url("../../img/icon-app-cart.png");
   background-size: 28px 22px;
   width: 28px;
   height: 22px;
 }
-/* line 91, ../../scss/blocks/icon.scss */
+/* line 98, ../../scss/blocks/icon.scss */
 .icon--app-link {
   background-image: url("../../img/icon-app-link.png");
   background-size: 33px 33px;
   width: 33px;
   height: 33px;
 }
-/* line 97, ../../scss/blocks/icon.scss */
+/* line 104, ../../scss/blocks/icon.scss */
 .icon--app-paper {
   background-image: url("../../img/icon-app-paper.png");
   background-size: 32px 29px;
